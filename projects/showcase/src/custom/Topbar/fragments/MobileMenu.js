@@ -12,7 +12,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSortDown } from '@fortawesome/free-solid-svg-icons';
-import {pageHasPatientBanner} from "./LowPart";
 
 const styles = theme => ({
     menuAndBannerMobile: {

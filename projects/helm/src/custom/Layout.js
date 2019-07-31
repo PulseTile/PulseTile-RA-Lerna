@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import get from "lodash/get";
 import { connect } from 'react-redux';
 import { Layout } from 'react-admin';
@@ -9,7 +9,6 @@ import { ThemeConfigurationProvider } from "pulsetile-react-admin";
 
 import CustomSidebar from "./Sidebar";
 import CustomTopBar from "./Topbar";
-import CustomFooter from "./Footer";
 
 import getCurrentTheme from "./styles";
 import * as themeConfiguration from "./themeConfig";
@@ -44,7 +43,6 @@ const CustomLayout = ({ classes, ...rest }) => {
                 className={classes.root}
                 appBar={CustomTopBar}
                 sidebar={CustomSidebar}
-                notification={CustomFooter}
             />
         </ThemeConfigurationProvider>
     );

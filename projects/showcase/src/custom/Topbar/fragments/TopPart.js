@@ -13,7 +13,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { ContrastMode, userSearchAction, AdvancedUserSearch, UserSearch } from "pulsetile-react-admin";
 
 import helmLogo from "../../../images/pulsetile-logo.png";
-import nhsLogo from "../../../images/nhs.png";
 import UserPanelButton from "./UserPanelButton";
 
 const styles = theme => ({

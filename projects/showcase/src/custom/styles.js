@@ -81,7 +81,7 @@ function getCurrentTheme(isContrastMode) {
         },
         tableHeader: {
             tableHeaderBlock: {
-                background: getBackground(isContrastMode, palette.secondaryMainColor, 'tableHeaderImage'),
+                background: palette.tableHeadColor,
             },
         },
         patientSummaryPanel: {

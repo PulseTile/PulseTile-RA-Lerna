@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import get from "lodash/get";
 import { connect } from 'react-redux';
 import { Layout } from 'react-admin';

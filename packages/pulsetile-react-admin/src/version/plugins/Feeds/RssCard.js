@@ -11,7 +11,6 @@ import ChevronRight from "@material-ui/icons/ChevronRight";
 
 import ListBlock from "./ListBlock";
 import { SHOW_ALL } from "../../../core/pages/PatientSummary/config";
-import {themeCommonElements} from "../../config/theme.config";
 
 const styles = theme => ({
     card: {
@@ -27,6 +26,20 @@ const styles = theme => ({
         backgroundSize: "cover",
     },
     topBlock: {
+        display: "flex",
+        flexDirection: "column",
+        height: theme.isOldDesign ? 50 : 100,
+        backgroundColor: theme.palette.mainColor,
+        justifyContent: "center",
+        alignItems: "center",
+        position: "relative",
+        color: theme.palette.paperColor,
+        border: theme.isOldDesign ? `1px solid ${theme.palette.borderColor}` : null,
+        '&:hover': {
+            cursor: "pointer",
+        },
+    },
+    topBlockInverted: {
         display: "flex",
         flexDirection: "column",
         height: theme.isOldDesign ? 50 : 100,
@@ -54,6 +67,13 @@ const styles = theme => ({
         }
     },
     title: {
+        marginBottom: 0,
+        color: theme.palette.paperColor,
+        fontSize: 18,
+        fontWeight: 600,
+        zIndex: 99999999,
+    },
+    titleInverted: {
         marginBottom: 0,
         color: theme.palette.fontColor,
         fontSize: 18,
@@ -99,17 +119,18 @@ const styles = theme => ({
  * @constructor
  */
 const RssCard = props => {
-    const { classes, sourceId, title, items, loading, icon, link, history, showMode, showHeadings, selectedFeeds } = props;
-    const isOldDesign = get(themeCommonElements, 'isOldDesign', false);
-    const menuHasChevrons = get(themeCommonElements, 'menuHasChevrons', false);
+    const { classes, sourceId, title, items, loading, icon, link, history, showMode, showHeadings, contextProps, selectedFeeds } = props;
+    const isOldDesign = get(contextProps, 'themeCommonElements.isOldDesign', false);
+    const menuHasChevrons = get(contextProps, 'themeCommonElements.menuHasChevrons', false);
+    const isTableHeaderInverted = get(contextProps, 'themeCommonElements.invertedTableHeaders', false);
     if (selectedFeeds.indexOf(sourceId) !== -1) {
         return (
             <Grid item xs={12} sm={6} md={6} lg={3}>
                 <Card id={sourceId} className={classes.card} onClick={() => window.open(link, "_blank")}>
-                    <div className={classes.topBlock}>
+                    <div className={isTableHeaderInverted ? classes.topBlockInverted : classes.topBlock}>
                         {!isOldDesign && <RssIcon className={classes.icon} />}
                         <h1 className={classes.mainHeading}>
-                            <Typography gutterBottom className={classes.title} >
+                            <Typography gutterBottom className={isTableHeaderInverted ? classes.titleInverted : classes.title} >
                                 {title}
                             </Typography>
                             { menuHasChevrons && <ChevronRight /> }

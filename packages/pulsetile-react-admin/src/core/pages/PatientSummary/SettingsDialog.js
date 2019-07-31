@@ -41,7 +41,7 @@ class SettingsDialog extends Component {
     };
 
     render() {
-        const { classes } = this.props;
+        const { classes, contextProps } = this.props;
         const { open } = this.state;
         return (
             <div className={classes.settingsIconBlock}>
@@ -51,7 +51,7 @@ class SettingsDialog extends Component {
                     </IconButton>
                 </Tooltip>
                 <Typography className={classes.iconTitle} variant="h1">Home</Typography>
-                <DialogWithStyles open={open} onClose={this.toggleDialog} />
+                <DialogWithStyles open={open} contextProps={contextProps} onClose={this.toggleDialog} />
             </div>
         );
     }

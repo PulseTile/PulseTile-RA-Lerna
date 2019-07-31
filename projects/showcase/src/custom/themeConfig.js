@@ -31,6 +31,7 @@ export const themeFullMenu = [
 export const themeCommonElements = {
     menuHasChevrons: true,
     invertedTableHeaders: true,
+    isTableHeaderIcon: true,
     patientSummaryPermission: true,
     patientListColumnToggling: true,
     isPatientListCount: true,

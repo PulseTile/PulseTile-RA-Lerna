@@ -25,7 +25,7 @@ import PatientSummaryRoll from "./views/PatientSummaryRoll";
 import { synopsisData } from "./config";
 import SettingsDialog from "./SettingsDialog";
 import Breadcrumbs from "../../common/Breadcrumbs";
-import { getSummaryContainerStyles } from "./functions";
+import {getSummaryContainerStyles} from "./functions";
 
 const styles = theme => ({
     summaryContainer: getSummaryContainerStyles(synopsisData),
@@ -110,13 +110,19 @@ class PatientSummaryWithContext extends Component {
             { url: location.pathname, title: "Patient Summary", isActive: false }
         ];
         const viewType = isRollView ? ROLL_VIEW : TABLE_VIEW;
+
+        // const panelHasRing = get(contextProps, 'themeCommonElements.panelHasRing', false);
+        // // if (!panelHasRing) {
+        // //     classes.summaryContainer = null;
+        // // }
+
         return (
             <Grid className={classes.container} >
                 <Breadcrumbs resource={breadcrumbsResource} />
-                {
-                    isRollViewDefault &&
-                        <div className={classes.toggleViewBlock}>
-                            <SettingsDialog className={classes.settingsIcon} />
+                <div className={classes.toggleViewBlock}>
+                    <SettingsDialog className={classes.settingsIcon} contextProps={contextProps} />
+                    {
+                        isRollViewDefault &&
                             <div className={classes.toggleViewBlock} >
                                 <Typography variant="h1" className={classes.formGroupLabel}>View</Typography>
                                 <FormGroup className={classes.formGroup}>
@@ -136,8 +142,8 @@ class PatientSummaryWithContext extends Component {
                                     </RadioGroup>
                                 </FormGroup>
                             </div>
-                        </div>
-                }
+                    }
+                </div>
                 <Grid className={classes.summaryContainer} spacing={16} container>
                 {
                     isRollView ?

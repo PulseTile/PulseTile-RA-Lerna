@@ -188,6 +188,7 @@ class LowPart extends Component {
 
 const mapStateToProps = state => {
     return {
+        isSidebarOpen: get(state, 'admin.ui.sidebarOpen', false),
         patientInfo: get(state, 'custom.currentPatient.patientInfo.data', null),
     }
 };

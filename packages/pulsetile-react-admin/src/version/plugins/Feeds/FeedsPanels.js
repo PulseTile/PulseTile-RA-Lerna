@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import dummyFeeds from "./dummyFeeds";
 import RssCard from "./RssCard";
+import get from "lodash/get";
 
 function getCurrentFeedInfo(feedsArray, sourceId) {
     let result = null;
@@ -21,7 +22,7 @@ function getCurrentFeedInfo(feedsArray, sourceId) {
  * @param {shape} props
  */
 const FeedsPanels = props => {
-    const { feeds, rssFeeds, showMode, showHeadings, loading } = props;
+    const { feeds, rssFeeds, showMode, showHeadings, contextProps, loading } = props;
     const rssFeedsArray = Object.entries(rssFeeds);
     const feedsArray = (feeds && feeds.length > 0) ? feeds : dummyFeeds;
     return rssFeedsArray.length > 0 ? rssFeedsArray.map((item, key) => {
@@ -31,6 +32,7 @@ const FeedsPanels = props => {
         return (
             <RssCard
                 key={key}
+                contextProps={contextProps}
                 showMode={showMode}
                 showHeadings={showHeadings}
                 sourceId={sourceId}
