@@ -14,7 +14,6 @@ import { versionsServerAction } from "../../../../actions/ReSPECT/versionsServer
 import { modalOpenAction } from "../../../../actions/ReSPECT/modalOpenAction";
 import ListBlock from "./ListBlock";
 import { SHOW_ALL } from "../../../../../core/pages/PatientSummary/config";
-import {themeCommonElements} from "../../../../config/theme.config";
 
 const styles = theme => ({
     card: {
@@ -38,8 +37,23 @@ const styles = theme => ({
         alignItems: "center",
         color: "#fff",
     },
+    topBlockInverted: {
+        display: "flex",
+        flexDirection: "column",
+        height: 100,
+        backgroundColor: theme.palette.tableHeadColor,
+        background: theme.patientSummaryPanel.topBlock.background,
+        backgroundSize: "cover",
+        justifyContent: "center",
+        alignItems: "center",
+        color: theme.palette.fontColor,
+    },
     icon: {
         marginBottom: 10,
+    },
+    titleInverted: {
+        color: theme.palette.fontColor,
+        marginBottom: 0,
     },
     title: {
         marginBottom: 0,
@@ -92,19 +106,20 @@ class RespectSummaryPanel extends Component {
     }
 
     render() {
-        const { classes, loading, history, showMode, versionsServerInfo, toggleRespectModal, showHeadings } = this.props;
-        const isOldDesign = get(themeCommonElements, 'isOldDesign', false);
-        const menuHasChevrons = get(themeCommonElements, 'menuHasChevrons', false);
+        const { classes, loading, history, showMode, versionsServerInfo, toggleRespectModal, showHeadings, contextProps } = this.props;
+        const isOldDesign = get(contextProps, 'themeCommonElements.isOldDesign', false);
+        const menuHasChevrons = get(contextProps, 'themeCommonElements.menuHasChevrons', false);
+        const isTableHeaderInverted = get(contextProps, 'themeCommonElements.invertedTableHeaders', false);
         if (Object.values(showHeadings).indexOf('respect') === -1) {
             return null;
         }
         return (
             <Grid item xs={12} sm={6} md={6} lg={3}>
                 <Card className={classes.card}>
-                    <div className={classes.topBlock} onClick={() => history.push('/respect')}>
+                    <div className={isTableHeaderInverted ? classes.topBlockInverted : classes.topBlock} onClick={() => history.push('/respect')}>
                         { !isOldDesign && <FontAwesomeIcon icon={faNotesMedical} size="2x" className={classes.icon} /> }
                         <h1 className={classes.mainHeading}>
-                            <Typography gutterBottom className={classes.title} >
+                            <Typography gutterBottom className={isTableHeaderInverted ? classes.titleInverted : classes.title} >
                                 ReSPECT
                             </Typography>
                             { menuHasChevrons && <ChevronRight /> }

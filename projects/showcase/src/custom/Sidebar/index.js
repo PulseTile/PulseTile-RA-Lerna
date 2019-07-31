@@ -33,21 +33,25 @@ const styles = theme => ({
         backgroundColor: theme.palette.paperColor,
     },
     menuItem: {
-        color: `${theme.palette.mainColor} !important`,
+        color: `${theme.palette.menuItemsColor} !important`,
         fontSize: 14,
         fontWeight: 600,
-        borderBottom: `1px solid ${theme.palette.borderColor} !important`,
+        borderBottom: `1px solid ${theme.palette.borderColor}`,
         '&:hover': {
-            backgroundColor: `${theme.palette.mainColor} !important`,
+            backgroundColor: theme.palette.secondaryMainColor,
+            color: "#fff !important",
+        },
+        '&:hover div p': {
+            backgroundColor: theme.palette.secondaryMainColor,
             color: "#fff !important",
         },
     },
     menuItemSelected: {
         fontSize: 14,
         fontWeight: 600,
-        backgroundColor: theme.palette.secondaryMainColor + '!important',
+        backgroundColor: theme.palette.secondaryMainColor + '! important',
         color: "#fff !important",
-        borderBottom: `1px solid ${theme.palette.borderColor} !important`,
+        borderBottom: `1px solid ${theme.palette.borderColor}`,
     },
 });
 

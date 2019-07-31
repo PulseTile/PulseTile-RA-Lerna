@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import { withStyles } from "@material-ui/core/styles";
 
 import DashboardCard from "../../../common/DashboardCard";
-import { themeCommonElements } from "../../../../version/config/theme.config";
 import {getSynopsisProps, synopsisData} from "../config";
+import { getSummaryContainerStyles } from "../functions";
 
 const styles = theme => ({
     card: {
@@ -17,6 +17,20 @@ const styles = theme => ({
         backgroundColor: theme.palette.mainColor,
     },
     topBlock: {
+        display: "flex",
+        flexDirection: "column",
+        height: theme.isOldDesign ? 50 : 100,
+        backgroundColor: theme.palette.mainColor,
+        justifyContent: "center",
+        alignItems: "center",
+        position: "relative",
+        color: theme.isOldDesign ? theme.palette.fontColor : theme.palette.paperColor,
+        border: theme.isOldDesign ? `1px solid ${theme.palette.borderColor}` : null,
+        '&:hover': {
+            cursor: "pointer",
+        },
+    },
+    topBlockInverted: {
         display: "flex",
         flexDirection: "column",
         height: theme.isOldDesign ? 50 : 100,
@@ -45,6 +59,13 @@ const styles = theme => ({
         }
     },
     title: {
+        marginBottom: 0,
+        color: theme.palette.paperColor,
+        fontSize: 18,
+        fontWeight: 600,
+        zIndex: 99999999,
+    },
+    titleInverted: {
         marginBottom: 0,
         color: theme.palette.fontColor,
         fontSize: 18,
@@ -105,14 +126,15 @@ const styles = theme => ({
 class PatientSummaryTable extends Component {
 
     render() {
-        const { classes, history, loading, showMode, showHeadings } = this.props;
-        const FeedsPanels = get(themeCommonElements, 'feedsPanels', false);
-        const RespectPanel = get(themeCommonElements, 'respectPanel', false);
+        const { classes, contextProps, loading, showMode, showHeadings } = this.props;
+        const FeedsPanels = get(contextProps, 'themeCommonElements.feedsPanels', false);
+        const RespectPanel = get(contextProps, 'themeCommonElements.respectPanel', false);
+        const pluginsList = get(contextProps, 'pluginsList', null);
         return (
             <React.Fragment>
                 {
                     synopsisData.map((item, key) => {
-                        if (get(item, 'isSynopsis', false)) {
+                        if ((pluginsList && pluginsList.indexOf(item.list) !== -1) && get(item, 'isSynopsis', false)) {
                             return (
                                 <DashboardCard
                                     key={key}
@@ -124,14 +146,15 @@ class PatientSummaryTable extends Component {
                                     loading={loading}
                                     items={get(this.props, item.list, [])}
                                     icon={item.icon}
+                                    contextProps={contextProps}
                                     {...this.props}
                                 />
                             );
                         }
                     })
                 }
-                { FeedsPanels && <FeedsPanels /> }
-                { RespectPanel && <RespectPanel showMode={showMode} {...this.props} /> }
+                { FeedsPanels && <FeedsPanels contextProps={contextProps} /> }
+                { RespectPanel && <RespectPanel showMode={showMode} contextProps={contextProps} {...this.props} /> }
             </React.Fragment>
         );
     }

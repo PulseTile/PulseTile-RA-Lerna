@@ -6,10 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { themeCommonElements } from "../../version/config/theme.config";
-import { totalSynopsisData } from "../pages/PatientSummary/config";
-
-const isTableHeaderInverted = get(themeCommonElements, 'invertedTableHeaders', false);
+import { totalSynopsisData } from "../../pages/PatientSummary/config";
 
 const styles = theme => ({
     tableHeaderBlock: {
@@ -26,12 +23,22 @@ const styles = theme => ({
     },
     title: {
         marginTop: 0,
-        color: isTableHeaderInverted ? theme.palette.fontColor : theme.palette.paperColor,
+        color: theme.palette.paperColor,
+        fontSize: 24,
+        fontWeight: 800,
+    },
+    titleInverted: {
+        marginTop: 0,
+        color: theme.palette.fontColor,
         fontSize: 24,
         fontWeight: 800,
     },
     description: {
-        color: isTableHeaderInverted ? theme.palette.fontColor : theme.palette.paperColor,
+        color: theme.palette.paperColor,
+        fontSize: 15,
+    },
+    descriptionInverted: {
+        color: theme.palette.fontColor,
         fontSize: 15,
     },
     icon: {
@@ -57,22 +64,24 @@ function getCurrentPlugin(resource) {
  *
  * @author Bogdan Shcherban <bsc@piogroup.net>
  * @param {shape}  classes
+ * @param {shape}  contextProps
  * @param {string} resource
  * @param {func}   translate
  */
-const TableHeader = ({ classes, resource, translate }) => {
+const TableHeader = ({ classes, contextProps, resource, translate }) => {
     const plugin = getCurrentPlugin(resource);
     const title = get(plugin, 'title', null);
     const description = get(plugin, 'description', null);
     const icon = get(plugin, 'icon', null);
+    const isTableHeaderInverted = get(contextProps, 'themeCommonElements.invertedTableHeaders', false);
     return (
         <div className={classes.tableHeaderBlock} >
             { (isTableHeaderInverted && icon) && <FontAwesomeIcon icon={icon} size="3x" className={classes.icon} /> }
             <div>
                 <h1 className={classes.mainHeader}>
-                    <Typography className={classes.title}>{title}</Typography>
+                    <Typography className={isTableHeaderInverted ? classes.titleInverted : classes.title}>{title}</Typography>
                 </h1>
-                <Typography className={classes.description}>{description}</Typography>
+                <Typography className={isTableHeaderInverted ? classes.descriptionInverted : classes.description}>{description}</Typography>
             </div>
         </div>
     );

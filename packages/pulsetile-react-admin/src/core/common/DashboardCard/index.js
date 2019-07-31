@@ -11,7 +11,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import ItemsList from "./ItemsList";
 import { SHOW_ALL } from "../../pages/PatientSummary/config";
-import { themeCommonElements } from "../../../version/config/theme.config";
 
 /**
  * This component returns list of empty rows if information is loading
@@ -58,19 +57,20 @@ const ListBlock = ({ classes, items, list, history }) => {
  * @constructor
  */
 export default props => {
-    const { id, classes, title, items, loading, icon, list, history, showMode, showHeadings } = props;
+    const { id, classes, contextProps, title, items, loading, icon, list, history, showMode, showHeadings } = props;
     if (Object.values(showHeadings).indexOf(list) === -1) {
         return null;
     }
-    const isOldDesign = get(themeCommonElements, 'isOldDesign', false);
-    const menuHasChevrons = get(themeCommonElements, 'menuHasChevrons', false);
+    const isOldDesign = get(contextProps, 'themeCommonElements.isOldDesign', false);
+    const menuHasChevrons = get(contextProps, 'themeCommonElements.menuHasChevrons', false);
+    const isTableHeaderInverted = get(contextProps, 'themeCommonElements.invertedTableHeaders', false);
     return (
         <Grid item xs={12} sm={6} md={6} lg={3}>
             <Card className={classes.card}>
-                <div id={id} className={classes.topBlock} aria-label={title} onClick={() => history.push('/' + list)}>
+                <div id={id} className={isTableHeaderInverted ? classes.topBlockInverted : classes.topBlock} aria-label={title} onClick={() => history.push('/' + list)}>
                     { !isOldDesign && <FontAwesomeIcon icon={icon} size="2x" className={classes.icon} /> }
                     <h1 className={classes.mainHeading}>
-                        <Typography className={classes.title}>
+                        <Typography className={isTableHeaderInverted ? classes.titleInverted : classes.title}>
                             {title}
                         </Typography>
                         { menuHasChevrons && <ChevronRight /> }

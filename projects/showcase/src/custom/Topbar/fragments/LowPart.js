@@ -2,16 +2,15 @@ import React, { Component } from "react";
 import get from "lodash/get";
 import { connect } from 'react-redux';
 import { setSidebarVisibility } from 'react-admin';
-
 import { withRouter } from "react-router";
+
 import { withStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 
-import { PageTitle, PatientBanner, demographicsAction } from "pulsetile-react-admin";
-
+import { PageTitle, PatientBanner, currentPatientAction } from "pulsetile-react-admin";
 import MobileMenu from "./MobileMenu";
 
 const styles = theme => ({
@@ -22,7 +21,7 @@ const styles = theme => ({
         padding: 0,
     },
     menuAndBanner: {
-        [theme.breakpoints.only('xs')]: {
+        [theme.breakpoints.down('sm')]: {
             display: "none",
         },
         display: "flex",
@@ -30,7 +29,7 @@ const styles = theme => ({
         minHeight: "auto",
         border: `1px solid ${theme.palette.borderColor}`,
         padding: 0,
-        backgroundColor: "white",
+        backgroundColor: theme.isOldDesign ? theme.palette.secondaryMainColor : theme.palette.paperColor,
         justifyContent: "space-between",
     },
     menuButtonBlock: {
@@ -38,30 +37,32 @@ const styles = theme => ({
         position: "relative",
         minWidth: 238,
         minHeight: 90,
-        borderRight: `1px solid ${theme.palette.borderColor}`,
+        borderRight: theme.isOldDesign ? `1px solid ${theme.palette.secondaryMainColor}` : `1px solid ${theme.palette.borderColor}`,
         justifyContent: "center",
         alignItems: "center",
     },
     menuButton: {
-        borderRadius: 15,
+        borderRadius: theme.isRectangleButtons ? 0 : 25,
         minWidth: 64,
-        color: theme.palette.mainColor,
+        color: theme.palette.fontColor,
         textTransform: "none",
-        backgroundColor: "white",
+        backgroundColor: theme.palette.tableHeadColor,
+        fontSize: 16,
+        fontWeight: 600,
         '&:hover': {
-            backgroundColor: theme.palette.mainColor,
-            color: "white",
+            backgroundColor: theme.isOldDesign ? theme.palette.paperColor : theme.palette.secondaryMainColor,
+            color: theme.isOldDesign ? theme.palette.secondaryMainColor : theme.palette.paperColor,
         },
         '&:active': {
-            backgroundColor: theme.palette.mainColor,
-            color: "white",
+            backgroundColor: theme.isOldDesign ? theme.palette.paperColor : theme.palette.secondaryMainColor,
+            color: theme.isOldDesign ? theme.palette.secondaryMainColor : theme.palette.paperColor,
         },
     },
     title: {
         display: "block",
         width: "100%",
         flexGrow: 1,
-        color: "white",
+        color: theme.palette.paperColor,
         backgroundColor: theme.palette.mainColor,
         textAlign: "center",
         paddingTop: 5,
@@ -69,15 +70,22 @@ const styles = theme => ({
         fontWeight: 800,
     },
     patientInfo: {
-        color: "black",
-        padding: "11px 14px",
-        marginLeft: 5,
+        color: theme.isOldDesign ?  theme.palette.paperColor :  theme.palette.fontColor,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 14,
+        paddingRight: 14,
+        margin: 0,
     },
     gridBlock: {
         padding: "0px !important",
-        marginTop: 5,
+    },
+    patientNameBlock: {
         marginBottom: 5,
     },
+    keyName: {
+        color: theme.isOldDesign ?  theme.palette.paperColor :  theme.palette.fontColor,
+    }
 });
 
 /**
@@ -92,12 +100,12 @@ const styles = theme => ({
 const MenuButton = ({ classes, setSidebarVisibility, isSidebarOpen }) => {
     return (
         <div className={classes.menuButtonBlock}>
-        <Button aria-label={!isSidebarOpen ? 'Menu' : 'Close'} variant="contained" color="primary" className={classes.menuButton} onClick={() => setSidebarVisibility(!isSidebarOpen)}>
-    { !isSidebarOpen ? <MenuIcon /> : <CloseIcon /> }
-    { !isSidebarOpen ? 'Menu' : 'Close' }
-</Button>
-    </div>
-);
+            <Button aria-label={!isSidebarOpen ? 'Menu' : 'Close'} variant="contained" color="primary" className={classes.menuButton} onClick={() => setSidebarVisibility(!isSidebarOpen)}>
+                { !isSidebarOpen ? <MenuIcon /> : <CloseIcon /> }
+                { !isSidebarOpen ? 'Menu' : 'Close' }
+            </Button>
+        </div>
+    );
 };
 
 /**
@@ -124,9 +132,10 @@ export function pageHasPatientBanner(location) {
     const currentResource = get(pathArray, [1], null);
     const pagesWithTitle = [
         'charts',
-        'patients'
+        'patients',
+        'business'
     ];
-    return pagesWithTitle.indexOf(currentResource) !== -1;
+    return pagesWithTitle.indexOf(currentResource) !== -1  || (pathName === '/' && localStorage.getItem('role') === 'IDCR');
 }
 
 /**
@@ -138,7 +147,8 @@ export function pageHasPatientBanner(location) {
 class LowPart extends Component {
 
     componentDidMount() {
-        if (localStorage.getItem('patientId')) {
+        const isPageHasPatientBanner = pageHasPatientBanner(this.props.location);
+        if (!isPageHasPatientBanner && localStorage.getItem('patientId')) {
             this.props.getCurrentPatientAction();
         }
     }
@@ -155,13 +165,13 @@ class LowPart extends Component {
             <Toolbar className={classes.lowPart}>
                 {
                     isPageHasTitle &&
-                        <PageTitle classes={classes} location={location} />
+                    <PageTitle classes={classes} location={location} />
                 }
                 <div className={classes.menuAndBanner}>
                     <MenuButton classes={classes} setSidebarVisibility={setSidebarVisibility} isSidebarOpen={isSidebarOpen} />
                     {
                         !isPageHasPatientBanner &&
-                            <PatientBanner location={location} classes={classes} patientInfo={patientInfo} />
+                        <PatientBanner location={location} classes={classes} patientInfo={patientInfo} />
                     }
                 </div>
                 <MobileMenu
@@ -173,19 +183,20 @@ class LowPart extends Component {
             </Toolbar>
         );
     }
+
 };
 
 const mapStateToProps = state => {
     return {
         isSidebarOpen: get(state, 'admin.ui.sidebarOpen', false),
-        patientInfo: get(state, 'custom.demographics.data', null),
+        patientInfo: get(state, 'custom.currentPatient.patientInfo.data', null),
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         getCurrentPatientAction() {
-            dispatch(demographicsAction.request());
+            dispatch(currentPatientAction.request());
         },
         setSidebarVisibility(params) {
             dispatch(setSidebarVisibility(params));

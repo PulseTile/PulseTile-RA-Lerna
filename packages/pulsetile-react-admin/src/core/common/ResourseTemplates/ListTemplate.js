@@ -20,7 +20,7 @@ import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import { columnsTogglingAction } from "../../actions/columnsTogglingAction";
 
 import Breadcrumbs from "../../common/Breadcrumbs";
-import TableHeader from "../../common/TableHeader";
+import TableHeader from "../TableHeader";
 import CustomIcon from "../../common/CustomIcon";
 import DetailsTemplate from "./DetailsTemplate";
 

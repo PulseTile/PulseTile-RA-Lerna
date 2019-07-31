@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import get from "lodash/get";
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -7,11 +6,14 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from "@material-ui/core/CardMedia";
 
-// import { contrastModeAction } from "../actions/contrastModeAction";
-// import footerLogo from "../../core/images/ripple-foundation-logo-footer.png";
+import { contrastModeAction } from "pulsetile-react-admin";
+import footerLogo from "../images/ripple-foundation-logo-footer.png";
 
 const styles = theme => ({
     footerBlock: {
+        [theme.breakpoints.only('xs')]: {
+            display: 'none',
+        },
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
@@ -33,7 +35,7 @@ const styles = theme => ({
     contrastModeLink: {
         marginLeft: 5,
         fontSize: 12,
-        color: theme.palette.mainColor,
+        color: theme.isOldDesign ? theme.palette.secondaryMainColor : theme.palette.mainColor,
         textDecoration: "none",
     },
     footerLogo: {
@@ -68,9 +70,24 @@ class Footer extends Component {
         const { classes } = this.props;
         const { isContrastMode } = this.state;
         const linkText = isContrastMode ? "Disable High Contrast Mode" : "Enable High Contrast Mode";
+        const currentYear = new Date().getFullYear();
         return (
             <footer className={classes.footerBlock}>
-                <Typography className={classes.copyright}>Copyright 2018 Ripple Foundation CIC Ltd. All rights reserved.</Typography>
+                <Typography className={classes.copyright}>Copyright {currentYear} Ripple Foundation CIC Ltd. All rights reserved.</Typography>
+                <Typography>
+                    <Link to="/" className={classes.contrastModeLink} onClick={e => this.toggleContrastMode(e)}>{linkText}</Link>
+                </Typography>
+                <div className={classes.emptyBlock}></div>
+                <Link to="/">
+                    <CardMedia
+                      className={classes.footerLogo}
+                      component="img"
+                      alt="Pulse Tile"
+                      height="29px"
+                      image={footerLogo}
+                      title="Pulse Tile"
+                    />
+                </Link>
             </footer>
         );
     }
@@ -78,16 +95,16 @@ class Footer extends Component {
 
 const mapStateToProps = state => {
     return {
-        contrastMode: get(state, 'custom.contrastMode.data', null),
+        contrastMode: state.custom.contrastMode.data,
     };
 };
 
 const mapDispatchToProps = dispatch => {
-    // return {
-    //     contrastModeAction(mode) {
-    //         dispatch(contrastModeAction.request(mode));
-    //     },
-    // }
+    return {
+        contrastModeAction(mode) {
+            dispatch(contrastModeAction.request(mode));
+        },
+    }
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Footer));

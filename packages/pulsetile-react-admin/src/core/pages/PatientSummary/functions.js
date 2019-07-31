@@ -1,14 +1,10 @@
-import get from "lodash/get";
-
-import { themeImages } from "../../../version/config/theme.config";
+import cardBackgroundImage from "../../images/blue-ring-01.png";
 
 export function getSummaryContainerStyles(synopsisData) {
 
     let data = {};
     data.margin = 0;
     data.width = "100%";
-
-    const cardBackgroundImage = get(themeImages, 'cardBackgroundImage', null);
 
     const transforms = [
         'translate(-5px, -98px)',

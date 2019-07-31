@@ -16,12 +16,21 @@ import Charts from "./pages/Charts";
 import Layout from "./common/CustomLayout";
 import InitializePage from "./pages/InitializePage";
 import PatientSummaryPage from "./pages/PatientSummary";
-import { themeCommonElements } from "../version/config/theme.config";
 import translations from "./translations";
-import * as themeConfiguration from "helm/src/custom/themeConfig";
 
 const plugins = corePlugins.concat(nonCorePlugins);
 const i18nProvider = locale => translations[locale];
+
+function getRoutesArray(themeConfiguration) {
+    const projectPages = get(themeConfiguration, 'pagesList', []);
+    let pages = [];
+    customRoutes.map(item => {
+        if (projectPages.indexOf(item.page) !== -1 || item.page === 'summary') {
+            pages.push(item.component);
+        }
+    });
+    return pages;
+}
 
 function getPluginsForCurrentProject(themeConfiguration) {
     const projectPlugins = get(themeConfiguration, 'pluginsList', []);
@@ -42,12 +51,13 @@ function getHomepage() {
 const App = ({ themeConfiguration, CustomHomepage, CustomLayout }) => {
     const pluginsFilter = getPluginsForCurrentProject(themeConfiguration);
     const CurrentHomepage = CustomHomepage ? CustomHomepage : getHomepage();
+    const customRoutesFiltered = getRoutesArray(themeConfiguration);
     return (
         <Admin
             authProvider={authProvider}
             customSagas={[customSagas]}
             customReducers={{custom: customReducers}}
-            customRoutes={customRoutes}
+            customRoutes={customRoutesFiltered}
             dataProvider={customDataProvider}
             dashboard={CurrentHomepage}
             appLayout={CustomLayout ? CustomLayout : Layout}

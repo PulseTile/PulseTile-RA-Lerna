@@ -17,7 +17,6 @@ import withMobileDialog from '@material-ui/core/withMobileDialog';
 import { showModeAction } from "../../actions/showModeAction";
 import { showHeadingsAction } from "../../actions/showHeadingsAction";
 import { synopsisData, showModesArray, SHOW_ALL, getHeadingsLists } from "./config";
-import { themeCommonElements } from "../../../version/config/theme.config";
 
 const styles = theme => ({
     dialogBlock: {
@@ -134,10 +133,11 @@ class DialogContent extends Component {
     };
 
     render() {
-        const { classes, onClose, showMode, ...rest } = this.props;
+        const { classes, onClose, showMode, contextProps, ...rest } = this.props;
         const { selectedMode, selectedHeadings } = this.state;
-        const FeedSelector = get(themeCommonElements, 'feedsSelectors', false);
-        const hasRespectPlugin = get(themeCommonElements, 'respectPanel', false);
+        const FeedSelector = get(contextProps, 'themeCommonElements.feedsSelectors', false);
+        const hasRespectPlugin = get(contextProps, 'themeCommonElements.respectPanel', false);
+        const pluginsList = get(contextProps, 'pluginsList', []);
         return (
             <Dialog onBackdropClick={() => onClose()} {...rest}>
                 <div className={classes.dialogBlock} >
@@ -151,7 +151,7 @@ class DialogContent extends Component {
                     <div className={classes.dialogItem}>
                         {
                             synopsisData.map((item, key) => {
-                                if (get(item, 'isSynopsis', false)) {
+                                if (pluginsList.indexOf(item.list) !== -1 && get(item, 'isSynopsis', false)) {
                                     return (
                                         <div key={key} className={classes.dialogLabel}>
                                             <Checkbox

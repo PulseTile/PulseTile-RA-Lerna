@@ -14,6 +14,7 @@ export const themeFullMenu = [
 
 export const themeCommonElements = {
     isFooterAbsent: true,
+    panelHasRing: true,
 };
 
 export const themeImages = {
