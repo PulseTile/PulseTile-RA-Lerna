@@ -1,32 +1,51 @@
-import React from "react";
-import ReactDOM from "react-dom";
-
 // CORE PART
 import App from "./core/App";
 
-// ACTIONS
+// ACTION
+import { contrastModeAction } from "./version/actions/contrastModeAction";
+import { currentPatientAction } from "./core/actions/currentPatientAction";
 import { demographicsAction } from "./core/actions/demographicsAction";
 import { userSearchAction } from "./core/actions/userSearchAction";
 
 // PAGES
 import PatientSummaryPage from "./core/pages/PatientSummary";
+import Charts from "./core/pages/Charts";
 
 // COMPONENTS
 import ContrastMode from "./version/features/ContrastMode";
 import PageTitle from "./core/common/Topbar/fragments/PageTitle";
 import PatientBanner from "./core/common/Topbar/fragments/PatientBanner";
 import CustomLogoutButton from "./core/common/Buttons/CustomLogoutButton";
+import FeedsSelectors from "./version/plugins/Feeds/FeedsSelectors";
+import FeedsPanels from "./version/plugins/Feeds/FeedsPanels";
+import RespectSummaryPanel from "./version/pages/ReSPECT/fragments/summaryPanel";
+import AdvancedUserSearch from "./core/common/Topbar/fragments/AdvancedUserSearch";
+import UserSearch from "./core/common/Topbar/fragments/UserSearch";
 
-export default {
-    App: ReactDOM.render(<App />, document.getElementById("root")),
+import { ThemeConfigurationContext, ThemeConfigurationProvider, ThemeConfigurationConsumer } from "./core/themeConfigurationContext";
 
-    demographicsAction: demographicsAction,
-    userSearchAction: userSearchAction,
+export {
+    App,
 
-    PatientSummaryPage: PatientSummaryPage,
+    contrastModeAction,
+    currentPatientAction,
+    demographicsAction,
+    userSearchAction,
 
-    PageTitle: PageTitle,
-    PatientBanner: PatientBanner,
-    ContrastMode: ContrastMode,
-    CustomLogoutButton: CustomLogoutButton,
+    PatientSummaryPage,
+    Charts,
+
+    PageTitle,
+    PatientBanner,
+    ContrastMode,
+    CustomLogoutButton,
+    FeedsSelectors,
+    FeedsPanels,
+    RespectSummaryPanel,
+    AdvancedUserSearch,
+    UserSearch,
+
+    ThemeConfigurationProvider,
+    ThemeConfigurationConsumer,
+    ThemeConfigurationContext,
 };

@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { withStyles } from "@material-ui/core/styles";
 
 import DashboardCard from "../../../common/DashboardCard";
-import { themeCommonElements } from "../../../../version/config/theme.config";
 import {getSynopsisProps, synopsisData} from "../config";
 
 const styles = theme => ({
@@ -105,14 +104,15 @@ const styles = theme => ({
 class PatientSummaryTable extends Component {
 
     render() {
-        const { classes, history, loading, showMode, showHeadings } = this.props;
-        const FeedsPanels = get(themeCommonElements, 'feedsPanels', false);
-        const RespectPanel = get(themeCommonElements, 'respectPanel', false);
+        const { contextProps, loading, showMode, showHeadings } = this.props;
+        const FeedsPanels = get(contextProps, 'themeCommonElements.feedsPanels', false);
+        const RespectPanel = get(contextProps, 'themeCommonElements.respectPanel', false);
+        const pluginsList = get(contextProps, 'pluginsList', null);
         return (
             <React.Fragment>
                 {
                     synopsisData.map((item, key) => {
-                        if (get(item, 'isSynopsis', false)) {
+                        if ((pluginsList && pluginsList.indexOf(item.list) !== -1) && get(item, 'isSynopsis', false)) {
                             return (
                                 <DashboardCard
                                     key={key}
