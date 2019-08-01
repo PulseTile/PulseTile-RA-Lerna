@@ -22,13 +22,13 @@ import { currentPatientAction } from "../../actions/currentPatientAction";
 
 import PatientSummaryTable from "./views/PatientSummaryTable";
 import PatientSummaryRoll from "./views/PatientSummaryRoll";
-import { synopsisData } from "./config";
 import SettingsDialog from "./SettingsDialog";
 import Breadcrumbs from "../../common/Breadcrumbs";
-import {getSummaryContainerStyles} from "./functions";
+
+// import { synopsisData } from "./config";
+// import { getSummaryContainerStyles } from "./functions";
 
 const styles = theme => ({
-    summaryContainer: getSummaryContainerStyles(synopsisData),
     container: {
         width: "100%",
         height: "100%",
@@ -110,12 +110,6 @@ class PatientSummaryWithContext extends Component {
             { url: location.pathname, title: "Patient Summary", isActive: false }
         ];
         const viewType = isRollView ? ROLL_VIEW : TABLE_VIEW;
-
-        // const panelHasRing = get(contextProps, 'themeCommonElements.panelHasRing', false);
-        // // if (!panelHasRing) {
-        // //     classes.summaryContainer = null;
-        // // }
-
         return (
             <Grid className={classes.container} >
                 <Breadcrumbs resource={breadcrumbsResource} />
@@ -162,21 +156,22 @@ const mapStateToProps = state => {
     }
 };
 
-const mapDispatchToProps = dispatch => {
-
+const mapDispatchToProps = (dispatch, ownProps) => {
     const coreSynopsisActions = [
-        synopsisAllergiesAction,
-        synopsisContactsAction,
-        synopsisProblemsAction,
-        synopsisMedicationsAction,
+        { plugin: 'allergies', action: synopsisAllergiesAction },
+        { plugin: 'contacts', action: synopsisContactsAction },
+        { plugin: 'problems', action: synopsisProblemsAction },
+        { plugin: 'medications', action: synopsisMedicationsAction },
     ];
-
     const synopsisActions = coreSynopsisActions.concat(nonCoreSynopsisActions);
-
+    const pluginsList = get(ownProps, 'pluginsList', []);
     return {
         getPatientSynopsis() {
             synopsisActions.map(item => {
-                return dispatch(item.request());
+                if (pluginsList.indexOf(item.plugin) !== -1) {
+                    return dispatch(item.action.request());
+                }
+                return null;
             });
         },
         getEmergencySummary(patientId) {

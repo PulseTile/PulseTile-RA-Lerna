@@ -27,6 +27,17 @@ function getDomainName() {
     return (window && window.config) ? window.config.domainName : null;
 }
 
+/**
+ * This function returns domain name from windoe config settings
+ *
+ * @author Bogdan Shcherban <bsc@piogroup.net>
+ * @return {string}
+ */
+function checkIsSinglePatient() {
+    return (window && window.config) ? window.config.isSinglePatient : false;
+}
+
 export const token = getTokenFromCookie();
 export const domainName = getDomainName();
+export const isSinglePatient = checkIsSinglePatient();
 

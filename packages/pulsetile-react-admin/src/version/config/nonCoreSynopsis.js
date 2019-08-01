@@ -3,8 +3,8 @@ import { faSyringe, faUserMd, faNotesMedical, faClinicMedical, faStethoscope, fa
 import { synopsisVaccinationsAction, synopsisTopThreeThingsAction } from "../actions/synopsisActions";
 
 export const nonCoreSynopsisActions = [
-    synopsisVaccinationsAction,
-    synopsisTopThreeThingsAction,
+    { plugin: 'vaccinations', action: synopsisVaccinationsAction },
+    { plugin: 'top3Things', action: synopsisTopThreeThingsAction },
 ];
 
 export const nonCoreSynopsisData = [
