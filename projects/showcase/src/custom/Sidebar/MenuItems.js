@@ -58,6 +58,7 @@ const MenuItems = ({ classes, menuItems, currentList, onMenuClick }) => {
                 return (
                     <MenuItemLink
                         key={key}
+                        id={item.id}
                         className={isSelected ? classes.menuItemSelected : classes.menuItem}
                         to={item.url}
                         primaryText={menuHasChevrons ? <LabelWithChevron isSelected={isSelected} classes={classes} label={item.label} /> : item.label}

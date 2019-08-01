@@ -115,7 +115,7 @@ class PatientSummaryWithContext extends Component {
         ];
         const viewType = isRollView ? ROLL_VIEW : TABLE_VIEW;
         return (
-            <Grid className={classes.container} >
+            <Grid id="patientSummary" className={classes.container} >
                 <Breadcrumbs resource={breadcrumbsResource} />
                 <div className={classes.toggleViewBlock}>
                     <SettingsDialog className={classes.settingsIcon} contextProps={contextProps} />

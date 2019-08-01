@@ -128,7 +128,7 @@ class TopPart extends Component {
         const pathname = get(location, 'pathname', null);
         return (
             <React.Fragment>
-                <Toolbar className={classes.topPart}>
+                <Toolbar id="topbarTopPart" className={classes.topPart}>
                     {
                         (pathname !== '/charts' && pathname !== '/') &&
                             <div className={classes.backButtonItem}>

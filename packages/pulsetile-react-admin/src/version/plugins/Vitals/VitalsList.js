@@ -18,6 +18,7 @@ import VitalsDatagridRow from "./fragments/DatagridRow";
  */
 const VitalsList = ({ classes, ...rest }) => (
     <ListTemplate
+        id="list-vitalsigns"
         create={VitalsCreate}
         edit={VitalsEdit}
         show={VitalsShow}

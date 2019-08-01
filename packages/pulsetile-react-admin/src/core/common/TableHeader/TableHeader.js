@@ -75,11 +75,11 @@ const TableHeader = ({ classes, contextProps, resource, translate }) => {
     const icon = get(plugin, 'icon', null);
     const isTableHeaderInverted = get(contextProps, 'themeCommonElements.invertedTableHeaders', false);
     return (
-        <div className={classes.tableHeaderBlock} >
+        <div  id="tableHeader" className={classes.tableHeaderBlock} >
             { (isTableHeaderInverted && icon) && <FontAwesomeIcon icon={icon} size="3x" className={classes.icon} /> }
             <div>
                 <h1 className={classes.mainHeader}>
-                    <Typography className={isTableHeaderInverted ? classes.titleInverted : classes.title}>{title}</Typography>
+                    <Typography id="tableHeader-title" className={isTableHeaderInverted ? classes.titleInverted : classes.title}>{title}</Typography>
                 </h1>
                 <Typography className={isTableHeaderInverted ? classes.descriptionInverted : classes.description}>{description}</Typography>
             </div>

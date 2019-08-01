@@ -17,6 +17,7 @@ import DatagridRow from "./fragments/DatagridRow";
  */
 const TopThreeThingsList = ({ classes, ...rest }) => (
     <ListTemplate
+      id="list-top3Things"
       create={TopThreeThingsCreate}
       edit={TopThreeThingsEdit}
       show={TopThreeThingsShow}

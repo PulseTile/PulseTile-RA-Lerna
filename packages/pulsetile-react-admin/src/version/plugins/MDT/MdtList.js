@@ -17,6 +17,7 @@ import DatagridRow from "./fragments/DatagridRow";
  */
 const MdtList = ({ classes, ...rest }) => (
     <ListTemplate
+        id="list-mdtreports"
         create={MdtCreate}
         edit={MdtEdit}
         show={MdtShow}

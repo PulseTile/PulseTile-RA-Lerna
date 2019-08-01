@@ -17,6 +17,7 @@ import DatagridRow from "./fragments/DatagridRow";
  */
 const TransferOfCareList = ({ classes, ...rest }) => (
     <ListTemplate
+      id="list-toc"
       create={TransferOfCareCreate}
       edit={TransferOfCareEdit}
       show={TransferOfCareShow}
