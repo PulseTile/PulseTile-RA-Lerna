@@ -1,3 +1,5 @@
+import get from "lodash/get";
+
 /**
  * This function extract token from COOKIE and returns it
  *
@@ -18,7 +20,7 @@ function getTokenFromCookie() {
 }
 
 /**
- * This function returns domain name from windoe config settings
+ * This function returns domain name from window config settings
  *
  * @author Bogdan Shcherban <bsc@piogroup.net>
  * @return {string}
@@ -28,7 +30,7 @@ function getDomainName() {
 }
 
 /**
- * This function returns domain name from windoe config settings
+ * This function check is current project work in single patient mode
  *
  * @author Bogdan Shcherban <bsc@piogroup.net>
  * @return {string}
@@ -37,7 +39,18 @@ function checkIsSinglePatient() {
     return (window && window.config) ? window.config.isSinglePatient : false;
 }
 
+/**
+ * This function return main theme color
+ *
+ * @author Bogdan Shcherban <bsc@piogroup.net>
+ * @return {string}
+ */
+function getMainColor() {
+    return get(window, 'config.lightPalette.mainColor', "#ff5d00");
+}
+
 export const token = getTokenFromCookie();
 export const domainName = getDomainName();
 export const isSinglePatient = checkIsSinglePatient();
+export const mainColor = getMainColor();
 

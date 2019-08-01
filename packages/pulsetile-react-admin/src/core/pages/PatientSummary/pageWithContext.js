@@ -29,6 +29,10 @@ import Breadcrumbs from "../../common/Breadcrumbs";
 // import { getSummaryContainerStyles } from "./functions";
 
 const styles = theme => ({
+    summaryContainer: {
+        margin: 0,
+        width: '100%',
+    },
     container: {
         width: "100%",
         height: "100%",
