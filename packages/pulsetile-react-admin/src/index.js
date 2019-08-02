@@ -9,6 +9,7 @@ import { userSearchAction } from "./core/actions/userSearchAction";
 
 // PAGES
 import PatientSummaryPage from "./core/pages/PatientSummary";
+import PatientsListPage from "./core/pages/PatientsList";
 import Charts from "./core/pages/Charts";
 
 // COMPONENTS
@@ -33,6 +34,7 @@ export {
     userSearchAction,
 
     PatientSummaryPage,
+    PatientsListPage,
     Charts,
 
     PageTitle,

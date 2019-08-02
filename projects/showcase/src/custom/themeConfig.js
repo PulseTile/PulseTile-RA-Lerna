@@ -1,6 +1,7 @@
 import { FeedsSelectors, FeedsPanels, Charts, RespectSummaryPanel, } from "pulsetile-react-admin";
 
 import BackgroundImage from "../images/background.jpg";
+import logo from "../images/pulsetile-logo.png";
 
 export const themeShortMenu = [
     { id: 'menu-charts',   url: '/',         label: 'Charts' },
@@ -46,6 +47,7 @@ export const themeCommonElements = {
 
 export const themeImages = {
     backgroundImage: BackgroundImage,
+    logo: logo,
 };
 
 export const pagesList = [

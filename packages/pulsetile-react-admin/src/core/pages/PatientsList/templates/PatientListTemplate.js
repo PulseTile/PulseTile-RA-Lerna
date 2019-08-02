@@ -363,10 +363,6 @@ class ListTemplate extends Component {
     };
 
     getTitleForAdvancedSearh = (userSearchType, userSearchValue) => {
-
-        console.log('userSearchType', userSearchType)
-        console.log('userSearchValue', userSearchValue)
-
         let result = '';
         if (userSearchType === 'by_city') {
             result = `Patients search by City: ${userSearchValue}`;
