@@ -48,20 +48,20 @@ function getHomepage() {
     return result;
 }
 
-const App = ({ themeConfiguration, CustomHomepage, CustomLayout }) => {
+const App = ({ themeConfiguration, CustomHomepage, CustomLayout, isAuthAbsent }) => {
     const pluginsFilter = getPluginsForCurrentProject(themeConfiguration);
     const CurrentHomepage = CustomHomepage ? CustomHomepage : getHomepage();
     const customRoutesFiltered = getRoutesArray(themeConfiguration);
     return (
         <Admin
-            authProvider={authProvider}
+            authProvider={isAuthAbsent ? null : authProvider}
             customSagas={[customSagas]}
             customReducers={{custom: customReducers}}
             customRoutes={customRoutesFiltered}
             dataProvider={customDataProvider}
             dashboard={CurrentHomepage}
             appLayout={CustomLayout ? CustomLayout : Layout}
-            loginPage={InitializePage}
+            loginPage={isAuthAbsent ? null : InitializePage}
             locale="en"
             i18nProvider={i18nProvider}
         >
