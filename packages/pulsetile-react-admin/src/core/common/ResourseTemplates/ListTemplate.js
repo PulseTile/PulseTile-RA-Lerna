@@ -343,7 +343,7 @@ class ListTemplate extends Component {
             <div className={classes.container}>
                 <Breadcrumbs resource={breadcrumbsResource} />
                 <TableHeader resource={resourceUrl} />
-                <Grid container spacing={16} className={classes.mainBlock}>
+                <Grid id="listTemplate" container spacing={16} className={classes.mainBlock}>
                     { isListOpened &&
                     <Grid className={classes.list} item xs={12} sm={this.isListPage() ? 12 : 6}>
                         <div className={classes.headerBlock}>

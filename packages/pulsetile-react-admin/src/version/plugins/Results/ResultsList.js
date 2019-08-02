@@ -15,6 +15,7 @@ import DatagridRow from "./fragments/DatagridRow";
  */
 const ResultsList = ({ classes, ...rest }) => (
     <ListTemplate
+        id="list-labresults"
         show={ResultsShow}
         resourceUrl="labresults"
         title="Results"

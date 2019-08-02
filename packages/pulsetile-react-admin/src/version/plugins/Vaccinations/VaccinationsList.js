@@ -17,6 +17,7 @@ import DatagridRow from "./fragments/DatagridRow";
  */
 const VaccinationsList = ({ classes, ...rest }) => (
     <ListTemplate
+      id="list-vaccinations"
       create={VaccinationsCreate}
       edit={VaccinationsEdit}
       show={VaccinationsShow}

@@ -6,7 +6,6 @@ import { withStyles } from "@material-ui/core/styles";
 
 import DashboardCard from "../../../common/DashboardCard";
 import {getSynopsisProps, synopsisData} from "../config";
-import { getSummaryContainerStyles } from "../functions";
 
 const styles = theme => ({
     card: {

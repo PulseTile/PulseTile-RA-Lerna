@@ -17,6 +17,7 @@ import DatagridRow from "./fragments/DatagridRow";
  */
 const PersonalNotesList = ({ classes, ...rest }) => (
     <ListTemplate
+        id="list-personalnotes"
         create={PersonalNotesCreate}
         edit={PersonalNotesEdit}
         show={PersonalNotesShow}

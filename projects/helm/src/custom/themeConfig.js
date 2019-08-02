@@ -3,12 +3,10 @@ import cardBackgroundImage from "../images/blue-ring-01.png";
 import tableHeaderImage from "../images/table-header.png";
 
 export const themeShortMenu = [
-    { id: 'menu-summary', url: '/summary', label: 'Patient Summary' },
     { id: 'menu-top3Things', url: '/top3Things', label: 'TopThreeThings' },
 ];
 
 export const themeFullMenu = [
-    { id: 'menu-summary', url: '/summary', label: 'Patient Summary' },
     { id: 'menu-top3Things', url: '/top3Things', label: 'TopThreeThings' },
 ];
 

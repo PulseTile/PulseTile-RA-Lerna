@@ -15,6 +15,7 @@ import DatagridRow from "./fragments/DatagridRow";
  */
 const AllergiesList = props => (
     <ListTemplate
+      id="list-allergies"
       create={AllergiesCreate}
       edit={AllergiesEdit}
       show={AllergiesShow}

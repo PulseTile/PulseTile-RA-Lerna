@@ -18,6 +18,7 @@ import DatagridRow from "./fragments/DatagridRow";
  */
 const EventsList = ({ classes, ...rest }) => (
     <ListTemplate
+        id="list-events"
         create={EventsCreate}
         edit={EventsEdit}
         show={EventsShow}

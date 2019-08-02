@@ -1,31 +1,32 @@
 import { FeedsSelectors, FeedsPanels, Charts, RespectSummaryPanel, } from "pulsetile-react-admin";
 
 import BackgroundImage from "../images/background.jpg";
+import logo from "../images/pulsetile-logo.png";
 
 export const themeShortMenu = [
-    { url: '/', label: 'Charts' },
-    { url: '/patients', label: 'Patients' },
-    { url: '/business', label: 'Business Intelligence'},
+    { id: 'menu-charts',   url: '/',         label: 'Charts' },
+    { id: 'menu-patients', url: '/patients', label: 'Patients' },
+    { id: 'menu-business', url: '/business', label: 'Business Intelligence'},
 ];
 
 export const themeFullMenu = [
-    { url: '/summary', label: 'Patient Summary' },
-    { url: '/problems', label: 'Problems / Issues' },
-    { url: '/medications', label: 'Medications' },
-    { url: '/vaccinations', label: 'Vaccinations' },
-    { url: '/allergies', label: 'Allergies' },
-    { url: '/contacts', label: 'Contacts' },
-    { url: '/top3Things', label: 'TopThreeThings' },
-    { url: '/clinicalnotes', label: 'Clinical Notes' },
-    { url: '/mdtreports', label: 'MDT' },
-    { url: '/events', label: 'Events' },
-    { url: '/personalnotes', label: 'Personal Notes' },
-    { url: '/procedures', label: 'Procedures' },
-    { url: '/referrals', label: 'Referrals' },
-    { url: '/labresults', label: 'Results' },
-    { url: '/toc', label: 'Transfers Of Care' },
-    { url: '/vitalsigns', label: 'Vitals' },
-    { url: '/respect', label: 'ReSPECT' },
+    { id: 'menu-summary',       url: '/summary',       label: 'Patient Summary' },
+    { id: 'menu-problems',      url: '/problems',      label: 'Problems / Issues' },
+    { id: 'menu-medications',   url: '/medications',   label: 'Medications' },
+    { id: 'menu-vaccinations',  url: '/vaccinations',  label: 'Vaccinations' },
+    { id: 'menu-allergies',     url: '/allergies',     label: 'Allergies' },
+    { id: 'menu-contacts',      url: '/contacts',      label: 'Contacts' },
+    { id: 'menu-top3Things',    url: '/top3Things',    label: 'TopThreeThings' },
+    { id: 'menu-clinicalnotes', url: '/clinicalnotes', label: 'Clinical Notes' },
+    { id: 'menu-mdtreports',    url: '/mdtreports',    label: 'MDT' },
+    { id: 'menu-events',        url: '/events',        label: 'Events' },
+    { id: 'menu-personalnotes', url: '/personalnotes', label: 'Personal Notes' },
+    { id: 'menu-procedures',    url: '/procedures',    label: 'Procedures' },
+    { id: 'menu-referrals',     url: '/referrals',     label: 'Referrals' },
+    { id: 'menu-labresults',    url: '/labresults',    label: 'Results' },
+    { id: 'menu-toc',           url: '/toc',           label: 'Transfers Of Care' },
+    { id: 'menu-vitalsigns',    url: '/vitalsigns',    label: 'Vitals' },
+    { id: 'menu-respect',       url: '/respect',       label: 'ReSPECT' },
 ];
 
 export const themeCommonElements = {
@@ -46,6 +47,7 @@ export const themeCommonElements = {
 
 export const themeImages = {
     backgroundImage: BackgroundImage,
+    logo: logo,
 };
 
 export const pagesList = [

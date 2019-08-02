@@ -16,6 +16,7 @@ import DatagridRow from "./fragments/DatagridRow";
  */
 const ContactsList = props => (
     <ListTemplate
+      id="list-contacts"
       create={ContactsCreate}
       edit={ContactsEdit}
       show={ContactsShow}

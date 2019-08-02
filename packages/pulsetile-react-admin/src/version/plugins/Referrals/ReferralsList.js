@@ -18,6 +18,7 @@ import DatagridRow from "./fragments/DatagridRow";
  */
 const ReferralsList = ({ classes, ...rest }) => (
     <ListTemplate
+        id="list-referrals"
         create={ReferralsCreate}
         edit={ReferralsEdit}
         show={ReferralsShow}

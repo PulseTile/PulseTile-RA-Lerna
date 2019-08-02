@@ -19,6 +19,7 @@ const TopThreeThingsInputs = ({ classes, ...rest }) => (
 
         <FormGroup className={classes.formGroup}>
             <TextInput
+                id="name1"
                 source="name1"
                 label="Issue #1"
                 fullWidth
@@ -29,6 +30,7 @@ const TopThreeThingsInputs = ({ classes, ...rest }) => (
 
         <FormGroup className={classes.formGroup}>
             <LongTextInput
+                id="description1"
                 source="description1"
                 label="Description #1"
                 rows={20}
@@ -40,6 +42,7 @@ const TopThreeThingsInputs = ({ classes, ...rest }) => (
 
         <FormGroup className={classes.formGroup}>
             <TextInput
+                id="name2"
                 source="name2"
                 label="Issue #2"
                 fullWidth
@@ -50,6 +53,7 @@ const TopThreeThingsInputs = ({ classes, ...rest }) => (
 
         <FormGroup className={classes.formGroup}>
             <LongTextInput
+                id="description2"
                 source="description2"
                 label="Description #2"
                 rows={20}
@@ -61,6 +65,7 @@ const TopThreeThingsInputs = ({ classes, ...rest }) => (
 
         <FormGroup className={classes.formGroup}>
             <TextInput
+                id="name3"
                 source="name3"
                 label="Issue #3"
                 fullWidth
@@ -71,6 +76,7 @@ const TopThreeThingsInputs = ({ classes, ...rest }) => (
 
         <FormGroup className={classes.formGroup}>
             <LongTextInput
+                id="description3"
                 source="description3"
                 label="Description #3"
                 rows={20}

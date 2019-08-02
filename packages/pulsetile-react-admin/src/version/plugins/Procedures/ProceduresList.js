@@ -17,6 +17,7 @@ import DatagridRow from "./fragments/DatagridRow";
  */
 const ProceduresList = ({ classes, ...rest }) => (
     <ListTemplate
+        id="list-procedures"
         create={ProceduresCreate}
         edit={ProceduresEdit}
         show={ProceduresShow}

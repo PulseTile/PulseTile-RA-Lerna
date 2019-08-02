@@ -4,6 +4,8 @@ import { token } from "../token";
 import { withStyles } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
+import { mainColor } from "../token";
+
 const styles = {
     mainSpinner: {
         display: "block",
@@ -113,7 +115,7 @@ const styles = {
             left: 40,
             borderRadius: "50%",
             border: "10px solid #000",
-            borderColor: "#ff5d00 transparent #ff5d00 transparent",
+            borderColor: mainColor + " transparent " + mainColor + " transparent",
             WebkitAnimation: "rings 1s linear infinite",
             animation: `rings 1s linear infinite`,
         },

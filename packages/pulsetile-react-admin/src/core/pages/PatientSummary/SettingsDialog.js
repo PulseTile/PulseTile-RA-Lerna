@@ -44,7 +44,7 @@ class SettingsDialog extends Component {
         const { classes, contextProps } = this.props;
         const { open } = this.state;
         return (
-            <div className={classes.settingsIconBlock}>
+            <div id="patientSummary-Top" className={classes.settingsIconBlock}>
                 <Tooltip className={classes.icon} title="Settings">
                     <IconButton id="icon-settings" aria-haspopup="true" aria-label="Settings" color="inherit" onClick={() => this.toggleDialog()}>
                         <SettingsIcon />

@@ -2,7 +2,7 @@ import get from "lodash/get";
 import jwt from "jsonwebtoken";
 import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK, AUTH_GET_PERMISSIONS } from 'react-admin';
 
-import { token, domainName } from "../token";
+import { token, domainName, isSinglePatient } from "../token";
 
 const OLD_PATIENT_DELAY = 1000;
 const NEW_PATIENT_DELAY = 5000;
@@ -28,7 +28,7 @@ const FetchLogin = (resolve, reject) => {
                 localStorage.setItem('userId', nhsNumber);
                 localStorage.setItem('username', userName);
                 localStorage.setItem('role', role);
-                if (role === 'PHR') {
+                if (role === 'PHR' || isSinglePatient) {
                     localStorage.setItem('patientId', nhsNumber);
                 }
                 return resolve(true);

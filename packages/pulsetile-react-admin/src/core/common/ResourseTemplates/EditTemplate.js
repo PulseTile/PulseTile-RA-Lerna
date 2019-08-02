@@ -77,7 +77,7 @@ const EditTemplate = ({ classes, isCustom, isListOpened, blockTitle, toggleListB
         { !isCustom
             ?
                 <Edit undoable={false} {...rest}>
-                    <SimpleForm className={classes.editForm} toolbar={<EditFormToolbar changeViewType={changeViewType} />}>
+                    <SimpleForm id="form" className={classes.editForm} toolbar={<EditFormToolbar changeViewType={changeViewType} />}>
                         {children}
                     </SimpleForm>
                 </Edit>
