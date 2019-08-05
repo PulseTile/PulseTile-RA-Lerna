@@ -15,10 +15,11 @@ import { themeCommonElements } from "../../../version/config/theme.config";
  * @param {array}  items
  * @param {string} list
  * @param {shape}  history
+ * @param {shape}  contextProps
  * @constructor
  */
-const ItemsList = ({ classes, items, list, history }) => {
-    const menuHasChevrons = get(themeCommonElements, 'menuHasChevrons', false);
+const ItemsList = ({ classes, items, list, history, contextProps }) => {
+    const menuHasChevrons = get(contextProps, 'themeCommonElements.menuHasChevrons', false);
     if (items && items.length === 0) {
         return (
             <List className={classes.list}>

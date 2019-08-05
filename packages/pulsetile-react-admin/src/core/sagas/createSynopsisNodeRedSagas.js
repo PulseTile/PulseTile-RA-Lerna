@@ -6,7 +6,7 @@ import { httpErrorAction } from '../actions/httpErrorAction';
 
 let responseInfo = {};
 
-export default function createCustomSagas(actionName, actionType, pluginName) {
+export default function createCustomNodeRedSagas(actionName, actionType, pluginName) {
     return takeEvery(actionName.REQUEST_NODERED, function*(action) {
         let url = domainName + '/patient/' + localStorage.getItem('patientId') + '/synopsis/' + pluginName;
         let options = {};

@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 import currentPatientReducer from "./currentPatientReducer";
 import showHeadings from "./showHeadingsReducer";
 import createCustomReducer from "./createCustomReducer";
+import createCustomSynopsisReducer from "./createCustomSynopsisReducer";
 import httpErrorReducer from "./httpErrorReducer";
 import userSearchReducer from "./userSearchReducer";
 import toggleColumnsReducer from "./toggleColumnsReducer";
@@ -25,10 +26,10 @@ import { SHOW_MODE_ACTION } from "../actions/showModeAction";
 import nonCoreReducers from "../../version/reducers";
 
 const coreReducers = {
-    allergiesSynopsis: createCustomReducer(SYNOPSIS_ALLERGIES_ACTION, "data.synopsis"),
+    allergiesSynopsis: createCustomSynopsisReducer(SYNOPSIS_ALLERGIES_ACTION, "data.synopsis"),
     contactsSynopsis: createCustomReducer(SYNOPSIS_CONTACTS_ACTION, "data.synopsis"),
-    medicationsSynopsis: createCustomReducer(SYNOPSIS_MEDICATIONS_ACTION, "data.synopsis"),
-    problemsSynopsis: createCustomReducer(SYNOPSIS_PROBLEMS_ACTION, "data.synopsis"),
+    medicationsSynopsis: createCustomSynopsisReducer(SYNOPSIS_MEDICATIONS_ACTION, "data.synopsis"),
+    problemsSynopsis: createCustomSynopsisReducer(SYNOPSIS_PROBLEMS_ACTION, "data.synopsis"),
     initialize: createCustomReducer(INITIALIZE_ACTION, "data"),
     demographics: createCustomReducer(DEMOGRAPHICS_ACTION, "data.demographics"),
     httpErrors: httpErrorReducer,

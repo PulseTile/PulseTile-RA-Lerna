@@ -17,6 +17,7 @@ export default function createCustomReducer(actionName, data) {
     return (state = initialState, action) => {
         switch (action.type) {
             case actionName.REQUEST:
+            case actionName.REQUEST_NODERED:
                 return {
                     ...state,
                     loading: true,
