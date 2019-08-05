@@ -77,7 +77,6 @@ class PatientsList extends Component {
 
         const prevPatientsIds = get(prevList, 'patientsIds', []);
         const newPatientsIds = get(newProps, 'patientsIds', []);
-
         const isPatientListCount = get(contextProps, 'themeCommonElements.isPatientListCount', false);
 
         // if (isPatientListCount && (prevPatientsIds !== newPatientsIds) && newPatientsIds.length > 0) {
@@ -102,25 +101,25 @@ class PatientsList extends Component {
         const { userSearch, userSearchID, userSearchType, userClinicalQuery, userSearchValue, classes, contextProps } = this.props;
 
         const image = get(contextProps, 'themeImages.logo', null);
-        const hasColumnsToggling=get(contextProps, 'themeCommonElements.patientListColumnToggling', false);
+        const patientListColumnToggling = get(contextProps, 'themeCommonElements.patientListColumnToggling', false);
 
         if (!userSearch && !userSearchID && !userSearchType && !userSearchValue && !userClinicalQuery) {
             return (
                 <div className={classes.content}>
                     <div className={classes.imageBlock} >
-                    { image &&
-                        <CardMedia
-                            className={classes.image}
-                            component="img"
-                            alt="NHS Scotland"
-                            image={image}
-                        />
+                    {
+                        image &&
+                            <CardMedia
+                                className={classes.image}
+                                component="img"
+                                alt="NHS Scotland"
+                                image={image}
+                            />
                     }
                     </div>
                 </div>
             )
         }
-
 
         return (
             <React.Fragment>
@@ -133,8 +132,9 @@ class PatientsList extends Component {
                     title="Patients List"
                     headerFilterAbsent={true}
                     CustomRow={DatagridRow}
+                    isCustomDatagrid={true}
                     ColumnsTogglingPopover={ColumnsTogglingPopover}
-                    hasColumnsToggling={hasColumnsToggling}
+                    hasColumnsToggling={patientListColumnToggling}
                     updateTableHead={this.updateTableHead}
                     defaultHiddenColumns={defaultHiddenColumns}
                     {...this.props}

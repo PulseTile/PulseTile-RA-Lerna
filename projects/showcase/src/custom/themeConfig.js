@@ -30,6 +30,7 @@ export const themeFullMenu = [
 ];
 
 export const themeCommonElements = {
+    isQwedVersion: true,
     menuHasChevrons: true,
     invertedTableHeaders: true,
     isTableHeaderIcon: true,

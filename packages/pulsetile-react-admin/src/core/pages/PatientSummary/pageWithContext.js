@@ -86,11 +86,26 @@ class PatientSummaryWithContext extends Component {
     };
 
     componentDidMount() {
-        const { isRollViewDefault } = this.props;
+        const { isRollViewDefault, contextProps } = this.props;
         if (isRollViewDefault) {
             this.toggleView();
         }
+        const isNodeRedVersion = get(contextProps, 'themeCommonElements.isNodeRedVersion', false);
+        const isQwedVersion = get(contextProps, 'themeCommonElements.isQwedVersion', false);
+        if (isQwedVersion) {
+            this.getPatientSummaryInfo();
+        }
+        if (isNodeRedVersion) {
+            this.getPatientSummaryNodeRedInfo()
+        }
+    }
 
+    getPatientSummaryNodeRedInfo = () => {
+        this.props.updateCurrentPatientNodeRed(localStorage.getItem('patientId'));
+        this.props.getPatientSynopsisNodeRed();
+    };
+
+    getPatientSummaryInfo = () => {
         if (localStorage.getItem('role') === 'PHR') {
             this.props.updateCurrentPatient(localStorage.getItem('patientId'));
         }
@@ -98,7 +113,7 @@ class PatientSummaryWithContext extends Component {
             this.props.getPatientSynopsis();
             // this.props.getEmergencySummary(localStorage.getItem('patientId'));
         }
-    }
+    };
 
     componentWillReceiveProps(nextProps, nextContent) {
         const { patientInfo } = this.props;
@@ -178,6 +193,14 @@ const mapDispatchToProps = (dispatch, ownProps) => {
                 return null;
             });
         },
+        getPatientSynopsisNodeRed() {
+            synopsisActions.map(item => {
+                if (pluginsList.indexOf(item.plugin) !== -1) {
+                    return dispatch(item.action.requestNodeRed());
+                }
+                return null;
+            });
+        },
         getEmergencySummary(patientId) {
             dispatch(emergencySummaryAction.request('vitalsigns', patientId));
         },
@@ -187,6 +210,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         updateCurrentPatient(data) {
             dispatch(currentPatientAction.request(data));
         },
+        updateCurrentPatientNodeRed(data) {
+            dispatch(currentPatientAction.requestNodeRed(data));
+        }
     }
 };
 

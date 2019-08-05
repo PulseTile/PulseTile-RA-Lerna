@@ -44,9 +44,9 @@ const styles = theme => ({
     menuButton: {
         borderRadius: theme.isRectangleButtons ? 0 : 25,
         minWidth: 64,
-        color: theme.palette.fontColor,
+        color: theme.palette.mainColor,
         textTransform: "none",
-        backgroundColor: theme.palette.tableHeadColor,
+        backgroundColor: theme.palette.paperColor,
         fontSize: 16,
         fontWeight: 600,
         '&:hover': {

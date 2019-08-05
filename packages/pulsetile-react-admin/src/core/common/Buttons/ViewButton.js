@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import ArrowDownIcon from '@material-ui/icons/ArrowDropDown';
 
-import { themeCommonElements } from "../../../version/config/theme.config";
 import Popover from "@material-ui/core/Popover";
 
 const styles = theme => ({
@@ -79,9 +78,9 @@ class ViewButton extends Component {
     };
 
     render() {
-        const { classes, viewAction, checkRedirectUrl  } = this.props;
+        const { classes, viewAction, checkRedirectUrl, contextProps } = this.props;
         const { anchorEl } = this.state;
-
+        const redirectToPlugin = get(contextProps, 'themeCommonElements.redirectToPlugin', false);
         const open = Boolean(anchorEl);
         return (
             <div className={classes.buttomBlock}>
@@ -89,7 +88,7 @@ class ViewButton extends Component {
                     <Typography>View</Typography>
                 </Button>
                 {
-                    get(themeCommonElements, 'redirectToPlugin', false) &&
+                    redirectToPlugin &&
                         <React.Fragment>
                             <ArrowDownIcon className={classes.arrowButton}  onClick={e => this.popoverOpen(e)} />
                             <Popover

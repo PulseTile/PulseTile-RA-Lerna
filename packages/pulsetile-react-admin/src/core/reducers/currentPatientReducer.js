@@ -7,6 +7,40 @@ const initialState = {
     error: null,
 };
 
+function getPatientInfoNodeRed(response) {
+    const id = get(response, 'id', null);
+    const name = get(response, 'name', null);
+    const prefix = get(name, 'prefix', null);
+    const namesArray = get(name, 'given', null);
+    const firstName = namesArray.join(' ');
+    const lastName = get(name, 'family', null);
+    const city = get(response, 'address.city', null);
+    const country = get(response, 'address.country', null);
+    const postCode = get(response, 'address.postCode', null);
+    const line = get(response, 'address.line', null);
+    const district = get(response, 'address.district', null);
+    return {
+        data: {
+            id: id,
+            prefix: prefix,
+            firstName: firstName,
+            lastName: lastName,
+            name: [prefix, firstName, lastName].join(' '),
+            address: line,
+            addressSecondLine: '',
+            city: city,
+            country: country,
+            district: district,
+            postCode: postCode,
+            birthDate: get(response, 'birthDate', null),
+            department: get(response, 'department', null),
+            gender: get(response, 'gender', null),
+            nhsNumber: id,
+            phone: get(response, 'telecom', null),
+        }
+    };
+}
+
 function getPatientInfo(response) {
     const patientFromResponse = get(response, 'patient', null);
     const id = get(patientFromResponse, ['identifier', [0], 'value'], null);
@@ -47,6 +81,7 @@ function getPatientInfo(response) {
 export default (state = initialState, action) => {
     switch (action.type) {
         case CURRENT_PATIENT_ACTION.REQUEST:
+        case CURRENT_PATIENT_ACTION.REQUEST_NODERED:
             return {
                 ...state,
                 loading: true,
@@ -61,6 +96,12 @@ export default (state = initialState, action) => {
                 ...state,
                 loading: false,
                 patientInfo: getPatientInfo(get(action, "data", null)),
+            };
+        case CURRENT_PATIENT_ACTION.SUCCESS_NODERED:
+            return {
+                ...state,
+                loading: false,
+                patientInfo: getPatientInfoNodeRed(get(action, "data", null)),
             };
         case CURRENT_PATIENT_ACTION.SUCCESS_PHOTO:
             return {

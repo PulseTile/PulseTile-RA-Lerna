@@ -37,11 +37,12 @@ const LoadingItems = ({ classes }) => {
  * @param {array}   items
  * @param {shape}   list
  * @param {shape}   history
+ * @param {shape}   contextProps
  */
-const ListBlock = ({ classes, items, list, history }) => {
+const ListBlock = ({ classes, items, list, history, contextProps }) => {
     if (items) {
         return (
-            <ItemsList classes={classes} items={items} list={list} history={history} />
+            <ItemsList classes={classes} items={items} list={list} history={history} contextProps={contextProps} />
         );
     }
     return (
@@ -77,7 +78,7 @@ export default props => {
                     </h1>
                 </div>
                 { (showMode === SHOW_ALL || !showMode) &&
-                <ListBlock loading={loading} classes={classes} items={items} list={list} history={history} />
+                    <ListBlock loading={loading} classes={classes} items={items} list={list} history={history} contextProps={contextProps} />
                 }
             </Card>
         </Grid>

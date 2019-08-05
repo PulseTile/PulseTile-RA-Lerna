@@ -132,6 +132,7 @@ class RespectSummaryPanel extends Component {
                             items={versionsServerInfo}
                             history={history}
                             toggleRespectModal={toggleRespectModal}
+                            contextProps={contextProps}
                         />
                     }
                 </Card>

@@ -13,6 +13,7 @@ export const themeFullMenu = [
 
 export const themeCommonElements = {
     respectPanel: RespectSummaryPanel,
+    isQwedVersion: true,
 };
 
 export const themeImages = {

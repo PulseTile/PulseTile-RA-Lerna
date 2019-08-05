@@ -5,7 +5,7 @@ import ListTemplate from "../../../core/common/ResourseTemplates/ListTemplate";
 import VitalsCreate from "./VitalsCreate";
 import VitalsEdit from "./VitalsEdit";
 import VitalsShow from "./VitalsShow";
-import VitalsChart from "./VitalsChart";
+import VitalsChart from "./components/VitalsChart";
 import VitalsDatagridRow from "./fragments/DatagridRow";
 
 /**

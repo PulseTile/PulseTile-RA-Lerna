@@ -26,6 +26,26 @@ const currentPatientRequest = takeEvery(CURRENT_PATIENT_ACTION.REQUEST, function
     }
 });
 
+const currentPatientRequestNodeRed = takeEvery(CURRENT_PATIENT_ACTION.REQUEST_NODERED, function*(action) {
+    const search = get(action, 'data', null);
+    let url = `${domainName}/mpi/patient/${localStorage.getItem('patientId')}`;
+    if (search) {
+        url = `${domainName}/mpi/Patient/${search}`;
+    }
+    let options = {};
+    if (!options.headers) {
+    }
+    options.headers = {
+        Authorization: "Bearer " + token,
+    };
+    try {
+        const result = yield fetch(url, options).then(res => res.json());
+        yield put(currentPatientAction.successNodeRed(result));
+    } catch(e) {
+        yield put(currentPatientAction.error(e));
+    }
+});
+
 const currentPatientPhoto = takeEvery(CURRENT_PATIENT_ACTION.REQUEST_PHOTO, function*(action) {
     const gender = get(action, 'data', null);
     const url = `https://randomuser.me/api/?gender=${gender}`;
@@ -39,5 +59,6 @@ const currentPatientPhoto = takeEvery(CURRENT_PATIENT_ACTION.REQUEST_PHOTO, func
 
 export default [
     currentPatientRequest,
+    currentPatientRequestNodeRed,
     currentPatientPhoto,
 ]

@@ -3,6 +3,8 @@ import { getTrackBackground } from "react-range";
 
 import { withStyles } from '@material-ui/core/styles';
 
+import { mainColor } from "../../../../../core/token";
+
 const styles = {
     mainBlock: {
         height: 36,
@@ -22,7 +24,7 @@ const RenderTrack = ({ classes, props, children, preferencesValue, min, max }) =
                     borderRadius: "4px",
                     background: getTrackBackground({
                         values: preferencesValue,
-                        colors: ["#ff5d00", "#ccc"],
+                        colors: [mainColor, "#ccc"],
                         min: min,
                         max: max
                     }),
