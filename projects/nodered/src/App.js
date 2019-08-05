@@ -12,6 +12,7 @@ class Core extends Component {
           CustomLayout={CustomLayout}
           CustomHomepage={PatientsListPage}
           isAuthAbsent={true}
+          isNodeRedVersion={true}
       />
     )
   }

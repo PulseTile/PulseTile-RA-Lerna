@@ -5,16 +5,15 @@ import { setSidebarVisibility } from "react-admin";
 
 import TableCell from '@material-ui/core/TableCell';
 
-import { columnsTogglingAction } from "../../../actions/columnsTogglingAction";
-import CustomDatagridRow from "../../../common/ResourseTemplates/fragments/CustomDatagridRow";
-import { DATE_FORMAT } from "../../../common/ResourseTemplates/fragments/constants";
-import ViewButton from "../../../common/Buttons/ViewButton";
-import ConfirmationModal from "./ConfirmationModal";
+import { columnsTogglingAction } from "../../../../actions/columnsTogglingAction";
+import CustomDatagridRow from "../../../../common/ResourseTemplates/fragments/CustomDatagridRow";
+import { DATE_FORMAT } from "../../../../common/ResourseTemplates/fragments/constants";
+import ViewButton from "../../../../common/Buttons/ViewButton";
+import ConfirmationModal from "../ConfirmationModal";
 import get from "lodash/get";
-import { themeCommonElements } from "../../../../version/config/theme.config";
-import fetchInitialize from "../fetchInitialize";
-import { currentPatientAction } from "../../../actions/currentPatientAction";
-import LoadingSlider from "../../../common/LoadingSlider";
+import fetchInitialize from "../../fetchInitialize";
+import { currentPatientAction } from "../../../../actions/currentPatientAction";
+import LoadingSlider from "../../../../common/LoadingSlider";
 
 // TEMPORARY
 function randomDate(start, end) {
@@ -41,20 +40,27 @@ class PatientDatagridRow extends Component {
 
      */
     redirectToSummary = () => {
-        const { record } = this.props;
+        const { record, contextProps } = this.props;
         const { redirectUrl } = this.state;
         localStorage.setItem('patientId', record.nhsNumber);
-        this.setState({
-            loading: true
-        });
-        new Promise(fetchInitialize).then(() => {
+        const isNodeRedVersion = get(contextProps, 'themeCommonElements.isNodeRedVersion', false);
+        if (isNodeRedVersion) {
             this.props.updateCurrentPatient(record.nhsNumber);
             this.props.history.push(redirectUrl);
             this.props.setSidebarVisibility(true);
+        } else {
             this.setState({
-                loading: false
-            })
-        });
+                loading: true
+            });
+            new Promise(fetchInitialize).then(() => {
+                this.props.updateCurrentPatient(record.nhsNumber);
+                this.props.history.push(redirectUrl);
+                this.props.setSidebarVisibility(true);
+                this.setState({
+                    loading: false
+                })
+            });
+        }
     };
 
     handleClick = e => {
@@ -84,7 +90,7 @@ class PatientDatagridRow extends Component {
     };
 
     render() {
-        const { classes, record, hiddenColumns } = this.props;
+        const { classes, record, hiddenColumns, contextProps } = this.props;
         const { loading, anchorEl } = this.state;
 
         if (!record) {
@@ -97,7 +103,8 @@ class PatientDatagridRow extends Component {
             )
         }
 
-        const isPermissionRequired = get(themeCommonElements, 'patientSummaryPermission', false);
+        const isPermissionRequired = get(contextProps, 'themeCommonElements.patientSummaryPermission', false);
+
         const open = Boolean(anchorEl);
 
         return (
@@ -177,7 +184,11 @@ class PatientDatagridRow extends Component {
                 }
 
                 <TableCell className={classes.viewButtonCell}>
-                    <ViewButton viewAction={isPermissionRequired ? this.handleClick : this.redirectWithoutPermission} checkRedirectUrl={this.checkRedirectUrl} />
+                    <ViewButton
+                        viewAction={isPermissionRequired ? this.handleClick : this.redirectWithoutPermission}
+                        checkRedirectUrl={this.checkRedirectUrl}
+                        contextProps={contextProps}
+                    />
                 </TableCell>
                 <ConfirmationModal anchorEl={anchorEl} open={open} handleClose={this.handleClose} agreeAction={this.redirectToSummary} />
             </CustomDatagridRow>

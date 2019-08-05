@@ -1,4 +1,5 @@
 import logo from "../images/logo-header.png";
+import backgroundImage from "../images/containerBackground.png";
 
 export const themeShortMenu = [
     { id: 'menu-patients', url: '/patients', label: 'Patients' },
@@ -12,9 +13,12 @@ export const themeFullMenu = [
     { id: 'menu-vitalsigns',    url: '/vitalsigns',    label: 'Vitals' },
 ];
 
-export const themeCommonElements = {};
+export const themeCommonElements = {
+    isNodeRedVersion: true,
+};
 
 export const themeImages = {
+    backgroundImage: backgroundImage,
     logo: logo,
 };
 

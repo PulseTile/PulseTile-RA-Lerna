@@ -3,6 +3,8 @@ import get from "lodash/get";
 import { Admin, Resource } from "react-admin";
 
 import customDataProvider from "./dataProviders/dataProvider";
+import nodeRedDataProvider from "./dataProviders/nodeRed/dataProvider";
+
 import authProvider from "./dataProviders/authProvider";
 
 import corePlugins from "./config/corePlugins";
@@ -48,17 +50,20 @@ function getHomepage() {
     return result;
 }
 
-const App = ({ themeConfiguration, CustomHomepage, CustomLayout, isAuthAbsent }) => {
+const App = ({ themeConfiguration, CustomHomepage, CustomLayout, isAuthAbsent, isNodeRedVersion }) => {
     const pluginsFilter = getPluginsForCurrentProject(themeConfiguration);
     const CurrentHomepage = CustomHomepage ? CustomHomepage : getHomepage();
     const customRoutesFiltered = getRoutesArray(themeConfiguration);
+
+    console.log('isNodeRedVersion', isNodeRedVersion)
+
     return (
         <Admin
             authProvider={isAuthAbsent ? null : authProvider}
             customSagas={[customSagas]}
             customReducers={{custom: customReducers}}
             customRoutes={customRoutesFiltered}
-            dataProvider={customDataProvider}
+            dataProvider={isNodeRedVersion ? nodeRedDataProvider : customDataProvider}
             dashboard={CurrentHomepage}
             appLayout={CustomLayout ? CustomLayout : Layout}
             loginPage={isAuthAbsent ? null : InitializePage}

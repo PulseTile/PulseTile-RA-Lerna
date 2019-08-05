@@ -13,6 +13,7 @@ export const themeFullMenu = [
 export const themeCommonElements = {
     isFooterAbsent: true,
     panelHasRing: true,
+    isQwedVersion: true,
 };
 
 export const themeImages = {

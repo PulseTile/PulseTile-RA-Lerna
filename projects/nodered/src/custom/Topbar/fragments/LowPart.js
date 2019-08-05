@@ -135,7 +135,7 @@ export function pageHasPatientBanner(location) {
         'patients',
         'business'
     ];
-    return pagesWithTitle.indexOf(currentResource) !== -1  || (pathName === '/' && localStorage.getItem('role') === 'IDCR');
+    return pagesWithTitle.indexOf(currentResource) !== -1  || pathName === '/';
 }
 
 /**
@@ -196,7 +196,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getCurrentPatientAction() {
-            dispatch(currentPatientAction.request());
+            dispatch(currentPatientAction.requestNodeRed());
         },
         setSidebarVisibility(params) {
             dispatch(setSidebarVisibility(params));

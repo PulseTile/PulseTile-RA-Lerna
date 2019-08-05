@@ -11,6 +11,7 @@ import patientsCountSagas from "./patientsCountSagas";
 import emergencySummarySagas from "../../core/sagas/emergencySummarySagas";
 
 import createSynopsisSagas from "./createSynopsisSagas";
+import createSynopsisNodeRedSagas from "./createSynopsisNodeRedSagas";
 import {
     SYNOPSIS_ALLERGIES_ACTION, synopsisAllergiesAction,
     SYNOPSIS_CONTACTS_ACTION, synopsisContactsAction,
@@ -27,6 +28,9 @@ const coreSagas = [
     createSynopsisSagas(SYNOPSIS_CONTACTS_ACTION, synopsisContactsAction, 'contacts'),
     createSynopsisSagas(SYNOPSIS_MEDICATIONS_ACTION, synopsisMedicationsAction, 'medications'),
     createSynopsisSagas(SYNOPSIS_PROBLEMS_ACTION, synopsisProblemsAction, 'problems'),
+    // createSynopsisNodeRedSagas(SYNOPSIS_ALLERGIES_ACTION, synopsisAllergiesAction, 'allergies'),
+    // createSynopsisNodeRedSagas(SYNOPSIS_MEDICATIONS_ACTION, synopsisMedicationsAction, 'medications'),
+    // createSynopsisNodeRedSagas(SYNOPSIS_PROBLEMS_ACTION, synopsisProblemsAction, 'problems'),
     initializeSagas,
     demographicsSagas,
     httpErrorSagas,

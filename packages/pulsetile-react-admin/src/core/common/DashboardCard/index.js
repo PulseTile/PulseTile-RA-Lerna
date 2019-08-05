@@ -77,7 +77,7 @@ export default props => {
                     </h1>
                 </div>
                 { (showMode === SHOW_ALL || !showMode) &&
-                <ListBlock loading={loading} classes={classes} items={items} list={list} history={history} />
+                    <ListBlock loading={loading} classes={classes} items={items} list={list} history={history} />
                 }
             </Card>
         </Grid>
