@@ -27,7 +27,7 @@ class ItemsList extends Component {
     };
 
     render() {
-        const { classes, items, history, isLoading } = this.props;
+        const { classes, items, history, isLoading, contextProps } = this.props;
         if (isLoading) {
             return (
                 <List className={classes.list}>
@@ -38,7 +38,7 @@ class ItemsList extends Component {
             );
         }
         if (items && items.length > 0) {
-            const menuHasChevrons = get(themeCommonElements, 'menuHasChevrons', false);
+            const menuHasChevrons = get(contextProps, 'themeCommonElements.menuHasChevrons', false);
             return (
                 <List className={classes.list}>
                     {items && items.slice(0, 4).map((item, key) => {
