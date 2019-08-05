@@ -12,6 +12,7 @@ export default (state = initialState, action) => {
 
     switch (action.type) {
         case VITALS_ACTION.REQUEST:
+        case VITALS_ACTION.REQUEST_NODERED:
             return {
                 ...state,
                 loading: true,

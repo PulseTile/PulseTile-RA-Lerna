@@ -10,7 +10,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary/index
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import { emergencySummaryAction } from "../../../../actions/emergencySummaryAction";
-import VitalsChart from "../../../../../version/plugins/Vitals/VitalsChart";
+import VitalsChart from "../../../../../version/plugins/Vitals/components/VitalsChart/VitalsChart";
 import ItemBlock from "./ItemBlock";
 
 const styles = theme => ({

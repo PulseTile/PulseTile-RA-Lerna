@@ -8,9 +8,9 @@ import { Toolbar } from "react-admin";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
 
-import { vitalsAction } from "../../actions/vitalsAction";
-import CreateButton from "../../../core/common/Buttons/CreateButton";
-import EmptyListBlock from "../../../core/common/ResourseTemplates/EmptyListBlock";
+import { vitalsAction } from "../../../../actions/vitalsAction";
+import CreateButton from "../../../../../core/common/Buttons/CreateButton";
+import EmptyListBlock from "../../../../../core/common/ResourseTemplates/EmptyListBlock";
 
 const styles = theme => ({
     chartBlock: {
@@ -50,7 +50,17 @@ class VitalsChart extends Component {
     };
 
     componentDidMount() {
-        this.props.getVitalsForChart();
+        const { contextProps } = this.props;
+
+        const isNodeRedVersion = get(contextProps, 'themeCommonElements.isNodeRedVersion', false);
+        const isQwedVersion = get(contextProps, 'themeCommonElements.isQwedVersion', false);
+
+        if (isNodeRedVersion) {
+            this.props.getVitalsForChartNodeRed();
+        }
+        if (isQwedVersion) {
+            this.props.getVitalsForChart();
+        }
     }
 
     /**
@@ -87,18 +97,23 @@ class VitalsChart extends Component {
     };
 
     render() {
-        const { classes, currentList, vitalsList, vitalsEmergencySummary, history, createUrl } = this.props;
+        const { classes, currentList, vitalsList, vitalsEmergencySummary, history, createUrl, contextProps } = this.props;
         const { disabledLines } = this.state;
         // const vitalsListArray = vitalsEmergencySummary ? Object.values(vitalsEmergencySummary) : vitalsList;
 
+        const isNodeRedVersion = get(contextProps, 'themeCommonElements.isNodeRedVersion', false);
 
         let chartData = [];
         if (vitalsList) {
             for (let i = 0, n = vitalsList.length; i < n; i++) {
 
                 let item = vitalsList[i];
+                let dateForName = isNodeRedVersion
+                    ? moment(1000 * item.dateCreate).format('DD-MM-YYYY')
+                    : moment(item.dateCreated).format('MM-DD-YYYY');
+
                 chartData.push({
-                    name: moment(item.dateCreated).format('MM-DD-YYYY'),
+                    name: dateForName,
                     diastolicBP: item.diastolicBP,
                     heartRate: item.heartRate,
                     oxygenSaturation: item.oxygenSaturation,
@@ -194,6 +209,9 @@ const mapDispatchToProps = dispatch => {
         getVitalsForChart() {
             dispatch(vitalsAction.request());
         },
+        getVitalsForChartNodeRed() {
+            dispatch(vitalsAction.requestNodeRed());
+        }
     }
 };
 

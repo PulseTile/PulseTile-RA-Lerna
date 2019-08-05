@@ -64,9 +64,6 @@ export default props => {
     }
     const isOldDesign = get(contextProps, 'themeCommonElements.isOldDesign', false);
     const menuHasChevrons = get(contextProps, 'themeCommonElements.menuHasChevrons', false);
-
-    console.log('+++++++++++++++++++++++++++++++++++++++++++++++++', menuHasChevrons)
-
     const isTableHeaderInverted = get(contextProps, 'themeCommonElements.invertedTableHeaders', false);
     return (
         <Grid item xs={12} sm={6} md={6} lg={3}>

@@ -194,9 +194,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             });
         },
         getPatientSynopsisNodeRed() {
-
-            console.log('*******************')
-
             synopsisActions.map(item => {
                 if (pluginsList.indexOf(item.plugin) !== -1) {
                     return dispatch(item.action.requestNodeRed());

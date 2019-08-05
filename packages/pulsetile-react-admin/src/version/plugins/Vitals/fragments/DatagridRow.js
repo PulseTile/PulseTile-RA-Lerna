@@ -54,8 +54,8 @@ function getRowNumber(currentVitals, currentList, record) {
     const numberFromStore = getNumberFromStore(currentVitals, record);
     if (numberFromStore) {
         result = numberFromStore;
-    } else if (record.number) {
-        result = record.number;
+    } else if (record.numberItem || record.number) {
+        result = record.number ? record.number : record.numberItem;
     } else if (currentList) {
         result = currentList.length;
     }
