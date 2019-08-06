@@ -137,6 +137,7 @@ class PatientsList extends Component {
                     hasColumnsToggling={patientListColumnToggling}
                     updateTableHead={this.updateTableHead}
                     defaultHiddenColumns={defaultHiddenColumns}
+                    contextProps={contextProps}
                     {...this.props}
                 >
                     <TextField source="name" label="Name"/>

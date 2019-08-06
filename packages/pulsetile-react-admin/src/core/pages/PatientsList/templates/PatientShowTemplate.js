@@ -14,7 +14,6 @@ import IconButton from '@material-ui/core/IconButton/index';
 import EditButton from "../../../common/Buttons/EditButton";
 import CustomIcon from "../../../common/CustomIcon";
 import EmergencySummaryPanel from "../fragments/EmergencySummaryPanel";
-import { themeCommonElements } from "../../../../version/config/theme.config";
 
 const styles = theme => ({
     expansionPanel: {
@@ -113,9 +112,9 @@ class ShowTemplate extends Component {
     };
 
     render() {
-        const { classes, children, isListOpened, pageTitle, toggleListBlock, changeViewType, isDateCreatedAbsent, isSystemInfoAbsent, ...rest } = this.props;
+        const { classes, children, isListOpened, pageTitle, toggleListBlock, changeViewType, isDateCreatedAbsent, isSystemInfoAbsent, contextProps, ...rest } = this.props;
         const { isMainPanelOpen, isSystemInfoPanelOpen } = this.state;
-        const hasEmergencySummaryPanel = get(themeCommonElements, 'emergencySummaryPanel', false);
+        const hasEmergencySummaryPanel = get(contextProps, 'themeCommonElements.emergencySummaryPanel', false);
         return (
             <Grid item xs={12} sm={isListOpened ? 6 : 12}>
                 <ExpansionPanel className={isMainPanelOpen ? classes.currentExpansionPanel : classes.expansionPanel} expanded={isMainPanelOpen} onChange={() => this.toggleMainPanel()}>

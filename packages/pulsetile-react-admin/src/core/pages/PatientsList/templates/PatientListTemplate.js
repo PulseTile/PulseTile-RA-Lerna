@@ -397,7 +397,7 @@ class ListTemplate extends Component {
     };
 
     render() {
-        const { create, resourceUrl, title, classes, history, userSearch, userSearchID, userSearchType, userSearchValue, userClinicalQuery, headerFilterAbsent, currentList, hasChart, hasTimetable, isCustomDatagrid } = this.props;
+        const { create, resourceUrl, title, classes, history, userSearch, userSearchID, userSearchType, userSearchValue, userClinicalQuery, headerFilterAbsent, currentList, hasChart, hasTimetable, isCustomDatagrid, contextProps } = this.props;
         const { isFilterOpened, isListOpened, anchorEl, hiddenColumns, key, filterText } = this.state;
 
         const breadcrumbsResource = [
@@ -508,7 +508,7 @@ class ListTemplate extends Component {
                             ?
                             <Route
                                 path={this.getDetailsUrl()}
-                                render={({ match }) => <DetailsTemplate mode="show" isListOpened={isListOpened} toggleListBlock={this.toggleListBlock} {...this.props} id={match.params.id} />}
+                                render={({ match }) => <DetailsTemplate mode="show" contextProps={contextProps} isListOpened={isListOpened} toggleListBlock={this.toggleListBlock} {...this.props} id={match.params.id} />}
                             />
                             :
                             <Route
