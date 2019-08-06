@@ -4,7 +4,6 @@ import FeedsSelectors from "../plugins/Feeds/FeedsSelectors";
 import FeedsPanels from "../plugins/Feeds/FeedsPanels";
 import BackgroundImage from "../images/background.jpg";
 import Charts from "../../core/pages/Charts";
-import RespectSummaryPanel from "../pages/ReSPECT/fragments/summaryPanel";
 
 export const themeShortMenu = [
     { url: '/', label: 'Charts' },
@@ -44,7 +43,6 @@ export const themeCommonElements = {
     feedsSelectors: FeedsSelectors,
     feedsPanels: FeedsPanels,
     homePage: Charts,
-    respectPanel: RespectSummaryPanel,
     hasEmergencySummaryPanel: true,
     hasPatientSummaryRoll: true,
 };

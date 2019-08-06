@@ -19,7 +19,7 @@ import PatientBanner from "./core/common/Topbar/fragments/PatientBanner";
 import CustomLogoutButton from "./core/common/Buttons/CustomLogoutButton";
 import FeedsSelectors from "./version/plugins/Feeds/FeedsSelectors";
 import FeedsPanels from "./version/plugins/Feeds/FeedsPanels";
-import RespectSummaryPanel from "./version/pages/ReSPECT/fragments/summaryPanel";
+import RespectSummaryPanel from "./core/pages/ReSPECT/fragments/summaryPanel";
 import AdvancedUserSearch from "./core/common/Topbar/fragments/AdvancedUserSearch";
 import UserSearch from "./core/common/Topbar/fragments/UserSearch";
 

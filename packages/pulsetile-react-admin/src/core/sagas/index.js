@@ -8,7 +8,9 @@ import httpErrorSagas from "./httpErrorSagas";
 import showModeSagas from "./showModeSagas";
 import showHeadingsSagas from "./showHeadingsSagas";
 import patientsCountSagas from "./patientsCountSagas";
-import emergencySummarySagas from "../../core/sagas/emergencySummarySagas";
+import emergencySummarySagas from "./emergencySummarySagas";
+import respectSagas from "./respectSagas";
+import businessIntelligenceSagas from "./businessIntelligenceSagas";
 
 import createSynopsisSagas from "./createSynopsisSagas";
 import createSynopsisNodeRedSagas from "./createSynopsisNodeRedSagas";
@@ -38,6 +40,8 @@ const coreSagas = [
     showHeadingsSagas,
     patientsCountSagas,
     emergencySummarySagas,
+    respectSagas,
+    businessIntelligenceSagas,
 ];
 
 const mergeSagas = coreSagas.concat(nonCoreSagas);
