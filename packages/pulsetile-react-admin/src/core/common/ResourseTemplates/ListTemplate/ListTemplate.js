@@ -17,17 +17,17 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 
-import { columnsTogglingAction } from "../../actions/columnsTogglingAction";
+import { columnsTogglingAction } from "../../../actions/columnsTogglingAction";
 
-import Breadcrumbs from "../../common/Breadcrumbs";
-import TableHeader from "../../common/TableHeader";
-import CustomIcon from "../../common/CustomIcon";
-import DetailsTemplate from "./DetailsTemplate";
+import Breadcrumbs from "../../Breadcrumbs";
+import TableHeader from "../../TableHeader";
+import CustomIcon from "../../CustomIcon";
+import DetailsTemplate from "../DetailsTemplate";
 
 import { MODE_TIMELINE, MODE_TABLE, MODE_CHART } from "./fragments/constants";
-import TableContent from "./fragments/TableContent";
-import ChartContent from "./fragments/ChartContent";
-import TimelineContent from "./fragments/TimelineContent";
+import TableContent from "./views/TableContent";
+import ChartContent from "./views/ChartContent";
+import TimelineContent from "./views/TimelineContent";
 import ListModePopover from "./popovers/ListModePopover";
 import ColumnsTogglingIcon from "./icons/ColumnsTogglingIcon";
 
@@ -326,9 +326,23 @@ class ListTemplate extends Component {
         });
     };
 
+    /**
+     * This function checks that user can only review list of the items, and can't create or update them
+     *
+     * @author BogdanShcherban <bsc@piogroup.net>
+     * @returns {boolean}
+     */
+    isPluginOnlyForReview = () => {
+        const { resourceUrl, contextProps } = this.props;
+        const pluginsOnlyForReview = get(contextProps, 'pluginsOnlyForReview', []);
+        return pluginsOnlyForReview.indexOf(resourceUrl) !== -1;
+    };
+
     render() {
-        const { create, resourceUrl, title, classes, history, notCreate, headerFilterAbsent, currentList, isChartDefault, hasChart, hasTimetable, isCustomDatagrid } = this.props;
+        const { create, resourceUrl, title, classes, history, headerFilterAbsent, currentList, isChartDefault, hasChart, hasTimetable, isCustomDatagrid } = this.props;
         const { isFilterOpened, isListOpened, anchorEl, hiddenColumns, key, filterText } = this.state;
+
+        const notCreate = this.isPluginOnlyForReview();
 
         const breadcrumbsResource = [
             { url: "/" + resourceUrl, title: title, isActive: false },
@@ -423,7 +437,7 @@ class ListTemplate extends Component {
                             ?
                             <Route
                                 path={this.getDetailsUrl()}
-                                render={({ match }) => <DetailsTemplate mode="show" isListOpened={isListOpened} toggleListBlock={this.toggleListBlock} {...this.props} id={match.params.id} />}
+                                render={({ match }) => <DetailsTemplate notCreate={notCreate} mode="show" isListOpened={isListOpened} toggleListBlock={this.toggleListBlock} {...this.props} id={match.params.id} />}
                             />
                             :
                             <Route

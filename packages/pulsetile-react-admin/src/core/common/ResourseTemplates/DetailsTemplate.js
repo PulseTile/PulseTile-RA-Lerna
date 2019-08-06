@@ -19,13 +19,13 @@ class DetailsTemplate extends Component {
     };
 
     render() {
-        const { classes, show, edit, ...rest } = this.props;
+        const { classes, show, edit, notCreate, ...rest } = this.props;
         const { viewType } = this.state;
         const ShowTemplate = show;
         const EditTemplate = edit;
         if (viewType === 'show') {
             return (
-                <ShowTemplate changeViewType={this.changeViewType} {...this.props} />
+                <ShowTemplate changeViewType={this.changeViewType} notCreate={notCreate} {...this.props} />
             );
         } else if (viewType === 'edit') {
             return (

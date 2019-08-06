@@ -3,8 +3,8 @@ import moment from "moment";
 
 import TableCell from '@material-ui/core/TableCell';
 
-import CustomDatagridRow from "../../../../core/common/ResourseTemplates/fragments/CustomDatagridRow";
-import { DATE_FORMAT } from "../../../../core/common/ResourseTemplates/fragments/constants";
+import CustomDatagridRow from "../../../../core/common/ResourseTemplates/ListTemplate/fragments/CustomDatagridRow";
+import { DATE_FORMAT } from "../../../../core/common/ResourseTemplates/ListTemplate/fragments/constants";
 
 const ReferralsDatagridRow = props => {
     const { record } = props;

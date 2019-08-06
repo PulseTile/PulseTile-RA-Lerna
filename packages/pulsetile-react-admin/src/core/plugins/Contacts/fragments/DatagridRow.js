@@ -2,7 +2,7 @@ import React from "react";
 
 import TableCell from '@material-ui/core/TableCell';
 
-import CustomDatagridRow from "../../../common/ResourseTemplates/fragments/CustomDatagridRow";
+import CustomDatagridRow from "../../../common/ResourseTemplates/ListTemplate/fragments/CustomDatagridRow";
 
 const ContactsDatagridRow = props => {
     const { record } = props;

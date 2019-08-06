@@ -24,12 +24,12 @@ import TableHeader from "../../../common/TableHeader/TableHeader";
 import CustomIcon from "../../../common/CustomIcon";
 import DetailsTemplate from "../../../common/ResourseTemplates/DetailsTemplate";
 
-import { MODE_TIMELINE, MODE_TABLE, MODE_CHART } from "../../../common/ResourseTemplates/fragments/constants";
-import TableContent from "../../../common/ResourseTemplates/fragments/TableContent";
-import ChartContent from "../../../common/ResourseTemplates/fragments/ChartContent";
-import TimelineContent from "../../../common/ResourseTemplates/fragments/TimelineContent";
-import ListModePopover from "../../../common/ResourseTemplates/popovers/ListModePopover";
-import ColumnsTogglingIcon from "../../../common/ResourseTemplates/icons/ColumnsTogglingIcon";
+import { MODE_TIMELINE, MODE_TABLE, MODE_CHART } from "../../../common/ResourseTemplates/ListTemplate/fragments/constants";
+import TableContent from "../../../common/ResourseTemplates/ListTemplate/views/TableContent";
+import ChartContent from "../../../common/ResourseTemplates/ListTemplate/views/ChartContent";
+import TimelineContent from "../../../common/ResourseTemplates/ListTemplate/views/TimelineContent";
+import ListModePopover from "../../../common/ResourseTemplates/ListTemplate/popovers/ListModePopover";
+import ColumnsTogglingIcon from "../../../common/ResourseTemplates/ListTemplate/icons/ColumnsTogglingIcon";
 
 const listStyles = theme => ({
     container: {

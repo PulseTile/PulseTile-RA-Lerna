@@ -3,9 +3,9 @@ import {List, Datagrid, DatagridBody} from "react-admin";
 
 import { withStyles } from "@material-ui/core/styles";
 
-import EmptyListBlock from "../EmptyListBlock";
-import {ITEMS_PER_PAGE} from "../../../config/styles";
-import ListToolbar from "../../Toolbars/ListToolbar";
+import EmptyListBlock from "../../EmptyListBlock";
+import {ITEMS_PER_PAGE} from "../../../../config/styles";
+import ListToolbar from "../../../Toolbars/ListToolbar";
 
 const styles = theme => ({
     tableList: {

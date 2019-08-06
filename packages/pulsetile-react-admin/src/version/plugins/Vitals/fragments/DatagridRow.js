@@ -7,8 +7,8 @@ import { withStyles } from "@material-ui/core/styles";
 import TableCell from '@material-ui/core/TableCell';
 
 import { DANGER_COLOR, WARNING_COLOR, SUCCESS_COLOR } from "./settings";
-import CustomDatagridRow from "../../../../core/common/ResourseTemplates/fragments/CustomDatagridRow";
-import { DATE_FORMAT } from "../../../../core/common/ResourseTemplates/fragments/constants";
+import CustomDatagridRow from "../../../../core/common/ResourseTemplates/ListTemplate/fragments/CustomDatagridRow";
+import { DATE_FORMAT } from "../../../../core/common/ResourseTemplates/ListTemplate/fragments/constants";
 import { vitalsAction } from "../../../actions/vitalsAction";
 
 const styles = theme => ({
