@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from "@material-ui/core/CardMedia";
 
+import { contrastModeAction } from "../../actions/contrastModeAction";
 import footerLogo from "../../images/ripple-foundation-logo-footer.png";
 
 const styles = theme => ({
@@ -30,9 +32,11 @@ const styles = theme => ({
     copyright: {
         fontSize: 12,
     },
-    supportedBy: {
-        marginRight: 10,
+    contrastModeLink: {
+        marginLeft: 5,
         fontSize: 12,
+        color: theme.isOldDesign ? theme.palette.secondaryMainColor : theme.palette.mainColor,
+        textDecoration: "none",
     },
     footerLogo: {
         width: "auto",
@@ -44,17 +48,36 @@ const styles = theme => ({
 });
 
 /**
- * This component returns custom default footer
+ * This component returns custom theme footer
  *
  * @author Bogdan Shcherban <bsc@piogroup.net>
  */
-const DefaultFooter = ({ classes }) => {
-    return (
-        <footer className={classes.footerBlock}>
-            <Typography className={classes.copyright}>Transforming Usability</Typography>
-            <div className={classes.emptyBlock}></div>
-            <React.Fragment>
-                <Typography className={classes.supportedBy}>Supported by</Typography>
+class Footer extends Component {
+
+    state = {
+        isContrastMode: this.props.contrastMode,
+    };
+
+    toggleContrastMode = e => {
+        e.preventDefault();
+        this.setState(
+            state => ({ isContrastMode: !this.state.isContrastMode }),
+            () => this.props.contrastModeAction(this.state.isContrastMode)
+        );
+    };
+
+    render() {
+        const { classes } = this.props;
+        const { isContrastMode } = this.state;
+        const linkText = isContrastMode ? "Disable High Contrast Mode" : "Enable High Contrast Mode";
+        const currentYear = new Date().getFullYear();
+        return (
+            <footer className={classes.footerBlock}>
+                <Typography className={classes.copyright}>Copyright {currentYear} Ripple Foundation CIC Ltd. All rights reserved.</Typography>
+                <Typography>
+                    <Link to="/" className={classes.contrastModeLink} onClick={e => this.toggleContrastMode(e)}>{linkText}</Link>
+                </Typography>
+                <div className={classes.emptyBlock}></div>
                 <Link to="/">
                     <CardMedia
                         className={classes.footerLogo}
@@ -65,9 +88,23 @@ const DefaultFooter = ({ classes }) => {
                         title="Pulse Tile"
                     />
                 </Link>
-            </React.Fragment>
-        </footer>
-    );
+            </footer>
+        );
+    }
 };
 
-export default withStyles(styles)(DefaultFooter);
+const mapStateToProps = state => {
+    return {
+        contrastMode: state.custom.contrastMode.data,
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        contrastModeAction(mode) {
+            dispatch(contrastModeAction.request(mode));
+        },
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Footer));

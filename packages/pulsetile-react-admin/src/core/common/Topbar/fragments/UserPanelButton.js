@@ -8,7 +8,7 @@ import Card from '@material-ui/core/Card';
 import PersonIcon from '@material-ui/icons/Person';
 import Tooltip from '@material-ui/core/Tooltip';
 
-import CustomLogoutButton from "../../../../core/common/Buttons/CustomLogoutButton";
+import CustomLogoutButton from "../../Buttons/CustomLogoutButton";
 
 const styles = {
     userPanel: {

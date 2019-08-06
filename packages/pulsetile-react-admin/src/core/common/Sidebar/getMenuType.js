@@ -1,13 +1,12 @@
 import get from "lodash/get";
 
-import { themeShortMenu, themeFullMenu } from "../../../version/config/theme.config";
-
-const defaultShortMenu = [
+export const defaultShortMenu = [
     { url: '/', label: 'Charts' },
-    { url: '/patients', label: 'Patients' }
+    { url: '/patients', label: 'Patients' },
+    { url: '/business', label: 'Business Intelligence'},
 ];
 
-const defaultFullMenu = [
+export const defaultFullMenu = [
     { url: '/summary', label: 'Patient Summary' },
     { url: '/problems', label: 'Problems / Issues' },
     { url: '/medications', label: 'Medications' },
@@ -15,6 +14,16 @@ const defaultFullMenu = [
     { url: '/allergies', label: 'Allergies' },
     { url: '/contacts', label: 'Contacts' },
     { url: '/top3Things', label: 'TopThreeThings' },
+    { url: '/clinicalnotes', label: 'Clinical Notes' },
+    { url: '/mdtreports', label: 'MDT' },
+    { url: '/events', label: 'Events' },
+    { url: '/personalnotes', label: 'Personal Notes' },
+    { url: '/procedures', label: 'Procedures' },
+    { url: '/referrals', label: 'Referrals' },
+    { url: '/labresults', label: 'Results' },
+    { url: '/toc', label: 'Transfers Of Care' },
+    { url: '/vitalsigns', label: 'Vitals' },
+    { url: '/respect', label: 'ReSPECT' },
 ];
 
 function isResourcePresentedInMenu(currentResource, menuItemsArray) {
@@ -23,21 +32,7 @@ function isResourcePresentedInMenu(currentResource, menuItemsArray) {
 }
 
 export function getMenuItems(currentPathname) {
-    const pathArray = currentPathname.split('/');
-    const currentResource = get(pathArray, [1], null);
-    if (localStorage.getItem('role') === 'PHR') {
-        return themeFullMenu;
-    }
-    if (isResourcePresentedInMenu(currentResource, themeShortMenu) || currentPathname === "/") {
-        return themeShortMenu;
-    }
-    if (isResourcePresentedInMenu(currentResource, themeFullMenu)) {
-        return themeFullMenu;
-    }
-    if (isResourcePresentedInMenu(currentResource, defaultFullMenu)) {
-        return defaultFullMenu;
-    }
-    return defaultShortMenu;
+    return isResourcePresentedInMenu(currentResource, defaultFullMenu) ? defaultFullMenu : defaultShortMenu;
 }
 
 export function isSinglePatientView(currentPathname) {

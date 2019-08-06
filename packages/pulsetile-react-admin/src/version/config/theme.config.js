@@ -1,35 +1,6 @@
-import ThemeTopbar from "../common/Topbar";
-import ThemeFooter from "../common/Footer";
 import FeedsSelectors from "../../core/plugins/Feeds/FeedsSelectors";
 import FeedsPanels from "../../core/plugins/Feeds/FeedsPanels";
-import BackgroundImage from "../../core/images/background.jpg";
 import Charts from "../../core/pages/Charts";
-
-export const themeShortMenu = [
-    { url: '/', label: 'Charts' },
-    { url: '/patients', label: 'Patients' },
-    { url: '/business', label: 'Business Intelligence'},
-];
-
-export const themeFullMenu = [
-    { url: '/summary', label: 'Patient Summary' },
-    { url: '/problems', label: 'Problems / Issues' },
-    { url: '/medications', label: 'Medications' },
-    { url: '/vaccinations', label: 'Vaccinations' },
-    { url: '/allergies', label: 'Allergies' },
-    { url: '/contacts', label: 'Contacts' },
-    { url: '/top3Things', label: 'TopThreeThings' },
-    { url: '/clinicalnotes', label: 'Clinical Notes' },
-    { url: '/mdtreports', label: 'MDT' },
-    { url: '/events', label: 'Events' },
-    { url: '/personalnotes', label: 'Personal Notes' },
-    { url: '/procedures', label: 'Procedures' },
-    { url: '/referrals', label: 'Referrals' },
-    { url: '/labresults', label: 'Results' },
-    { url: '/toc', label: 'Transfers Of Care' },
-    { url: '/vitalsigns', label: 'Vitals' },
-    { url: '/respect', label: 'ReSPECT' },
-];
 
 export const themeCommonElements = {
     menuHasChevrons: true,
@@ -38,8 +9,6 @@ export const themeCommonElements = {
     patientListColumnToggling: true,
     isPatientListCount: true,
     redirectToPlugin: true,
-    topbar: ThemeTopbar,
-    footer: ThemeFooter,
     feedsSelectors: FeedsSelectors,
     feedsPanels: FeedsPanels,
     homePage: Charts,
@@ -47,6 +16,3 @@ export const themeCommonElements = {
     hasPatientSummaryRoll: true,
 };
 
-export const themeImages = {
-    backgroundImage: BackgroundImage,
-};

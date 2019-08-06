@@ -3,7 +3,7 @@ import memoize from "lodash/memoize";
 import DeepMerge from 'deepmerge';
 
 import { createMuiTheme } from '@material-ui/core/styles';
-import { themeImages, themeCommonElements } from "../../version/config/theme.config";
+import BackgroundImage from "../../core/images/background.jpg";
 
 export const ITEMS_PER_PAGE = 10;
 
@@ -52,7 +52,7 @@ const defaultDarkPalette = {
  * @return {string}
  */
 function getBackground(isContrastMode, themeColor, imageName) {
-    const cardBackgroundImage = get(themeImages, imageName, null);
+    const cardBackgroundImage = BackgroundImage;
     let result = themeColor;
     if (cardBackgroundImage) {
         result = `url(${cardBackgroundImage}) 0 0 repeat`;
@@ -72,12 +72,10 @@ function getCurrentPalette(isContrastMode) {
  * @author Bogdan Shcherban <bsc@piogroup.net>
  */
 function getCurrentTheme(isContrastMode) {
-    const backgroundImage = isContrastMode ? null : get(themeImages, 'backgroundImage', null);
+    const backgroundImage = isContrastMode ? null : BackgroundImage;
     const palette = getCurrentPalette(isContrastMode);
     const isOldDesign = get(window, 'config.isOldDesign', false);
     const isRectangleButtons = get(window, 'config.isRectangleButtons', false);
-    const isTableHeaderInverted = get(themeCommonElements, 'invertedTableHeaders', false);
-    const tableHeaderColor = isTableHeaderInverted ? palette.tableHeadColor : palette.secondaryMainColor;
     return createMuiTheme({
         palette: palette,
         isOldDesign: isOldDesign,
@@ -88,7 +86,7 @@ function getCurrentTheme(isContrastMode) {
         },
         tableHeader: {
             tableHeaderBlock: {
-                background: getBackground(isContrastMode, tableHeaderColor, 'tableHeaderImage'),
+                background: getBackground(isContrastMode, palette.tableHeadColor, 'tableHeaderImage'),
             },
         },
         patientSummaryPanel: {

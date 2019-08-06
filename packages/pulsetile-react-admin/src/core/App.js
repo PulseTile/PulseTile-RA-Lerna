@@ -52,9 +52,6 @@ const App = ({ themeConfiguration, CustomHomepage, CustomLayout, isAuthAbsent, i
     const pluginsFilter = getPluginsForCurrentProject(themeConfiguration);
     const CurrentHomepage = CustomHomepage ? CustomHomepage : getHomepage();
     const customRoutesFiltered = getRoutesArray(themeConfiguration);
-
-    console.log('isNodeRedVersion', isNodeRedVersion)
-
     return (
         <Admin
             authProvider={isAuthAbsent ? null : authProvider}

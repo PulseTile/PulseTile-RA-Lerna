@@ -3,19 +3,35 @@ import get from "lodash/get";
 
 import DefaultFooter from "./DefaultFooter";
 import HandleErrorModal from "../HandleErrorModal";
-import { themeCommonElements } from "../../../version/config/theme.config";
+import { ThemeConfigurationConsumer } from "pulsetile-react-admin";
 
-const Footer = () => {
-    const ThemeFooter = get(themeCommonElements, 'footer', false);
-    const isFooterAbsent = get(themeCommonElements, 'isFooterAbsent', false);
+const FooterWithContext = ({ contextProps }) => {
+    const isFooterAbsent = get(contextProps, 'themeCommonElements.isFooterAbsent', false);
     return (
         <React.Fragment>
             <HandleErrorModal />
             {
-                isFooterAbsent ? null :
-                    (ThemeFooter ? <ThemeFooter /> : <DefaultFooter />)
+                isFooterAbsent ? null : <DefaultFooter />
             }
         </React.Fragment>
+    );
+};
+
+
+const Footer = props => {
+    return (
+        <ThemeConfigurationConsumer>
+        {
+            contextProps => {
+                return (
+                    <FooterWithContext
+                        contextProps={contextProps}
+                        {...props}
+                    />
+                )
+            }
+        }
+        </ThemeConfigurationConsumer>
     );
 };
 
