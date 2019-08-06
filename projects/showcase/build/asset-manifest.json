@@ -1,18 +1,17 @@
 {
   "files": {
-    "main.js": "/static/js/main.0cc2e0bd.chunk.js",
-    "main.js.map": "/static/js/main.0cc2e0bd.chunk.js.map",
+    "main.js": "/static/js/main.5be5f4d4.chunk.js",
+    "main.js.map": "/static/js/main.5be5f4d4.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
     "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
     "static/css/2.cc034990.chunk.css": "/static/css/2.cc034990.chunk.css",
-    "static/js/2.ba490da4.chunk.js": "/static/js/2.ba490da4.chunk.js",
-    "static/js/2.ba490da4.chunk.js.map": "/static/js/2.ba490da4.chunk.js.map",
+    "static/js/2.e6fe859a.chunk.js": "/static/js/2.e6fe859a.chunk.js",
+    "static/js/2.e6fe859a.chunk.js.map": "/static/js/2.e6fe859a.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.6338a9637f4437c5d9a6d688347e991a.js": "/precache-manifest.6338a9637f4437c5d9a6d688347e991a.js",
+    "precache-manifest.70df5f0734eba6bf11fdee771867a2f8.js": "/precache-manifest.70df5f0734eba6bf11fdee771867a2f8.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.cc034990.chunk.css.map": "/static/css/2.cc034990.chunk.css.map",
     "static/media/background.jpg": "/static/media/background.24d6dd0b.jpg",
-    "static/media/pulsetile-core-logo.png": "/static/media/pulsetile-core-logo.93d3c4ce.png",
     "static/media/pulsetile-logo.png": "/static/media/pulsetile-logo.93d3c4ce.png",
     "static/media/randomPatient.png": "/static/media/randomPatient.eef539fe.png",
     "static/media/ripple-foundation-logo-footer.png": "/static/media/ripple-foundation-logo-footer.f15dbaae.png"

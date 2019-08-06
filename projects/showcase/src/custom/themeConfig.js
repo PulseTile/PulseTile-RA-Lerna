@@ -74,3 +74,7 @@ export const pluginsList = [
     'toc',
     'vitalsigns',
 ];
+
+export const pluginsOnlyForReview = [
+    'labresults',
+];

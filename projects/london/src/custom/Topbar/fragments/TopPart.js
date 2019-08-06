@@ -13,6 +13,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { ContrastMode, userSearchAction, UserSearch } from "pulsetile-react-admin";
 
 import helmLogo from "../../../images/logo-header.png";
+import nhsLogo from "../../../images/nhs.png";
 import UserPanelButton from "./UserPanelButton";
 
 const styles = theme => ({
@@ -45,10 +46,6 @@ const styles = theme => ({
     image: {
         width: "auto",
         cursor: "pointer",
-    },
-    userSearch: {
-        maxWidth: 360,
-        marginRight: 10,
     },
     nhsLogo: {
         [theme.breakpoints.only('xs')]: {
@@ -93,6 +90,26 @@ const styles = theme => ({
     },
     emptyBlock: {
         flexGrow: 1,
+    },
+    userSearchBlock: {
+        [theme.breakpoints.down('sm')]: {
+            display: "none",
+        },
+        display: 'flex',
+        flexDirection: 'row',
+        maxWidth: 300,
+        marginRight: 60,
+    },
+    userSearchBlockMobile: {
+        [theme.breakpoints.up('md')]: {
+            display: "none",
+        },
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: "space-between",
+        backgroundColor: theme.palette.paperColor,
+        minHeight: 52,
+        padding: 10,
     }
 });
 
@@ -111,33 +128,46 @@ class TopPart extends Component {
     render() {
         const { classes, location } = this.props;
         return (
-            <Toolbar className={classes.topPart}>
-                <div className={classes.homeButtonItem}>
-                    <Tooltip title="Home">
-                        <IconButton id="icon-home" aria-label="Home" className={classes.homeButton} onClick={() => this.goHomePage()}>
-                            <HomeIcon />
-                        </IconButton>
-                    </Tooltip>
-                </div>
-                <div className={classes.mainLogoItem}>
+            <React.Fragment>
+                <Toolbar className={classes.topPart}>
+                    <div className={classes.homeButtonItem}>
+                        <Tooltip title="Home">
+                            <IconButton id="icon-home" aria-label="Home" className={classes.homeButton} onClick={() => this.goHomePage()}>
+                                <HomeIcon />
+                            </IconButton>
+                        </Tooltip>
+                    </div>
+                    <div className={classes.mainLogoItem}>
+                        <CardMedia
+                            id="logo-image"
+                            className={classes.image}
+                            component="img"
+                            alt="Pulse Tile"
+                            height="38px"
+                            image={helmLogo}
+                            title="Pulse Tile"
+                            onClick={() => this.goHomePage()}
+                        />
+                    </div>
+                    <div className={classes.emptyBlock}></div>
+                    <div className={classes.userSearchBlock}>
+                        <UserSearch location={location} />
+                    </div>
                     <CardMedia
-                        id="logo-image"
-                        className={classes.image}
+                        className={classes.nhsLogo}
                         component="img"
                         alt="Pulse Tile"
-                        height="38px"
-                        image={helmLogo}
+                        height="29px"
+                        image={nhsLogo}
                         title="Pulse Tile"
-                        onClick={() => this.goHomePage()}
                     />
-                </div>
-                <div className={classes.emptyBlock}></div>
-                <div className={classes.userSearch}>
+                    <ContrastMode classes={classes} />
+                    <UserPanelButton classes={classes} />
+                </Toolbar>
+                <Toolbar className={classes.userSearchBlockMobile}>
                     <UserSearch location={location} />
-                </div>
-                <ContrastMode classes={classes} />
-                <UserPanelButton classes={classes} />
-            </Toolbar>
+                </Toolbar>
+            </React.Fragment>
         );
     }
 };

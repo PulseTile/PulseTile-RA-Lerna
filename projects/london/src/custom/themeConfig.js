@@ -1,6 +1,6 @@
 import { RespectSummaryPanel, } from "pulsetile-react-admin";
 
-import logo from "../images/logo-header.png";
+import logo from "../images/logo.png";
 import backgroundImage from "../images/containerBackground.png";
 
 export const themeShortMenu = [
@@ -39,7 +39,7 @@ export const pluginsList = [
     'top3Things'
 ];
 
-export const pluginsOnlyReview = [
+export const pluginsOnlyForReview = [
     'allergies',
     'contacts',
     'medications',

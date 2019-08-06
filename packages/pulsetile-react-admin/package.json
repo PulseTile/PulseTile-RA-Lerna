@@ -50,13 +50,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "yarn run build-cjs && yarn run build-esm && yarn run copy-core-images && yarn run copy-version-images && yarn run copy-version-bi-images && yarn run copy-version-respect-images",
+    "build": "yarn run build-cjs && yarn run build-esm && yarn run copy-images && yarn run copy-bi-images && yarn run copy-respect-images",
     "build-cjs": "rimraf ./lib && tsc",
     "build-esm": "rimraf ./esm && tsc --outDir esm --module es2015",
-    "copy-core-images": "mkdir -p ./lib/core/images/ && cp -a ./src/core/images/. ./lib/core/images/. && mkdir ./esm/core/images/ && cp -a ./src/core/images/. ./esm/core/images/.",
-    "copy-version-images": "mkdir -p ./lib/version/images/ && cp -a ./src/version/images/. ./lib/version/images/. && mkdir ./esm/version/images/ && cp -a ./src/version/images/. ./esm/version/images/.",
-    "copy-version-bi-images": "mkdir -p ./lib/version/pages/BusinessIntelligence/images/ && cp -a ./src/version/pages/BusinessIntelligence/images/. ./lib/version/pages/BusinessIntelligence/images/. && mkdir ./esm/version/pages/BusinessIntelligence/images/ && cp -a ./src/version/pages/BusinessIntelligence/images/. ./esm/version/pages/BusinessIntelligence/images/.",
-    "copy-version-respect-images": "mkdir -p ./lib/version/pages/ReSPECT/images/ && cp -a ./src/version/pages/ReSPECT/images/. ./lib/version/pages/ReSPECT/images/. && mkdir ./esm/version/pages/ReSPECT/images/ && cp -a ./src/version/pages/ReSPECT/images/. ./esm/version/pages/ReSPECT/images/.",
+    "copy-images": "mkdir -p ./lib/images/ && cp -a src/images/. ./lib/images/. && mkdir ./esm/images/ && cp -a ./src/images/. ./esm/images/.",
+    "copy-bi-images": "mkdir -p ./lib/pages/BusinessIntelligence/images/ && cp -a src/pages/BusinessIntelligence/images/. ./lib/pages/BusinessIntelligence/images/. && mkdir ./esm/pages/BusinessIntelligence/images/ && cp -a ./src/pages/BusinessIntelligence/images/. ./esm/pages/BusinessIntelligence/images/.",
+    "copy-respect-images": "mkdir -p ./lib/pages/ReSPECT/images/ && cp -a src/pages/ReSPECT/images/. ./lib/pages/ReSPECT/images/. && mkdir ./esm/pages/ReSPECT/images/ && cp -a ./src/pages/ReSPECT/images/. ./esm/pages/ReSPECT/images/.",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
