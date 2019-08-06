@@ -1,29 +1,29 @@
 // CORE PART
-import App from "./core/App";
+import App from "./App";
 
 // ACTION
-import { contrastModeAction } from "./core/actions/contrastModeAction";
-import { currentPatientAction } from "./core/actions/currentPatientAction";
-import { demographicsAction } from "./core/actions/demographicsAction";
-import { userSearchAction } from "./core/actions/userSearchAction";
+import { contrastModeAction } from "./actions/contrastModeAction";
+import { currentPatientAction } from "./actions/currentPatientAction";
+import { demographicsAction } from "./actions/demographicsAction";
+import { userSearchAction } from "./actions/userSearchAction";
 
 // PAGES
-import PatientSummaryPage from "./core/pages/PatientSummary";
-import PatientsListPage from "./core/pages/PatientsList";
-import Charts from "./core/pages/Charts";
+import PatientSummaryPage from "./pages/PatientSummary";
+import PatientsListPage from "./pages/PatientsList";
+import Charts from "./pages/Charts";
 
 // COMPONENTS
-import ContrastMode from "./core/features/ContrastMode";
-import PageTitle from "./core/common/Topbar/fragments/PageTitle";
-import PatientBanner from "./core/common/Topbar/fragments/PatientBanner";
-import CustomLogoutButton from "./core/common/Buttons/CustomLogoutButton";
-import FeedsSelectors from "./core/plugins/Feeds/FeedsSelectors";
-import FeedsPanels from "./core/plugins/Feeds/FeedsPanels";
-import RespectSummaryPanel from "./core/pages/ReSPECT/fragments/summaryPanel";
-import AdvancedUserSearch from "./core/common/Topbar/fragments/AdvancedUserSearch";
-import UserSearch from "./core/common/Topbar/fragments/UserSearch";
+import ContrastMode from "./features/ContrastMode";
+import PageTitle from "./common/Topbar/fragments/PageTitle";
+import PatientBanner from "./common/Topbar/fragments/PatientBanner";
+import CustomLogoutButton from "./common/Buttons/CustomLogoutButton";
+import FeedsSelectors from "./plugins/Feeds/FeedsSelectors";
+import FeedsPanels from "./plugins/Feeds/FeedsPanels";
+import RespectSummaryPanel from "./pages/ReSPECT/fragments/summaryPanel";
+import AdvancedUserSearch from "./common/Topbar/fragments/AdvancedUserSearch";
+import UserSearch from "./common/Topbar/fragments/UserSearch";
 
-import { ThemeConfigurationContext, ThemeConfigurationProvider, ThemeConfigurationConsumer } from "./core/themeConfigurationContext";
+import { ThemeConfigurationContext, ThemeConfigurationProvider, ThemeConfigurationConsumer } from "./themeConfigurationContext";
 
 export {
     App,
