@@ -3,7 +3,7 @@ import get from "lodash/get";
 import { connect } from 'react-redux';
 import { setSidebarVisibility } from 'react-admin';
 
-import { PATIENT_SUMMARY } from "../../../core/config/clientUrls";
+import { PATIENT_SUMMARY } from "../../config/clientUrls";
 import { homepage } from './content';
 import RunUserTour from "./fragments/RunTourButton";
 import LinkToCustomer from "./fragments/LinkToCustomer";

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import HelpIcon from '@material-ui/icons/Help';
 
-import { PATIENT_SUMMARY } from "../../../../core/config/clientUrls";
+import { PATIENT_SUMMARY } from "../../../config/clientUrls";
 
 /**
  * This component returns link to Homepage

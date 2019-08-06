@@ -1,4 +1,4 @@
-import { CONTRAST_MODE_ACTION } from "../../version/actions/contrastModeAction";
+import { CONTRAST_MODE_ACTION } from "../actions/contrastModeAction";
 
 const initialState = {
     data: false,

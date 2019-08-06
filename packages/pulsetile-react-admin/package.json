@@ -50,11 +50,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "yarn run build-cjs && yarn run build-esm && yarn run copy-core-images && yarn run copy-version-images && yarn run copy-core-bi-images && yarn run copy-core-respect-images",
+    "build": "yarn run build-cjs && yarn run build-esm && yarn run copy-core-images && yarn run copy-core-bi-images && yarn run copy-core-respect-images",
     "build-cjs": "rimraf ./lib && tsc",
     "build-esm": "rimraf ./esm && tsc --outDir esm --module es2015",
     "copy-core-images": "mkdir -p ./lib/core/images/ && cp -a ./src/core/images/. ./lib/core/images/. && mkdir ./esm/core/images/ && cp -a ./src/core/images/. ./esm/core/images/.",
-    "copy-version-images": "mkdir -p ./lib/version/images/ && cp -a ./src/version/images/. ./lib/version/images/. && mkdir ./esm/version/images/ && cp -a ./src/version/images/. ./esm/version/images/.",
     "copy-core-bi-images": "mkdir -p ./lib/core/pages/BusinessIntelligence/images/ && cp -a src/core/pages/BusinessIntelligence/images/. ./lib/core/pages/BusinessIntelligence/images/. && mkdir ./esm/core/pages/BusinessIntelligence/images/ && cp -a ./src/core/pages/BusinessIntelligence/images/. ./esm/core/pages/BusinessIntelligence/images/.",
     "copy-core-respect-images": "mkdir -p ./lib/core/pages/ReSPECT/images/ && cp -a src/core/pages/ReSPECT/images/. ./lib/core/pages/ReSPECT/images/. && mkdir ./esm/core/pages/ReSPECT/images/ && cp -a ./src/core/pages/ReSPECT/images/. ./esm/core/pages/ReSPECT/images/.",
     "test": "react-scripts test --env=jsdom",

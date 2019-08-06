@@ -10,10 +10,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 
-import helmLogo from "../../../images/pulsetile-logo.png";
+import helmLogo from "../../../../core/images/pulsetile-logo.png";
 import AdvancedUserSearch from "../../../../core/common/Topbar/fragments/AdvancedUserSearch";
 import UserSearch from "../../../../core/common/Topbar/fragments/UserSearch";
-import ContrastMode from "../../../features/ContrastMode";
+import ContrastMode from "../../../../core/features/ContrastMode";
 import UserPanelButton from "./UserPanelButton";
 import { userSearchAction } from "../../../../core/actions/userSearchAction";
 

@@ -91,7 +91,6 @@ class DialogContent extends Component {
             selectedMode: showMode ? showMode : SHOW_ALL,
             selectedHeadings: showHeadings ? Object.values(showHeadings) : getHeadingsLists(),
         });
-
         const hasRespectPlugin = get(contextProps, 'themeCommonElements.respectPanel', false);
         if (hasRespectPlugin && Array.isArray(showHeadings) && showHeadings.indexOf('respect') === -1) {
             this.toggleVisibility('respect');

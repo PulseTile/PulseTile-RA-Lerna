@@ -2,7 +2,7 @@ import ThemeTopbar from "../common/Topbar";
 import ThemeFooter from "../common/Footer";
 import FeedsSelectors from "../../core/plugins/Feeds/FeedsSelectors";
 import FeedsPanels from "../../core/plugins/Feeds/FeedsPanels";
-import BackgroundImage from "../images/background.jpg";
+import BackgroundImage from "../../core/images/background.jpg";
 import Charts from "../../core/pages/Charts";
 
 export const themeShortMenu = [

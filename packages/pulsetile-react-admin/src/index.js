@@ -2,7 +2,7 @@
 import App from "./core/App";
 
 // ACTION
-import { contrastModeAction } from "./version/actions/contrastModeAction";
+import { contrastModeAction } from "./core/actions/contrastModeAction";
 import { currentPatientAction } from "./core/actions/currentPatientAction";
 import { demographicsAction } from "./core/actions/demographicsAction";
 import { userSearchAction } from "./core/actions/userSearchAction";
@@ -13,7 +13,7 @@ import PatientsListPage from "./core/pages/PatientsList";
 import Charts from "./core/pages/Charts";
 
 // COMPONENTS
-import ContrastMode from "./version/features/ContrastMode";
+import ContrastMode from "./core/features/ContrastMode";
 import PageTitle from "./core/common/Topbar/fragments/PageTitle";
 import PatientBanner from "./core/common/Topbar/fragments/PatientBanner";
 import CustomLogoutButton from "./core/common/Buttons/CustomLogoutButton";

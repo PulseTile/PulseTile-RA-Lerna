@@ -1,12 +1,11 @@
 import { combineReducers } from 'redux';
 
-import currentPatientReducer from "./currentPatientReducer";
-import showHeadings from "./showHeadingsReducer";
-
 import createCustomReducer from "./createCustomReducer";
 import createCustomSynopsisReducer from "./createCustomSynopsisReducer";
 import createRespectPluginReducer from "./createRespectPluginReducer";
 
+import currentPatientReducer from "./currentPatientReducer";
+import showHeadings from "./showHeadingsReducer";
 import httpErrorReducer from "./httpErrorReducer";
 import userSearchReducer from "./userSearchReducer";
 import toggleColumnsReducer from "./toggleColumnsReducer";
@@ -14,7 +13,12 @@ import advancedSearchReducer from "./advancedSearchReducer";
 import clinicalQueryReducer from "./clinicalQueryReducer";
 import patientsCountReducer from "./patientsCountReducer";
 import emergencySummaryReducer from "./emergencySummaryReducer";
-
+import selectedFeedsList from "./selectedFeedsReducer";
+import feedsRss from "./feedsRssReducer";
+import transferOfCareReducer from "./transferOfCareReducer";
+import respectModal from "./respectModalReducer";
+import vitalsReducer from "./vitalsReducer";
+import contrastMode from "./contrastModeReducer";
 import versionsServerInfo from "../../core/reducers/versionsServerInfoReducer";
 import businessIntelligenceReducer from "./businessIntelligenceReducer";
 
@@ -26,7 +30,6 @@ import {
     SYNOPSIS_TOP_THREE_THINGS_ACTION,
     SYNOPSIS_VACCINATIONS_ACTION
 } from "../actions/synopsisActions";
-
 import { PERSONAL_DETAILS_ACTION } from "../actions/ReSPECT/personalDetailsAction";
 import { SUMMARY_INFORMATION_ACTION } from "../actions/ReSPECT/summaryInformationAction";
 import { PERSONAL_PREFERENCES_ACTION } from "../actions/ReSPECT/personalPreferencesAction";
@@ -42,16 +45,7 @@ import { DEMOGRAPHICS_ACTION } from "../actions/demographicsAction";
 import { SHOW_MODE_ACTION } from "../actions/showModeAction";
 import { FEEDS_LIST_ACTION } from "../actions/feedsListAction";
 
-import selectedFeedsList from "./selectedFeedsReducer";
-import feedsRss from "./feedsRssReducer";
-import transferOfCareReducer from "./transferOfCareReducer";
-import respectModal from "./respectModalReducer";
-import vitalsReducer from "./vitalsReducer";
-
-// LINK TO NON-CORE CUSTOM REDUCERS
-import nonCoreReducers from "../../version/reducers";
-
-const coreReducers = {
+export default combineReducers({
     allergiesSynopsis: createCustomSynopsisReducer(SYNOPSIS_ALLERGIES_ACTION, "data.synopsis"),
     contactsSynopsis: createCustomReducer(SYNOPSIS_CONTACTS_ACTION, "data.synopsis"),
     medicationsSynopsis: createCustomSynopsisReducer(SYNOPSIS_MEDICATIONS_ACTION, "data.synopsis"),
@@ -88,8 +82,5 @@ const coreReducers = {
     transferOfCare: transferOfCareReducer,
     vitalsForChart: vitalsReducer,
     respectModal,
-};
-
-const reducers = Object.assign({}, coreReducers, nonCoreReducers);
-
-export default combineReducers(reducers);
+    contrastMode,
+});

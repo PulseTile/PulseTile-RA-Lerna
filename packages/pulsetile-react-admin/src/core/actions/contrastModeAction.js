@@ -1,4 +1,4 @@
-import { createRequestTypes } from "../../core/actions/functions";
+import { createRequestTypes } from "./functions";
 
 export const CONTRAST_MODE_ACTION = createRequestTypes('CONTRAST_MODE_ACTION');
 

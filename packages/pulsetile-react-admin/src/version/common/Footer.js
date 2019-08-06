@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from "@material-ui/core/CardMedia";
 
-import { contrastModeAction } from "../actions/contrastModeAction";
+import { contrastModeAction } from "../../core/actions/contrastModeAction";
 import footerLogo from "../../core/images/ripple-foundation-logo-footer.png";
 
 const styles = theme => ({
