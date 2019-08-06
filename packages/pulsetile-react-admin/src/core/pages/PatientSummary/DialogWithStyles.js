@@ -81,9 +81,22 @@ const styles = theme => ({
 class DialogContent extends Component {
 
     state = {
-        selectedMode: this.props.showMode ? this.props.showMode : SHOW_ALL,
-        selectedHeadings: this.props.showHeadings ? Object.values(this.props.showHeadings) : getHeadingsLists(),
+        selectedMode: SHOW_ALL,
+        selectedHeadings: [],
     };
+
+    componentDidMount() {
+        const { showMode, showHeadings, contextProps } = this.props;
+        this.setState({
+            selectedMode: showMode ? showMode : SHOW_ALL,
+            selectedHeadings: showHeadings ? Object.values(showHeadings) : getHeadingsLists(),
+        });
+
+        const hasRespectPlugin = get(contextProps, 'themeCommonElements.respectPanel', false);
+        if (hasRespectPlugin && Array.isArray(showHeadings) && showHeadings.indexOf('respect') === -1) {
+            this.toggleVisibility('respect');
+        }
+    }
 
     /**
      * This function checks is current heading was checked
@@ -210,7 +223,7 @@ class DialogContent extends Component {
 const mapStateToProps = state => {
     return {
         showMode: get(state, 'custom.showMode.data', null),
-        showHeadings: get(state, 'custom.showHeadings.data', null),
+        showHeadings: get(state, 'custom.showHeadings.data', []),
     };
 };
 

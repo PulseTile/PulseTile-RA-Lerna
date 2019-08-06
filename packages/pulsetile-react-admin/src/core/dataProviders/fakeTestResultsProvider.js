@@ -10,7 +10,7 @@ import {
 import sort, { ASC, DESC } from 'sort-array-objects';
 import pluginFilters from "../config/pluginFilters";
 
-import dummyTestResults from "../../version/plugins/Results/dummyTestResults";
+import dummyTestResults from "../plugins/Results/dummyTestResults";
 
 /**
  * This function extracts results from response

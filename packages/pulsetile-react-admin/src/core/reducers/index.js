@@ -22,8 +22,11 @@ import {
     SYNOPSIS_ALLERGIES_ACTION,
     SYNOPSIS_CONTACTS_ACTION,
     SYNOPSIS_MEDICATIONS_ACTION,
-    SYNOPSIS_PROBLEMS_ACTION
+    SYNOPSIS_PROBLEMS_ACTION,
+    SYNOPSIS_TOP_THREE_THINGS_ACTION,
+    SYNOPSIS_VACCINATIONS_ACTION
 } from "../actions/synopsisActions";
+
 import { PERSONAL_DETAILS_ACTION } from "../actions/ReSPECT/personalDetailsAction";
 import { SUMMARY_INFORMATION_ACTION } from "../actions/ReSPECT/summaryInformationAction";
 import { PERSONAL_PREFERENCES_ACTION } from "../actions/ReSPECT/personalPreferencesAction";
@@ -37,6 +40,13 @@ import { EMERGENCY_VIEW_ACTION } from "../actions/ReSPECT/emergencyViewAction";
 import { INITIALIZE_ACTION } from "../actions/initializeAction";
 import { DEMOGRAPHICS_ACTION } from "../actions/demographicsAction";
 import { SHOW_MODE_ACTION } from "../actions/showModeAction";
+import { FEEDS_LIST_ACTION } from "../actions/feedsListAction";
+
+import selectedFeedsList from "./selectedFeedsReducer";
+import feedsRss from "./feedsRssReducer";
+import transferOfCareReducer from "./transferOfCareReducer";
+import respectModal from "./respectModalReducer";
+import vitalsReducer from "./vitalsReducer";
 
 // LINK TO NON-CORE CUSTOM REDUCERS
 import nonCoreReducers from "../../version/reducers";
@@ -46,6 +56,8 @@ const coreReducers = {
     contactsSynopsis: createCustomReducer(SYNOPSIS_CONTACTS_ACTION, "data.synopsis"),
     medicationsSynopsis: createCustomSynopsisReducer(SYNOPSIS_MEDICATIONS_ACTION, "data.synopsis"),
     problemsSynopsis: createCustomSynopsisReducer(SYNOPSIS_PROBLEMS_ACTION, "data.synopsis"),
+    vaccinationsSynopsis: createCustomReducer(SYNOPSIS_VACCINATIONS_ACTION, "data.synopsis"),
+    top3ThingsSynopsis: createCustomReducer(SYNOPSIS_TOP_THREE_THINGS_ACTION, "data.synopsis"),
     initialize: createCustomReducer(INITIALIZE_ACTION, "data"),
     demographics: createCustomReducer(DEMOGRAPHICS_ACTION, "data.demographics"),
     httpErrors: httpErrorReducer,
@@ -70,6 +82,12 @@ const coreReducers = {
     confirmation: createRespectPluginReducer(CONFIRMATION_ACTION),
     emergencyView: createRespectPluginReducer(EMERGENCY_VIEW_ACTION),
     versionsServerInfo,
+    feedsList: createCustomReducer(FEEDS_LIST_ACTION, "data"),
+    selectedFeedsList,
+    feedsRss,
+    transferOfCare: transferOfCareReducer,
+    vitalsForChart: vitalsReducer,
+    respectModal,
 };
 
 const reducers = Object.assign({}, coreReducers, nonCoreReducers);

@@ -1,7 +1,19 @@
 import get from "lodash/get";
-import { faAllergies, faPhone, faCapsules, faNotesMedical  } from '@fortawesome/free-solid-svg-icons';
-import { nonCoreSynopsisData } from "../../../version/config/nonCoreSynopsis";
-import {themeCommonElements} from "../../../version/config/theme.config";
+import {
+    faAllergies,
+    faPhone,
+    faCapsules,
+    faNotesMedical,
+    faClinicMedical,
+    faProcedures,
+    faBriefcaseMedical,
+    faMicroscope,
+    faUserMd,
+    faAmbulance,
+    faSyringe,
+    faHeartbeat,
+    faStethoscope
+} from '@fortawesome/free-solid-svg-icons';
 
 /**
  * This function returns data for patient summary page
@@ -9,7 +21,7 @@ import {themeCommonElements} from "../../../version/config/theme.config";
  * @author Bogdan Shcherban <bsc@piogroup.net>
  * @return {array}
  */
-export const coreSynopsisData = [
+export const totalSynopsisData = [
     {
         id: "block-problems",
         title: "Problems / Issues",
@@ -46,9 +58,98 @@ export const coreSynopsisData = [
         isSynopsis: true,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
+    {
+        id: "block-clinicalNotes",
+        title: "Clinical Notes",
+        list: "clinicalnotes",
+        icon: faClinicMedical,
+        isActive: true,
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+        id: "block-MDT",
+        title: "MDT",
+        list: "mdtreports",
+        icon: faNotesMedical,
+        isActive: true,
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+        id: "block-personalNotes",
+        title: "Personal Notes",
+        list: "personalnotes",
+        icon: faClinicMedical,
+        isActive: true,
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+        id: "block-procedures",
+        title: "Procedures",
+        list: "procedures",
+        icon: faProcedures,
+        isActive: true,
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+        id: "block-referrals",
+        title: "Referrals",
+        list: "referrals",
+        icon: faBriefcaseMedical,
+        isActive: true,
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+        id: "block-labresults",
+        title: "Results",
+        list: "labresults",
+        icon: faMicroscope,
+        isActive: true,
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+        id: "block-top3Things",
+        title: "Top Three Things",
+        list: "top3Things",
+        icon: faUserMd,
+        isActive: true,
+        isSynopsis: true,
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+        id: "block-toc",
+        title: "Transfers Of Care",
+        list: "toc",
+        icon: faAmbulance,
+        isActive: true,
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+        id: "block-vaccinations",
+        title: "Vaccinations",
+        list: "vaccinations",
+        icon: faSyringe,
+        isActive: true,
+        isSynopsis: true,
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+        id: "block-vitalsigns",
+        title: "Vitals",
+        list: "vitalsigns",
+        icon: faHeartbeat,
+        isActive: true,
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+        id: "block-events",
+        title: "Events",
+        list: "events",
+        icon: faStethoscope,
+        isActive: true,
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
 ];
 
-export const totalSynopsisData = coreSynopsisData.concat(nonCoreSynopsisData);
 export const synopsisData = totalSynopsisData.filter(item => item.isActive);
 
 export const SHOW_HEADING = 'heading';
@@ -64,10 +165,6 @@ export function getHeadingsLists() {
     synopsisData.forEach(item => {
         result.push(item.list);
     });
-    const hasRespectPlugin = get(themeCommonElements, 'respectPanel', false);
-    if (hasRespectPlugin) {
-        result.push('respect');
-    }
     return result;
 }
 

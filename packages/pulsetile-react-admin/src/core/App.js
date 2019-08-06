@@ -7,8 +7,7 @@ import nodeRedDataProvider from "./dataProviders/nodeRed/dataProvider";
 
 import authProvider from "./dataProviders/authProvider";
 
-import corePlugins from "./config/corePlugins";
-import nonCorePlugins from "../version/config/nonCorePlugins";
+import plugins from "./config/plugins";
 
 import customSagas from "./sagas";
 import customReducers from "./reducers";
@@ -20,7 +19,6 @@ import InitializePage from "./pages/InitializePage";
 import PatientSummaryPage from "./pages/PatientSummary";
 import translations from "./translations";
 
-const plugins = corePlugins.concat(nonCorePlugins);
 const i18nProvider = locale => translations[locale];
 
 function getRoutesArray(themeConfiguration) {

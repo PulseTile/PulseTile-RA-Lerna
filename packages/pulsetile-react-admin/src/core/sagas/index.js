@@ -1,6 +1,5 @@
 import { all } from 'redux-saga/effects';
 
-// CORE SAGAS
 import currentPatientSagas from "./currentPatientSagas";
 import initializeSagas from "./initializeSagas";
 import demographicsSagas from "./demographicsSagas";
@@ -11,25 +10,30 @@ import patientsCountSagas from "./patientsCountSagas";
 import emergencySummarySagas from "./emergencySummarySagas";
 import respectSagas from "./respectSagas";
 import businessIntelligenceSagas from "./businessIntelligenceSagas";
-
 import createSynopsisSagas from "./createSynopsisSagas";
 import createSynopsisNodeRedSagas from "./createSynopsisNodeRedSagas";
+import feedsListSagas from "./feedsListSagas";
+import feedsRssSagas from "./feedsRssSagas";
+import transferOfCareSagas from "./transferOfCareSagas";
+import vitalsSagas from "./vitalsSagas";
+
 import {
     SYNOPSIS_ALLERGIES_ACTION, synopsisAllergiesAction,
     SYNOPSIS_CONTACTS_ACTION, synopsisContactsAction,
     SYNOPSIS_MEDICATIONS_ACTION, synopsisMedicationsAction,
-    SYNOPSIS_PROBLEMS_ACTION, synopsisProblemsAction
+    SYNOPSIS_PROBLEMS_ACTION, synopsisProblemsAction,
+    SYNOPSIS_VACCINATIONS_ACTION, synopsisVaccinationsAction,
+    SYNOPSIS_TOP_THREE_THINGS_ACTION, synopsisTopThreeThingsAction
 } from "../actions/synopsisActions";
 
-// LINK TO NON-CORE SAGAS
-import nonCoreSagas from "../../version/sagas";
-
-const coreSagas = [
+const sagas = [
     currentPatientSagas,
     createSynopsisSagas(SYNOPSIS_ALLERGIES_ACTION, synopsisAllergiesAction, 'allergies'),
     createSynopsisSagas(SYNOPSIS_CONTACTS_ACTION, synopsisContactsAction, 'contacts'),
     createSynopsisSagas(SYNOPSIS_MEDICATIONS_ACTION, synopsisMedicationsAction, 'medications'),
     createSynopsisSagas(SYNOPSIS_PROBLEMS_ACTION, synopsisProblemsAction, 'problems'),
+    createSynopsisSagas(SYNOPSIS_VACCINATIONS_ACTION, synopsisVaccinationsAction, 'vaccinations'),
+    createSynopsisSagas(SYNOPSIS_TOP_THREE_THINGS_ACTION, synopsisTopThreeThingsAction, 'top3Things'),
     createSynopsisNodeRedSagas(SYNOPSIS_ALLERGIES_ACTION, synopsisAllergiesAction, 'allergies'),
     createSynopsisNodeRedSagas(SYNOPSIS_MEDICATIONS_ACTION, synopsisMedicationsAction, 'medications'),
     createSynopsisNodeRedSagas(SYNOPSIS_PROBLEMS_ACTION, synopsisProblemsAction, 'problems'),
@@ -42,10 +46,12 @@ const coreSagas = [
     emergencySummarySagas,
     respectSagas,
     businessIntelligenceSagas,
+    feedsListSagas,
+    feedsRssSagas,
+    transferOfCareSagas,
+    vitalsSagas,
 ];
 
-const mergeSagas = coreSagas.concat(nonCoreSagas);
-
 export default function* rootSaga() {
-    yield all(mergeSagas);
+    yield all(sagas);
 }

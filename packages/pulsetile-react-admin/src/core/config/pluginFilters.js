@@ -1,5 +1,3 @@
-import nonCorePluginFilters from "../../version/config/pluginFilters";
-
 /**
  * This component returns array of fields for filtering
  * (core plugins)
@@ -7,11 +5,13 @@ import nonCorePluginFilters from "../../version/config/pluginFilters";
  * @author Bogdan Shcherban <bsc@piogroup.net>
  * @return {shape}
  */
-const corePluginFilters = {
+export default {
     allergies: ['cause', 'reaction'],
     contacts: ['name', 'relationship'],
     problems: ['problem'],
     medications: ['name'],
+    vaccinations: ['vaccinationName'],
+    top3Things: [],
+    labresults: ['testName'],
+    events: ['name', 'type'],
 };
-
-export default Object.assign({}, corePluginFilters, nonCorePluginFilters);

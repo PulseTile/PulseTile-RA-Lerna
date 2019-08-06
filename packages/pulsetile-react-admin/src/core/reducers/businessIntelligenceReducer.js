@@ -1,7 +1,7 @@
 import get from "lodash/get";
 
 import { BUSINESS_INTELLIGENCE_ACTION } from "../actions/BusinessIntelligence/businessIntelligenceAction";
-import dummyData from "../../version/reducers/dummyBIdata";
+import dummyData from "./dummyBIdata";
 
 const initialState = {
     data: false,

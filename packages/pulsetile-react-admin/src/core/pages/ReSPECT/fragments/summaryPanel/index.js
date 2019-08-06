@@ -48,6 +48,10 @@ const styles = theme => ({
         alignItems: "center",
         color: theme.palette.fontColor,
     },
+    iconInverted: {
+        color: theme.palette.mainColor,
+        marginBottom: 10,
+    },
     icon: {
         marginBottom: 10,
     },
@@ -72,8 +76,8 @@ const styles = theme => ({
     },
     listItem: {
         display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
+        flexDirection: "row",
+        justifyContent: "space-between",
         height: 48,
         paddingLeft: 15,
         fontSize: "1rem",
@@ -117,7 +121,7 @@ class RespectSummaryPanel extends Component {
             <Grid item xs={12} sm={6} md={6} lg={3}>
                 <Card className={classes.card}>
                     <div className={isTableHeaderInverted ? classes.topBlockInverted : classes.topBlock} onClick={() => history.push('/respect')}>
-                        { !isOldDesign && <FontAwesomeIcon icon={faNotesMedical} size="2x" className={classes.icon} /> }
+                        { !isOldDesign && <FontAwesomeIcon icon={faNotesMedical} size="2x" className={isTableHeaderInverted ? classes.iconInverted : classes.icon} /> }
                         <h1 className={classes.mainHeading}>
                             <Typography gutterBottom className={isTableHeaderInverted ? classes.titleInverted : classes.title} >
                                 ReSPECT

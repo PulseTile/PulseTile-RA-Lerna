@@ -14,9 +14,11 @@ import {
     synopsisAllergiesAction,
     synopsisContactsAction,
     synopsisMedicationsAction,
-    synopsisProblemsAction
+    synopsisProblemsAction,
+    synopsisVaccinationsAction,
+    synopsisTopThreeThingsAction
 } from "../../actions/synopsisActions";
-import { nonCoreSynopsisActions } from "../../../version/config/nonCoreSynopsis";
+
 import { emergencySummaryAction } from "../../actions/emergencySummaryAction";
 import { currentPatientAction } from "../../actions/currentPatientAction";
 
@@ -176,13 +178,14 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    const coreSynopsisActions = [
+    const synopsisActions = [
         { plugin: 'allergies', action: synopsisAllergiesAction },
         { plugin: 'contacts', action: synopsisContactsAction },
         { plugin: 'problems', action: synopsisProblemsAction },
         { plugin: 'medications', action: synopsisMedicationsAction },
+        { plugin: 'vaccinations', action: synopsisVaccinationsAction },
+        { plugin: 'top3Things', action: synopsisTopThreeThingsAction },
     ];
-    const synopsisActions = coreSynopsisActions.concat(nonCoreSynopsisActions);
     const pluginsList = get(ownProps, 'pluginsList', []);
     return {
         getPatientSynopsis() {

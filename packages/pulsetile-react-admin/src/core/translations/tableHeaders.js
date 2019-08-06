@@ -1,12 +1,10 @@
-import nonCoreTableHeaders from "../../version/config/tableHeaders";
-
 /**
  * This component returns titles and descriptions for table headers
  *
  * @author Bogdan Shcherban <bsc@piogroup.net>
  * @return {shape}
  */
-const coreTableHeaders = {
+export default {
     allergies: {
         title: "Allergies",
         description: "Those things that your body reacts against , that you have an allergy to",
@@ -24,5 +22,3 @@ const coreTableHeaders = {
         description: "The key problems that affect your health, some with clear diagnoses from your doctor",
     },
 };
-
-export default Object.assign({}, coreTableHeaders, nonCoreTableHeaders);
