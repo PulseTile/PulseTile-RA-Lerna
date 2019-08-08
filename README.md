@@ -1,19 +1,19 @@
 # General information
-This project presents a [PulseTile-RA](http://docs.pulsetile.com/react-admin-background.html) - mono-repository open-source software for hospitals.
+Here is presented a [PulseTile-RA](http://docs.pulsetile.com/react-admin-background.html) - mono-repository open-source software for hospitals.
 
-Functionality of PulseTile-RA consists of:
-- plugins (Allergies, Medications, Problems, Vaccinations etc.);
-- pages (Business Intelligence, Charts etc.);
-- tools (Advanced patients search, Patients search by Clinical Query, Contrast Mode, UserTour etc.). 
+PulseTile-RA functionality includes:
+- Plugins (Allergies, Medications, Problems, Vaccinations etc.);
+- Pages (Business Intelligence, Charts etc.);
+- Tools (Advanced patients search, Patients search by Clinical Query, Contrast Mode, UserTour etc.). 
 
-This project include five different versions of PulseTile-RA project:
+This repository also includes five different versions of PulseTile-RA project:
 - [Helm](./projects/helm/README.md);
 - [One London](./projects/london/README.md);
 - [NodeRed-Showcase](./projects/nodered/README.md);
 - [Scotland](./projects/scotland/README.md);
 - [Showcase](./projects/helm/README.md).
 
-Each project has unique set of plugins, pages and available tools. The main idea of this project is using common package [pulsetile-react-admin](./packages/pulsetile-react-admin) to create a lot of different versions of application.
+Each project has unique set of plugins, pages and available tools. The main idea of this project is using general package [pulsetile-react-admin](./packages/pulsetile-react-admin) to create a lot of different application versions.
 
 # Technologies 
 
@@ -25,7 +25,7 @@ This project is based on two main technologies: **React-Admin** and **Lerna**.
 
 # Installation
 
-If you want to install this project locally, you should check, that following modules have installed at your local machine has yet:
+If you want to install PulseTile-RA locally, you should check that following modules are installed at your local machine globally:
 ``` 
 $ npm -v           //  3.5.2 and more
 $ node -v          //  8.10.0 and more
@@ -34,7 +34,7 @@ $ git --version    //  2.17.1 and more
 ``` 
 If any of these modules are absent at your local machine, you should install them.
 
-Clone the project from GitHub:
+Next clone the project from GitHub:
 ``` 
 $ git clone https://github.com/PulseTile/PulseTile-RA-Lerna
 ```
@@ -56,11 +56,11 @@ $ cd packages/pulsetile-react-admin
 $ npm run build
 ```
 
-After this actoins your project will be ready to work. Let's look at the project structure.
+After those steps your project will be ready for work. 
 
 # Project structure
 
-Structural scheme of this project is described below:
+Structure of this project is described below:
 ```
 |
 |--- packages
@@ -85,7 +85,7 @@ Structural scheme of this project is described below:
 
 There are two main directories: `packages/` and `projects/`.
 
-The `packages/` directory include `pulsetile-react-admin` package. It includes all possible plugins, pages and tools of PulseTile-RA project.
+The `packages/` directory includes `pulsetile-react-admin` package. It also includes all possible plugins, pages and tools of PulseTile-RA.
 
 All versions in the `projects/` directory are based on `pulsetile-react-admin` package. 
 Each version has `index.js` - it is a root file of project version. 
@@ -96,7 +96,7 @@ Each version has `index.js` - it is a root file of project version.
 
 # Version parameters
  
-Let's look inside `App.js` file of `nodered` project: 
+Let's look inside `App.js` file of `nodered` version: 
 ``` 
 // projects/nodered/src/App.js
 
@@ -127,23 +127,23 @@ class Core extends Component {
 
 `App` is a root component of application. It is imported from `pulsetile-react-admin` package. This component has following properties:
 
-**themeConfiguration** is an object, which includes following sub-objects:
+**themeConfiguration** is an object that includes:
 
 - **themeShortMenu** is an array of short menu (for the pages Charts, Patients List and Business Intelligence);
 - **themeFullMenu** is an array of full menu (for all other pages);
-- **themeCommonElements** is a list of settings, which can anable or disable part of functionality (look at the list below);
-- **themeImages** is a list of images, which can be set in project (look at the list below);
-- **pagesList** is a list of visible pages. All possible pages list is presented [here](./packages/pulsetile-react-admin/src/routes.js);
-- **pluginsList** is a list of visible plugins. All possible plugins list is presented [here](./packages/pulsetile-react-admin/src/config/plugins.js);
+- **themeCommonElements** is a list of settings that can be enabled or disabled (look at the list below);
+- **themeImages** is a list of images that can be set in project (look at the list below);
+- **pagesList** is a list of visible pages. List of all possible pages is presented [here](./packages/pulsetile-react-admin/src/routes.js);
+- **pluginsList** is a list of visible plugins. List of all possible plugins is presented [here](./packages/pulsetile-react-admin/src/config/plugins.js);
 - **pluginsOnlyForReview** is a list of plugins, where user can only review the list of items, but can't edit them or create new item.
 
-**CustomLayout** parameter should define component of custom layout, which is located in `custom/` directory.
+**CustomLayout** parameter should define custom layout component. It is located in `custom/` directory.
 
-**CustomHomepage** parameter should define component of Homepage. It has URL `http://{yourDomain}/#/`. User comes to login page after authorization. By Default home page is [Charts](./packages/pulsetile-react-admin/src/pages/Charts/index.js) page.
+**CustomHomepage** parameter should define component of Homepage. It has URL `http://{yourDomain}/#/`. User comes to login page after authorization. By default Homepage is [Charts](./packages/pulsetile-react-admin/src/pages/Charts/index.js) page.
 
-**isAuthAbsent** is boolean (`false` by default). If check `true` user will come to the homepage without authorization.
+**isAuthAbsent** (`false` by default). If it `true`, user will come to the homepage without authorization.
 
-**isNodeRedVersion** is boolean (`false` by default). If check `true` package will use [NodeRed data provider](./packages/pulsetile-react-admin/src/dataProviders/nodeRed/dataProvider.js) instead of [default](./packages/pulsetile-react-admin/src/dataProviders/dataProvider.js).
+**isNodeRedVersion** (`false` by default). If it `true`, package will use [NodeRed data provider](./packages/pulsetile-react-admin/src/dataProviders/nodeRed/dataProvider.js) instead of [default](./packages/pulsetile-react-admin/src/dataProviders/dataProvider.js).
 
 # List of `themeImages`
 
@@ -160,7 +160,7 @@ export const themeImages = {
 };
 ```
 
-It can have two parameters: **backgroundImage** and **logo**. The first one set background image, and the second one - the logo on it. For example, let's look at OneLondon version:
+It can have two parameters: **backgroundImage** and **logo**. The first sets background image, and the second sets logo on it. For example, let's look at OneLondon version:
 
 ![Background image and Logo](./readMeImages/home/home-OneLondon.png)
 
@@ -170,42 +170,42 @@ Images should be located inside `/projects/{projectName}/images` directory.
 
 This object includes following properties:
 
-- **isQwedVersion/isNodeRedVersion** - boolean, which define type of data provider ([NodeRed](./packages/pulsetile-react-admin/src/dataProviders/nodeRed/dataProvider.js) or [QWED](./packages/pulsetile-react-admin/src/dataProviders/dataProvider.js));
-- **menuHasChevrons** - boolean (`false` by default), which set right chevrons near menu items:
+- **isQwedVersion/isNodeRedVersion** - boolean that define type of data provider ([NodeRed](./packages/pulsetile-react-admin/src/dataProviders/nodeRed/dataProvider.js) or [QWED](./packages/pulsetile-react-admin/src/dataProviders/dataProvider.js));
+- **menuHasChevrons** (`false` by default) - to set right chevrons near menu items:
 
 ![menuHasChevrons](./readMeImages/themeCommonElements/menuHasChevrons.png)
 
-- **isFooterAbsent** - boolean (`false` by default), which set visibility of Footer;
+- **isFooterAbsent** (`false` by default) - to hide Footer;
 
-- **isTableHeaderIcon** - boolean (`false` by default), which set that icon is presented in Patient Summary panels:
+- **isTableHeaderIcon** (`false` by default) - to set icons on Patient Summary panels:
 
 ![isTableHeaderIcon](./readMeImages/themeCommonElements/isTableHeaderIcon-1.png)
 
-... and at Table Headers:
+... and on Table Headers:
 
 ![isTableHeaderIcon](./readMeImages/themeCommonElements/isTableHeaderIcon-2.png)
 
-- **patientSummaryPermission** - boolean (`false` by default), which set that user should agree with Patient Access Disclaimer before program redirect him to Patient Summary page:
+- **patientSummaryPermission** (`false` by default) - trigger Patient Access Disclaimer popup:
 
 ![patientSummaryPermission](./readMeImages/themeCommonElements/patientSummaryPermission.png)         
 
-- **patientListColumnToggling** - boolean (`false` by default), which set possibility to hide or show columns at the patients list:
+- **patientListColumnToggling** (`false` by default) - allow user hide or show columns at the patients list:
       
 ![patientListColumnToggling](./readMeImages/themeCommonElements/patientListColumnToggling.png)               
 
-- **isPatientListCount** - boolean (`false` by default), which set displaying of additional columns at Patients list:
+- **isPatientListCount** (`false` by default) - boolean that display additional columns at Patients list:
 
 ![isPatientListCount](./readMeImages/themeCommonElements/isPatientListCount.png)               
 
-- **redirectToPlugin** - boolean (`false` by default), which set possibility to redirect user at the checked plugin page;
+- **redirectToPlugin** (`false` by default) - allow to redirect user at the chosen plugin page;
 
 ![redirectToPlugin](./readMeImages/themeCommonElements/redirectToPlugin.png)       
 
-- **feedsSelectors** and **feedsPanels** set the component, which should be used for Feeds Selectors
+- **feedsSelectors** and **feedsPanels** set the component that should be used for Feeds Selectors
 
 ![feedsSelectors](./readMeImages/themeCommonElements/feedsSelectors.png)            
 
-... and Feeds panels at Patient Summary page:
+... and Feeds panels on Patient Summary page:
 
 ![feedsPanels](./readMeImages/themeCommonElements/feedsPanels.png)      
 
@@ -213,19 +213,25 @@ These two settings are used only if current project version has Feeds.
 
 - **homePage** set which component should be used as Home page (Charts page by default);
 
-- **respectPanel** set the component, which should be used for ReSPECT-plugin panel at the Patient Summary page.
+- **respectPanel** set the component that should be used for ReSPECT-plugin panel on the Patient Summary page.
 
 ![respectPanel](./readMeImages/themeCommonElements/respectPanel.png)  
 
 These setting are used only if current project version has ReSPECT-plugin.
 
-- **hasPatientSummaryRoll** set the component, gives possibility to show roll view at the Patient Summary page:
+- **hasPatientSummaryRoll** (`false` by default). 
+
+If `false` we see Patient Summary table:
+ 
+![hasPatientSummaryRoll](./readMeImages/themeCommonElements/hasPatientSummaryRoll-2.png)  
+ 
+If `true` we see roll view at the Patient Summary page:
 
 ![hasPatientSummaryRoll](./readMeImages/themeCommonElements/hasPatientSummaryRoll.png)  
 
 # How can I create new project version?
 
-If you want to create new project version, you should do following:
+If you want to create new project version, you should do the following:
 
 - Create new directory inside `projects/`
 
@@ -235,9 +241,9 @@ $ mkdir {myProjectName}
 $ cd {myProjectName}
 ```
 
-- Copy `public/` directory from any other project version. It includes all required fonts, icons, favicon and `index.html` file.
+- Copy `public/` directory from any other project version (including all required fonts, icons, favicon and `index.html` file).
 
-- Create `package.json` file inside `{myProjectName}` directory. You can copy `package.json` file from any other project version, but after this you should set `name` of new one:
+- Create `package.json` file inside `{myProjectName}` directory. You can copy `package.json` file from any other project version, but after this you should set `name` of your project:
 
 ``` 
 // projects/{myProjectName}/package.json
@@ -291,7 +297,7 @@ $ cd ../..
 $ lerna bootstrap
 ```
 
-- After new project will be bootstrap, you should re-install all required dependencies:
+- After new project was bootstrap, you should re-install all required dependencies:
 
 ``` 
 $ yarn install
@@ -303,9 +309,9 @@ $ yarn install
 $ npm start
 ```
 
-- You can see, that your application was started successfully, but you can't see plugins pages of application. To set this, you should add theme configuration settings. 
+- You would see, that your application started successfully, but at that time you won't see plugins pages of application. To set them, you should add theme configuration settings. 
 
-Let's create `projects/{myProjectName}/custom/themeConfig.js` file and add some settings here:
+- Create `projects/{myProjectName}/custom/themeConfig.js` file and add some settings here:
 ``` 
 import { Charts } from "pulsetile-react-admin";
 
@@ -364,17 +370,17 @@ class Core extends Component {
 export default Core;
 ```
 
-If you update `npm start`, you can see, that pages Charts and Patients are visible. Plugins Allergies, Contacts, Problems and Medications are visible too.
+If you update `npm start`, you would see, that pages Charts and Patients are visible. Plugins Allergies, Contacts, Problems and Medications are visible too.
 
 - Customize your project according to examples in other versions. Default Topbar, Sidebar and Footer are similar to Showcase-version. 
 
 # How to set theme colors
 
-Color palette is set in `projects/{myProjectName}/public/index.html`. Let's look at settings:
+Color palette is set in `projects/{myProjectName}/public/index.html`. All settings are located inside `window.config` and available in each component of your application:
 ``` 
 <script type="text/javascript">
   window.config = {
-    domainName: "http://192.168.88.38:8080",
+    domainName: "http://{yourDomainName}",
     isOldDesign: false,
     isRectangleButtons: false,
     lightPalette: {
@@ -409,7 +415,7 @@ Color palette is set in `projects/{myProjectName}/public/index.html`. Let's look
 </script>
 ```
 
-First of all, you should set your **domain name** here. This domain name will be used for all requests to the server side.
+First of all, you should set your **domain name**. It will be used for all requests to the server side.
 
 Parameters **isOldDesign** and **isRectangleButtons** should be `false`.
 
@@ -417,7 +423,7 @@ You can see, that project has two palette of colors - **light** and **dark**. Li
 
 Which colors can we set here:
 
-- **mainColor** and **secondaryMainColor** should be equal (if **isOldDesign** is `false`) and set main color of your project version;
+- **mainColor** and **secondaryMainColor** should be equal if **isOldDesign** is `false`, and different in opposite case. These parameters can set the main color of your project version;
 - **tableHeadColor** set the color of table headers:
 
 ![tableHeadColor](./readMeImages/colors/tableHeadColor.png)
@@ -436,11 +442,11 @@ Which colors can we set here:
 
 - **borderColor** set a color of block borders;
 
-- **paperColor** is used fow light background;
+- **paperColor** is used for light background;
 
 - **fontColor** set a color of the text at light background;
 
-- **toolbarColor** set a color of tables or forms toolbars;
+- **toolbarColor** set a color of tables and forms toolbars;
 
 - **viewButton** set a color of View button which redirects user from Patients list to Patient Summary page:
 
@@ -448,7 +454,7 @@ Which colors can we set here:
 
 ![viewButton](./readMeImages/colors/viewButton-2.png)
 
-- **topbarButton** set a color of right-corner buttons in topbar:
+- **topbarButton** set a color of right-corner buttons in topbar (Contrast mode and User panel buttons):
 
 ![topbarButton](./readMeImages/colors/topbarButton-1.png)
 
