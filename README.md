@@ -1,17 +1,18 @@
 # General information
-Here is presented a [PulseTile-RA](http://docs.pulsetile.com/react-admin-background.html) - mono-repository open-source software for hospitals.
+[PulseTile](http://docs.pulsetile.com/react-admin-background.html) - open-source UX / UI framework for healthcare - version based on React Admin , using a Lerna monorepository.
 
 PulseTile-RA functionality includes:
-- Plugins (Allergies, Medications, Problems, Vaccinations etc.);
-- Pages (Business Intelligence, Charts etc.);
+- Core Framework -  Pages (Business Intelligence, Multipatient View, Single Patient View etc.);
+- Plugins aka Tiles (Allergies, Medications, Problems, Vaccinations etc.);
 - Tools (Advanced patients search, Patients search by Clinical Query, Contrast Mode, UserTour etc.). 
 
 This repository also includes five different versions of PulseTile-RA project:
-- [Helm](./projects/helm/README.md);
-- [One London](./projects/london/README.md);
+- [Showcase Stack](./projects/showcase/README.md);
+- [Helm/ PHR](./projects/helm/README.md);
+- [One London / IDCR ](./projects/london/README.md);
 - [NodeRed-Showcase](./projects/nodered/README.md);
-- [Scotland](./projects/scotland/README.md);
-- [Showcase](./projects/helm/README.md).
+- [Scotland / Respect Care Plan](./projects/scotland/README.md).
+
 
 Each project has unique set of plugins, pages and available tools. The main idea of this project is using general package [pulsetile-react-admin](./packages/pulsetile-react-admin) to create a lot of different application versions.
 
