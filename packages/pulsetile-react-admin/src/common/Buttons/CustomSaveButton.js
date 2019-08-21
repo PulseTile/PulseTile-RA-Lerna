@@ -11,9 +11,9 @@ const styles = theme => ({
         width: 130,
         height: 40,
         margin: 8,
-        backgroundColor: theme.palette.secondaryMainColor,
+        backgroundColor: theme.palette.buttonsColor,
         color: "white",
-        border: `1px solid ${theme.palette.secondaryMainColor}`,
+        border: `1px solid ${theme.palette.buttonsColor}`,
         borderRadius: theme.isRectangleButtons ? 0 : 25,
         fontSize: 16,
         fontWeight: 800,
@@ -26,7 +26,7 @@ const styles = theme => ({
         },
         "&:hover": {
             backgroundColor: "white",
-            color: theme.palette.secondaryMainColor,
+            color: theme.palette.buttonsColor,
         }
     },
 });

@@ -28,7 +28,7 @@ const styles = theme => ({
     },
     link: {
         textDecoration: "none",
-        color: theme.palette.secondaryMainColor,
+        color: theme.palette.breadcrumbsColor,
         cursor: "pointer",
     },
     breadcrumbsItem: {

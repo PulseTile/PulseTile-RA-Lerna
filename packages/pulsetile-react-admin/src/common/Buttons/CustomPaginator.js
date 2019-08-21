@@ -24,10 +24,10 @@ const styles = theme => ({
         width: 48,
         boxSizing: "border-box",
         borderRadius: 0,
-        color: theme.palette.secondaryMainColor,
+        color: theme.palette.buttonsColor,
         '&:hover': {
             color: "white",
-            backgroundColor: theme.palette.secondaryMainColor
+            backgroundColor: theme.palette.buttonsColor
         }
     },
     activeButton: {
@@ -38,10 +38,10 @@ const styles = theme => ({
         boxSizing: "border-box",
         borderRadius: 0,
         color: "white",
-        backgroundColor: theme.palette.secondaryMainColor,
+        backgroundColor: theme.palette.buttonsColor,
         '&:hover': {
             color: "white",
-            backgroundColor: theme.palette.secondaryMainColor
+            backgroundColor: theme.palette.buttonsColor
         }
     }
 });

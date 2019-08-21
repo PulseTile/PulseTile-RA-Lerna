@@ -19,14 +19,14 @@ const styles = theme => ({
             },
         },
         '& tbody tr:hover': {
-            backgroundColor: theme.palette.secondaryMainColor + '!important',
+            backgroundColor: theme.palette.selectedTableRowColor + '!important',
             '& td div button': {
                 backgroundColor: theme.palette.paperColor,
-                color: theme.palette.secondaryMainColor
+                color: theme.palette.selectedTableRowColor
             },
             '& td div svg': {
                 backgroundColor: theme.palette.paperColor,
-                color: theme.palette.secondaryMainColor
+                color: theme.palette.selectedTableRowColor
             },
         },
         '& tbody tr td': {

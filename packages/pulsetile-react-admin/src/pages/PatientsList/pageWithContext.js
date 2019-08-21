@@ -102,6 +102,7 @@ class PatientsList extends Component {
 
         const image = get(contextProps, 'themeImages.logo', null);
         const patientListColumnToggling = get(contextProps, 'themeCommonElements.patientListColumnToggling', false);
+        const patientIdLabel = get(contextProps, 'themeCommonElements.patientIdLabel', "NHS No.");
 
         if (!userSearch && !userSearchID && !userSearchType && !userSearchValue && !userClinicalQuery) {
             return (
@@ -144,7 +145,7 @@ class PatientsList extends Component {
                     { this.isColumnHidden('address') && <TextField source="totalAddress" label="Address" /> }
                     <TextField source="gender" label="Gender"/>
                     <DateField source="birthDate" label="Born"/>
-                    { this.isColumnHidden('nhsNumber') && <TextField source="nhsNumber" label="NHS No." /> }
+                    { this.isColumnHidden('nhsNumber') && <TextField source="nhsNumber" label={patientIdLabel} /> }
 
                     {/*{ this.isColumnHidden('ordersDate') &&*/}
                     {/*    <DateField source="ordersDate" label={<LabelWithIcon classes={classes} title="Orders" icon={<TodayIcon className={classes.icon}/>}/>} />*/}
