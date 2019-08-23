@@ -22,6 +22,7 @@ import FeedsPanels from "./plugins/Feeds/FeedsPanels";
 import RespectSummaryPanel from "./pages/ReSPECT/fragments/summaryPanel";
 import AdvancedUserSearch from "./common/Topbar/fragments/AdvancedUserSearch";
 import UserSearch from "./common/Topbar/fragments/UserSearch";
+import HandleErrorModal from "./common/HandleErrorModal";
 
 import { ThemeConfigurationContext, ThemeConfigurationProvider, ThemeConfigurationConsumer } from "./themeConfigurationContext";
 
@@ -46,6 +47,7 @@ export {
     RespectSummaryPanel,
     AdvancedUserSearch,
     UserSearch,
+    HandleErrorModal,
 
     ThemeConfigurationProvider,
     ThemeConfigurationConsumer,

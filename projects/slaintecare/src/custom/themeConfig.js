@@ -1,5 +1,5 @@
 import logo from "../images/logo-header.png";
-import backgroundImage from "../images/containerBackground.jpg";
+import backgroundImage from "../images/containerBackground.jpeg";
 
 export const themeShortMenu = [
     { id: 'menu-patients', url: '/patients', label: 'Patients' },
@@ -22,6 +22,7 @@ export const themeCommonElements = {
     invertedTableHeaders: true,
     patientIdLabel: 'IHI No.',
     isCreateButtonInverted: true,
+    isPatientSystemInformationAbsent: true,
 };
 
 export const themeImages = {

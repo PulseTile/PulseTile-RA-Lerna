@@ -56,7 +56,7 @@ export const totalSynopsisData = [
         icon: faPhone,
         isActive: true,
         isSynopsis: true,
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        description: "Contact information for key connections to the patient.",
     },
     {
         id: "block-clinicalNotes",
@@ -130,7 +130,7 @@ export const totalSynopsisData = [
         icon: faSyringe,
         isActive: true,
         isSynopsis: true,
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        description: "A biological preparation that improves immunity to a particular disease.",
     },
     {
         id: "block-vitalsigns",
@@ -138,7 +138,7 @@ export const totalSynopsisData = [
         list: "vitalsigns",
         icon: faHeartbeat,
         isActive: true,
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        description: "Clinical measurements, that indicate the state of a patient's essential body functions.",
     },
     {
         id: "block-events",
@@ -146,7 +146,7 @@ export const totalSynopsisData = [
         list: "events",
         icon: faStethoscope,
         isActive: true,
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        description: "A record of things that happen during an episode of care.",
     },
 ];
 

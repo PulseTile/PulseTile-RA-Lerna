@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from "@material-ui/core/CardMedia";
 
-import { contrastModeAction } from "pulsetile-react-admin";
+import { contrastModeAction, HandleErrorModal } from "pulsetile-react-admin";
 
 const styles = theme => ({
     footerBlock: {
@@ -66,7 +66,9 @@ class Footer extends Component {
     };
 
     render() {
-        return null;
+        return (
+            <HandleErrorModal />
+        );
     }
 };
 
