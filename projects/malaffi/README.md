@@ -316,16 +316,15 @@ If you want to create build, you should run the command:
 $ npm run build
 ```
 
-# Slaintecare version differences
+# OneLondon version differences
 
 **OneLondon** version presents a multi-patient system and includes following plugins:
 - allergies;
 - medications;
 - problems;
 - contacts;
-- vitals;
-- vaccinations;
-- events.
+- top three things;
+- vaccinations.
 
 More information about these plugins are available by this link:
 http://docs.pulsetile.com/react-admin-background.html
