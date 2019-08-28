@@ -13,7 +13,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { ContrastMode, userSearchAction, UserSearch } from "pulsetile-react-admin";
 
 import logoImage from "../../../images/logo-header.png";
-import nhsLogo from "../../../images/nhs.png";
+import nhsLogo from "../../../images/nhsLogo.png";
 import UserPanelButton from "./UserPanelButton";
 
 const styles = theme => ({
@@ -98,7 +98,7 @@ const styles = theme => ({
         display: 'flex',
         flexDirection: 'row',
         maxWidth: 300,
-        marginRight: 60,
+        marginRight: 70,
     },
     userSearchBlockMobile: {
         [theme.breakpoints.up('md')]: {

@@ -115,12 +115,8 @@ class ShowTemplate extends Component {
         const { classes, children, isListOpened, pageTitle, toggleListBlock, changeViewType, isDateCreatedAbsent, isSystemInfoAbsent, contextProps, ...rest } = this.props;
         const { isMainPanelOpen, isSystemInfoPanelOpen } = this.state;
 
-        console.log('------->>>> contextProps ',  contextProps)
-
         const hasEmergencySummaryPanel = get(contextProps, 'themeCommonElements.emergencySummaryPanel', false);
         const isPatientSystemInformationAbsent = get(contextProps, 'themeCommonElements.isPatientSystemInformationAbsent', false);
-
-        console.log('------->>>> isPatientSystemInformationAbsent ',  isPatientSystemInformationAbsent)
 
         return (
             <Grid item xs={12} sm={isListOpened ? 6 : 12}>

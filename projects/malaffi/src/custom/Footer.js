@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import CardMedia from "@material-ui/core/CardMedia";
 
 import { contrastModeAction, HandleErrorModal } from "pulsetile-react-admin";
 
@@ -21,7 +20,7 @@ const styles = theme => ({
         borderTop: `1px solid ${theme.palette.borderColor}`,
         height: 54,
         boxSizing: "border-box",
-        color: "#5c5c5c",
+        color: theme.palette.buttonsColor,
         backgroundColor: "#fff",
         paddingTop: 12,
         paddingBottom: 13,
@@ -32,9 +31,9 @@ const styles = theme => ({
         fontSize: 12,
     },
     contrastModeLink: {
-        marginLeft: 5,
-        fontSize: 12,
-        color: theme.isOldDesign ? theme.palette.secondaryMainColor : theme.palette.mainColor,
+        marginLeft: 10,
+        fontSize: 14,
+        color: theme.isOldDesign ? theme.palette.buttonsColor : theme.palette.mainColor,
         textDecoration: "none",
     },
     footerLogo: {
@@ -66,8 +65,16 @@ class Footer extends Component {
     };
 
     render() {
+        const { classes } = this.props;
+        const { isContrastMode } = this.state;
+        const linkText = isContrastMode ? "Disable High Contrast Mode" : "Enable High Contrast Mode";
         return (
-            <HandleErrorModal />
+            <footer className={classes.footerBlock}>
+                <HandleErrorModal />
+                <Typography>
+                    <Link to="/" className={classes.contrastModeLink} onClick={e => this.toggleContrastMode(e)}>{linkText}</Link>
+                </Typography>
+            </footer>
         );
     }
 };

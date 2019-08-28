@@ -103,6 +103,7 @@ class PatientsList extends Component {
         const image = get(contextProps, 'themeImages.logo', null);
         const patientListColumnToggling = get(contextProps, 'themeCommonElements.patientListColumnToggling', false);
         const patientIdLabel = get(contextProps, 'themeCommonElements.patientIdLabel', "NHS No.");
+        const showPatientsAge = get(contextProps, 'themeCommonElements.showPatientsAge', false);
 
         if (!userSearch && !userSearchID && !userSearchType && !userSearchValue && !userClinicalQuery) {
             return (
@@ -144,7 +145,7 @@ class PatientsList extends Component {
                     <TextField source="name" label="Name"/>
                     { this.isColumnHidden('address') && <TextField source="totalAddress" label="Address" /> }
                     <TextField source="gender" label="Gender"/>
-                    <DateField source="birthDate" label="Born"/>
+                    <DateField source="birthDate" label={showPatientsAge ? "Born (age)" : "Born"}/>
                     { this.isColumnHidden('nhsNumber') && <TextField source="nhsNumber" label={patientIdLabel} /> }
 
                     {/*{ this.isColumnHidden('ordersDate') &&*/}

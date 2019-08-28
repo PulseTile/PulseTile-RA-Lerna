@@ -1,5 +1,5 @@
 import logo from "../images/logo-title.png";
-import backgroundImage from "../images/containerBackground.png";
+import backgroundImage from "../images/01.png";
 
 export const themeShortMenu = [
     { id: 'menu-patients', url: '/patients', label: 'Patients' },
@@ -21,6 +21,7 @@ export const themeCommonElements = {
     patientIdLabel: 'UAE ID',
     isCreateButtonInverted: true,
     isPatientSystemInformationAbsent: true,
+    showPatientsAge: true,
 };
 
 export const themeImages = {
