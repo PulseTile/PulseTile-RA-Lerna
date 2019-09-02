@@ -229,6 +229,40 @@ If `true` we see roll view at the Patient Summary page:
 
 ![hasPatientSummaryRoll](./readMeImages/themeCommonElements/hasPatientSummaryRoll.png)  
 
+- **patientIdLabel** (`false` by default). 
+
+This parameter gets possibility to set patient ID label:
+
+![patientIdLabel](./readMeImages/themeCommonElements/patientIdLabel-1.png)  
+![patientIdLabel](./readMeImages/themeCommonElements/patientIdLabel-2.png)  
+
+By default this parameter is false, and patient ID label is NHS No.:
+
+![patientIdLabel](./readMeImages/themeCommonElements/patientIdLabel-3.png)  
+
+- **showPatientsAge** (`false` by default)
+
+This option set visible patient age at the patients list:
+
+![showPatientsAge](./readMeImages/themeCommonElements/showPatientsAge.png)  
+
+- **isCreateButtonInverted** (`false` by default)
+
+This option gives possibility to set inverted view for create button, with "Add new" label:
+
+![isCreateButtonInverted](./readMeImages/themeCommonElements/isCreateButtonInverted-1.png)  
+
+By default this button has following view:
+
+![isCreateButtonInverted](./readMeImages/themeCommonElements/isCreateButtonInverted-2.png)  
+
+- **isPatientSystemInformationAbsent** (`false` by default)
+
+This option gives possibility to hide System Information panel from patient details:
+
+![isPatientSystemInformationAbsent](./readMeImages/themeCommonElements/isPatientSystemInformationAbsent.png)  
+
+
 # How can I create new project version?
 
 If you want to create new project version, you should do the following:
@@ -461,6 +495,22 @@ Which colors can we set here:
 ![topbarButton](./readMeImages/colors/topbarButton-2.png)
 
 ![topbarButton](./readMeImages/colors/topbarButton-3.png)
+
+- **buttonsColor** set a color of pagination buttons, logout button, edit button etc.
+
+![buttonsColor](./readMeImages/colors/buttonsColor-1.png)
+
+![buttonsColor](./readMeImages/colors/buttonsColor-2.png)
+
+- **breadcrumbsColor** set a color of breadcrumbs:
+
+![breadcrumbsColor](./readMeImages/colors/breadcrumbsColor-1.png)
+
+![breadcrumbsColor](./readMeImages/colors/breadcrumbsColor-2.png)
+
+- **selectedTableRowColor** set color of selected row in the table:
+
+![selectedTableRowColor](./readMeImages/colors/selectedTableRowColor.png)
 
 - **menuItemsColor** set a color of menu items:
 
