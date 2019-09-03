@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
  * @param {shape} patientInfo
  * @constructor
  */
-const PatientBanner = ({ classes, patientInfo }) => {
+const PatientBanner = ({ classes, patientInfo, patientIdLabel }) => {
     const addressArray = [
         get(patientInfo, 'address', null),
         get(patientInfo, 'city', null),
@@ -57,7 +57,7 @@ const PatientBanner = ({ classes, patientInfo }) => {
                     <span className={classes.keyName}>{ get(patientInfo, 'gender', null) }</span>
                 </Typography>
                 <Typography id="patientBanner-nhsNumber" variant="body2">
-                    <span className={classes.keyName}>NHS No.: </span>
+                    <span className={classes.keyName}>{patientIdLabel ? patientIdLabel : "NHS No."} </span>
                     <span className={classes.keyName}>{ get(patientInfo, 'nhsNumber', null) }</span>
                 </Typography>
             </Grid>

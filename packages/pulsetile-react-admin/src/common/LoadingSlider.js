@@ -144,8 +144,7 @@ const LoadingSlider = ({ classes }) => {
                                     <h3>Give up smoking</h3>
                                     <Typography>If you're a smoker, quit. It's the single best thing you can do for your heart health.</Typography>
                                     <Typography>Smoking is one of the main causes of coronary heart disease. A year after giving up, your risk of a heart attack falls to about half that of a smoker.</Typography>
-                                    <Typography>You're more likely to stop smoking for good if you use NHS stop smoking services. Visit the Smokefree website or ask your GP for help with quitting.</Typography>
-                                </div>
+                                    <Typography>You're more likely to stop smoking for good if you sign up to our Quit plan. Visit the HSE quit smoking website or ask your doctor for help with quitting</Typography>                                </div>
                             </div>
                             <div className={classes.slide}>
                                 <div className={classes.slideNumber}>
@@ -158,7 +157,7 @@ const LoadingSlider = ({ classes }) => {
                                 <div className={classes.slideNumber}>
                                     <h3>Manage your weight</h3>
                                     <Typography>Being overweight can increase your risk of heart disease. Stick to a healthy, balanced diet low in fat and sugar, with plenty of fruit and vegetables, combined with regular physical activity.</Typography>
-                                    <Typography>Find out if you're a healthy weight with the BMI calculator. If you're overweight, try our 12-week NHS weight loss plan.</Typography>
+                                    <Typography>Find out if you're a healthy weight with the BMI calculator. If you're overweight, try PHEW, our 6 week weight loss programme.</Typography>
                                 </div>
                             </div>
                             <div className={classes.slide}>
@@ -201,8 +200,7 @@ const LoadingSlider = ({ classes }) => {
                             <div className={classes.slide}>
                                 <div className={classes.slideNumber}>
                                     <h3>Drink less alcohol</h3>
-                                    <Typography>Do not forget that alcohol contains calories. Regularly drinking more than the NHS recommends can have a noticeable impact on your waistline.</Typography>
-                                    <Typography>Try to keep to the recommended daily alcohol limits to reduce the risk of serious problems with your health, including risks to your heart health.</Typography>
+                                    <Typography>Do not forget that alcohol contains calories. Regularly drinking more than the recommended guidelines can have a noticeable impact on your waistline.</Typography>                                    <Typography>Try to keep to the recommended daily alcohol limits to reduce the risk of serious problems with your health, including risks to your heart health.</Typography>
                                 </div>
                             </div>
                             <div className={classes.slide}>

@@ -89,6 +89,15 @@ class PatientDatagridRow extends Component {
         return hiddenColumns.indexOf(columnName) === -1;
     };
 
+    getPatientAge = birthDate => {
+        const birthDateObj = new Date(birthDate);
+        const currentDateObj = new Date();
+        const birthDateMoment = moment([birthDateObj.getFullYear(), birthDateObj.getMonth(), birthDateObj.getDate()]);
+        const currentDateMoment = moment([currentDateObj.getFullYear(), currentDateObj.getMonth(), currentDateObj.getDate()]);
+        const age = currentDateMoment.diff(birthDateMoment, 'years');
+        return '(' + age + ')';
+    };
+
     render() {
         const { classes, record, hiddenColumns, contextProps } = this.props;
         const { loading, anchorEl } = this.state;
@@ -104,6 +113,7 @@ class PatientDatagridRow extends Component {
         }
 
         const isPermissionRequired = get(contextProps, 'themeCommonElements.patientSummaryPermission', false);
+        const showPatientsAge = get(contextProps, 'themeCommonElements.showPatientsAge', false);
 
         const open = Boolean(anchorEl);
 
@@ -122,7 +132,7 @@ class PatientDatagridRow extends Component {
                     {record.gender}
                 </TableCell>
                 <TableCell key={`${record.id}-birthDate`}>
-                    {moment(record.birthDate).format(DATE_FORMAT)}
+                    {moment(record.birthDate).format(DATE_FORMAT)} {showPatientsAge && this.getPatientAge(record.birthDate)}
                 </TableCell>
                 {
                     this.isColumnHidden('nhsNumber') &&

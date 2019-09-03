@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/static/js/main.ce8edf79.chunk.js",
+    "main.js.map": "/static/js/main.ce8edf79.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/css/2.cc034990.chunk.css": "/static/css/2.cc034990.chunk.css",
+    "static/js/2.68904ebd.chunk.js": "/static/js/2.68904ebd.chunk.js",
+    "static/js/2.68904ebd.chunk.js.map": "/static/js/2.68904ebd.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.84b9b40aa0b52b73059b66250aee8a0c.js": "/precache-manifest.84b9b40aa0b52b73059b66250aee8a0c.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.cc034990.chunk.css.map": "/static/css/2.cc034990.chunk.css.map",
+    "static/media/background.jpg": "/static/media/background.24d6dd0b.jpg",
+    "static/media/containerBackground.jpeg": "/static/media/containerBackground.b425c99f.jpeg",
+    "static/media/logo-header.png": "/static/media/logo-header.9872a618.png",
+    "static/media/nhs.png": "/static/media/nhs.b86990c2.png",
+    "static/media/pulsetile-logo.png": "/static/media/pulsetile-logo.93d3c4ce.png",
+    "static/media/randomPatient.png": "/static/media/randomPatient.eef539fe.png",
+    "static/media/ripple-foundation-logo-footer.png": "/static/media/ripple-foundation-logo-footer.f15dbaae.png"
+  }
+}

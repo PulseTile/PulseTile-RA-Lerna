@@ -104,7 +104,7 @@ const styles = theme => ({
         cursor: "pointer",
         color: theme.palette.fontColor,
         '&:hover': {
-            backgroundColor: theme.palette.secondaryMainColor,
+            backgroundColor: theme.palette.selectedTableRowColor,
             '& p': {
                 color: theme.palette.paperColor,
             },

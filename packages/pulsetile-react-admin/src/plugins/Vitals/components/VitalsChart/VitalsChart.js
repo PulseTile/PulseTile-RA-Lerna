@@ -139,7 +139,15 @@ class VitalsChart extends Component {
 
         if (currentList.length === 0) {
             return (
-                <EmptyListBlock />
+                <React.Fragment>
+                    <EmptyListBlock />
+                    {
+                        createUrl &&
+                            <Toolbar className={classes.toolbar}>
+                                <CreateButton history={history} redirectPath={createUrl} />
+                            </Toolbar>
+                    }
+                </React.Fragment>
             )
         }
 

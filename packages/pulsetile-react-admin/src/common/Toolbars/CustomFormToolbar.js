@@ -19,8 +19,8 @@ const styles = theme => ({
         width: 130,
         height: 40,
         color: theme.palette.paperColor,
-        border: `1px solid ${theme.palette.secondaryMainColor}`,
-        backgroundColor: theme.palette.secondaryMainColor,
+        border: `1px solid ${theme.palette.buttonsColor}`,
+        backgroundColor: theme.palette.buttonsColor,
         borderRadius: theme.isRectangleButtons ? 0 : 20,
         fontSize: 16,
         fontWeight: 800,
@@ -31,7 +31,7 @@ const styles = theme => ({
             textTransform: "capitalize",
         },
         "&:hover": {
-            color: theme.palette.secondaryMainColor,
+            color: theme.palette.buttonsColor,
             backgroundColor: theme.palette.paperColor,
         }
     },

@@ -8,7 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 const styles = theme => ({
     tableRow: {
         '&:hover': {
-            backgroundColor: theme.palette.secondaryMainColor + '!important',
+            backgroundColor: theme.palette.selectedTableRowColor + '!important',
             cursor: "pointer"
         },
         '&:hover td': {
@@ -16,7 +16,7 @@ const styles = theme => ({
         },
     },
     tableRowActive: {
-        backgroundColor: theme.palette.secondaryMainColor + '!important',
+        backgroundColor: theme.palette.selectedTableRowColor + '!important',
         '& td': {
             color: theme.palette.paperColor,
         }
