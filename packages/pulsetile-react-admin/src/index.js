@@ -6,6 +6,7 @@ import { contrastModeAction } from "./actions/contrastModeAction";
 import { currentPatientAction } from "./actions/currentPatientAction";
 import { demographicsAction } from "./actions/demographicsAction";
 import { userSearchAction } from "./actions/userSearchAction";
+import { httpErrorAction } from "./actions/httpErrorAction";
 
 // PAGES
 import PatientSummaryPage from "./pages/PatientSummary";
@@ -23,6 +24,8 @@ import RespectSummaryPanel from "./pages/ReSPECT/fragments/summaryPanel";
 import AdvancedUserSearch from "./common/Topbar/fragments/AdvancedUserSearch";
 import UserSearch from "./common/Topbar/fragments/UserSearch";
 import HandleErrorModal from "./common/HandleErrorModal";
+import { token, domainName } from "./token";
+import pluginFilters from "./config/pluginFilters";
 
 import { ThemeConfigurationContext, ThemeConfigurationProvider, ThemeConfigurationConsumer } from "./themeConfigurationContext";
 
@@ -33,6 +36,7 @@ export {
     currentPatientAction,
     demographicsAction,
     userSearchAction,
+    httpErrorAction,
 
     PatientSummaryPage,
     PatientsListPage,
@@ -48,6 +52,10 @@ export {
     AdvancedUserSearch,
     UserSearch,
     HandleErrorModal,
+    pluginFilters,
+
+    token,
+    domainName,
 
     ThemeConfigurationProvider,
     ThemeConfigurationConsumer,
