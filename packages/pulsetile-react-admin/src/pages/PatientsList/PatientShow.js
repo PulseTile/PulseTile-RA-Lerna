@@ -42,7 +42,7 @@ const PatientShow = props => {
     const currentPatientData = get( currentData, id, null);
     const birthDate = get(currentPatientData, 'birthDate', null);
     const birthDateValue = moment(birthDate).format('DD-MM-YYYY');
-
+    const hidePatientDistrict = get(contextProps, 'themeCommonElements.hidePatientDistrict', false);
     return (
         <PatientShowTemplate pageTitle="Patient" {...props}>
             <TextField className={classes.labelBlock} label="Name" source="firstName" />
@@ -58,7 +58,11 @@ const PatientShow = props => {
             }
             <TextField className={classes.labelBlock} label="Gender" source="gender" />
             <TextField className={classes.labelBlock} label="Address" source="address" />
-            <TextField className={classes.labelBlock} label="District" source="district" />
+
+            { !hidePatientDistrict &&
+                <TextField className={classes.labelBlock} label="District" source="district" />
+            }
+
             <TextField className={classes.labelBlock} label="City" source="city" />
             <TextField className={classes.labelBlock} label="Country" source="country" />
             <TextField className={classes.labelBlock} label="Telephone Number" source="phone" />

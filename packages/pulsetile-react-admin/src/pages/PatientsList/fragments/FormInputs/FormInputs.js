@@ -27,6 +27,8 @@ const styles = {
 
 const FormInputs = ({ classes, contextProps, ...rest }) => {
     const patientIdLabel = get(contextProps, 'themeCommonElements.patientIdLabel', 'NHS No.');
+    const hidePatientDistrict = get(contextProps, 'themeCommonElements.hidePatientDistrict', false);
+    const hidePatientPostCode = get(contextProps, 'themeCommonElements.hidePatientPostCode', false);
     return (
         <React.Fragment>
             <TextInput {...rest} source="prefix" label="Preferred Name" fullWidth />
@@ -37,14 +39,27 @@ const FormInputs = ({ classes, contextProps, ...rest }) => {
             <DateInput source="birthDate" label="Born" fullWidth />
             <RadioButtonGroupInput source="gender" label="Gender" choices={genderChoices} />
             <TextInput source="address" label="Address" fullWidth />
-            <div className={classes.halfWidthBlock}>
-                <TextInput className={classes.halfWidth} source="city" label="City" />
-                <TextInput className={classes.halfWidth} source="district" label="District" />
-            </div>
-            <div className={classes.halfWidthBlock}>
-                <TextInput className={classes.halfWidth} source="postCode" label="Post Code" />
-                <TextInput className={classes.halfWidth} source="country" label="Country" />
-            </div>
+            {
+                (hidePatientDistrict && hidePatientPostCode) ?
+
+                    <div className={classes.halfWidthBlock}>
+                        <TextInput className={classes.halfWidth} source="city" label="City" />
+                        <TextInput className={classes.halfWidth} source="country" label="Country" />
+                    </div>
+
+                    :
+
+                    <React.Fragment>
+                        <div className={classes.halfWidthBlock}>
+                            <TextInput className={classes.halfWidth} source="city" label="City" />
+                            <TextInput className={classes.halfWidth} source="district" label="District" />
+                        </div>
+                        <div className={classes.halfWidthBlock}>
+                            <TextInput className={classes.halfWidth} source="postCode" label="Post Code" />
+                            <TextInput className={classes.halfWidth} source="country" label="Country" />
+                        </div>
+                    </React.Fragment>
+            }
             <TextInput source="phone" label="Telephone Number" fullWidth />
             <TextInput source="nhsNumber" label={patientIdLabel} fullWidth />
         </React.Fragment>

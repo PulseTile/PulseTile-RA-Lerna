@@ -13,6 +13,8 @@ export const themeFullMenu = [
     { id: 'menu-allergies',     url: '/allergies',     label: 'Allergies' },
     { id: 'menu-contacts',      url: '/contacts',      label: 'Contacts' },
     { id: 'menu-events',        url: '/events',        label: 'Events' },
+    { id: 'menu-procedures',    url: '/procedures',    label: 'Procedures' },
+    { id: 'menu-labresults',    url: '/labresults',    label: 'Results' },
     { id: 'menu-vitalsigns',    url: '/vitalsigns',    label: 'Vitals' },
 ];
 
@@ -24,6 +26,8 @@ export const themeCommonElements = {
     isCreateButtonInverted: true,
     isPatientSystemInformationAbsent: true,
     showPatientsAge: true,
+    hidePatientPostCode: true,
+    hidePatientDistrict: true,
 };
 
 export const themeImages = {
@@ -42,7 +46,11 @@ export const pluginsList = [
     'vaccinations',
     'problems',
     'vitalsigns',
+    'procedures',
+    'labresults',
     'events',
 ];
 
-export const pluginsOnlyForReview = [];
+export const pluginsOnlyForReview = [
+    'labresults',
+];

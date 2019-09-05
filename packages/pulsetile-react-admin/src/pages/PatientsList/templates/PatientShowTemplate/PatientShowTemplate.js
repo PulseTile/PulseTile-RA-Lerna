@@ -117,7 +117,6 @@ class ShowTemplate extends Component {
 
         const hasEmergencySummaryPanel = get(contextProps, 'themeCommonElements.emergencySummaryPanel', false);
         const isPatientSystemInformationAbsent = get(contextProps, 'themeCommonElements.isPatientSystemInformationAbsent', false);
-
         return (
             <Grid item xs={12} sm={isListOpened ? 6 : 12}>
                 <ExpansionPanel className={isMainPanelOpen ? classes.currentExpansionPanel : classes.expansionPanel} expanded={isMainPanelOpen} onChange={() => this.toggleMainPanel()}>

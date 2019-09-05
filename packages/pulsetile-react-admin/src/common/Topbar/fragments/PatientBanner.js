@@ -12,13 +12,15 @@ import Typography from '@material-ui/core/Typography';
  * @param {shape} patientInfo
  * @constructor
  */
-const PatientBanner = ({ classes, patientInfo, patientIdLabel }) => {
+const PatientBanner = ({ classes, patientInfo, patientIdLabel, hidePatientPostCode }) => {
     const addressArray = [
         get(patientInfo, 'address', null),
         get(patientInfo, 'city', null),
-        get(patientInfo, 'country', null),
-        get(patientInfo, 'postCode', null)
+        get(patientInfo, 'country', null)
     ];
+    if (!hidePatientPostCode) {
+        addressArray.push(get(patientInfo, 'postCode', null));
+    }
     const doctor = get(patientInfo, 'gpName', null);
     const dateOfBirth = get(patientInfo, 'birthDate', null);
     return (
