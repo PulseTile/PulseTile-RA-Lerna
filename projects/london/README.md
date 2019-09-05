@@ -329,9 +329,6 @@ $ npm run build
 More information about these plugins are available by this link:
 http://docs.pulsetile.com/react-admin-background.html
 
-**Multi-patient mode** gives possibility to search users by:
-- last name;
-- city;
-- age range.
+**Multi-patient mode** gives possibility to search users by the last name.
 
 Besides this, user has possibility to add new patients and edit information about them.

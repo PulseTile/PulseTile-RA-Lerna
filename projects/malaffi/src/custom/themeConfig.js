@@ -1,5 +1,5 @@
 import logo from "../images/logo-title.png";
-import backgroundImage from "../images/01.png";
+import backgroundImage from "../images/containerBackground.png";
 
 export const themeShortMenu = [
     { id: 'menu-patients', url: '/patients', label: 'Patients' },
@@ -9,9 +9,11 @@ export const themeFullMenu = [
     { id: 'menu-summary',       url: '/summary',       label: 'Patient Summary' },
     { id: 'menu-problems',      url: '/problems',      label: 'Problems / Issues' },
     { id: 'menu-medications',   url: '/medications',   label: 'Medications' },
+    { id: 'menu-vaccinations',  url: '/vaccinations',  label: 'Vaccinations' },
     { id: 'menu-allergies',     url: '/allergies',     label: 'Allergies' },
     { id: 'menu-contacts',      url: '/contacts',      label: 'Contacts' },
-    { id: 'menu-vaccinations',  url: '/vaccinations',  label: 'Vaccinations' },
+    { id: 'menu-events',        url: '/events',        label: 'Events' },
+    { id: 'menu-vitalsigns',    url: '/vitalsigns',    label: 'Vitals' },
 ];
 
 export const themeCommonElements = {
@@ -39,11 +41,8 @@ export const pluginsList = [
     'medications',
     'vaccinations',
     'problems',
+    'vitalsigns',
+    'events',
 ];
 
-export const pluginsOnlyForReview = [
-    'allergies',
-    'medications',
-    'vaccinations',
-    'problems',
-];
+export const pluginsOnlyForReview = [];
