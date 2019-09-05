@@ -79,11 +79,11 @@ class UserSearch extends Component {
         }, () => this.props.removeUserSearch());
     };
 
-    onSearchClick = searchText => {
-        this.props.removeUserSearch();
-        this.props.setUserSearch(searchText);
+    onSearchClick = (async (searchText) => {
+        await this.props.removeUserSearch();
+        await this.props.setUserSearch(searchText);
         window.location.replace('/#/patients');
-    };
+    });
 
     onKeyDown = e => {
         const { searchText } = this.state;
