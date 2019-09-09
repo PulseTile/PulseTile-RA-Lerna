@@ -142,7 +142,7 @@ class ProceduresForm extends Component {
                             selected={procedureDate}
                             onChange={value => this.changeProcedureDate(value)}
                             todayButton="Today"
-                            dateFormat={'dd-MM-YYYY HH:mm'}
+                            dateFormat={'dd-MM-yyyy HH:mm'}
                             showTimeSelect
                             timeFormat="HH:mm"
                         />
