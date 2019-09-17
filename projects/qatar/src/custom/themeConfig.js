@@ -1,5 +1,5 @@
 import logo from "../images/logo-title.png";
-import backgroundImage from "../images/containerBackground.jpg";
+import backgroundImage from "../images/containerBackground.png";
 
 export const themeShortMenu = [
     { id: 'menu-patients', url: '/patients', label: 'Patients' },
