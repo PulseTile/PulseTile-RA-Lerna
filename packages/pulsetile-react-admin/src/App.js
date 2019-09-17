@@ -47,7 +47,7 @@ function getHomepage() {
     return result;
 }
 
-const App = ({ themeConfiguration, CustomHomepage, CustomLayout, ProjectDataProvider, isAuthAbsent, isNodeRedVersion }) => {
+const App = ({ themeConfiguration, CustomHomepage, CustomLayout, ProjectDataProvider, isAuthAbsent }) => {
     const pluginsFilter = getPluginsForCurrentProject(themeConfiguration);
     const CurrentHomepage = CustomHomepage ? CustomHomepage : getHomepage();
     const customRoutesFiltered = getRoutesArray(themeConfiguration);
