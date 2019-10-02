@@ -94,6 +94,66 @@ Each version has `index.js` - it is a root file of project version.
 
 `App.js` is used to import `pulsetile-react-admin` package and set all required settings for the current version.  These settings are described below.
 
+# Data exchange
+
+Data exchange between client and server sides in PulseTile-RA-Lerna is realized by two tools:
+- in Data Provider;
+- in custom actions, reducers and sagas.
+
+## Data provider (for plugins)
+
+[Data Provider](./packages/pulsetile-react-admin/src/dataProviders/dataProvider.js) is used for typical operations in plugins (like Allergies, Contacts, Medications etc.):
+- show list of items for table, chart or timeline (**GET_LIST**);
+- show information about separate item (**GET_ONE**);
+- create new item (**CREATE**);
+- update information about item (**UPDATE**).
+
+Each of this operations has typical parameters:
+- URL forming principle;
+- request options;
+- request and response data structures.
+
+Information about request and response structures for all plugins are described in the [Documentation](http://docs.pulsetile.com/react-admin-background.html).
+
+## Data provider (for authorization)
+
+[Authorization provider](/packages/pulsetile-react-admin/src/dataProviders/authProvider.js) is a special case of data provider.
+It provides user login and logout actions. 
+
+**IMPORTANT!** When you create a new project, your project uses data provider from `pulsetile-react-admin` by [default](./packages/pulsetile-react-admin/src/dataProviders).
+But if you want, you can create custom data provider (as for plugins, as for authorization) and pass it as property to `pulsetile-react-admin` package. 
+Examples of projects with the custom data providers are:
+- [NES (Scotland)](/projects/scotland/src/dataProvider);
+- [Qatar](/projects/qatar/src/dataProvider);
+- [NodeRed](/projects/nodered/src/dataProvider);
+- [Malaffi](/projects/malaffi/src/dataProvider);
+
+## Custom data exchange functionality
+
+As you can see, data provider (as default, as custom) can be used only for typical operations. It isn't enough for application, which have a lot of functionality besides working with plugins and authorization.
+
+For this reason PulseTile-RA-Lerna has a possibility to run custom request to the server side. In this case as **custom** we mean **each** request, which can't be realized by available in data provider actions. 
+
+The package `pulsetile-react-admin` has custom [actions](/packages/pulsetile-react-admin/src/actions), [reducers](/packages/pulsetile-react-admin/src/reducers) and [sagas](/packages/pulsetile-react-admin/src/sagas). 
+The using of actions, sagas and reducers in PulseTile-RA-Lerna is similar to principles of ReactJS. 
+ 
+All custom reducers are [combined](/packages/pulsetile-react-admin/src/reducers/index.js) in an object and [passed](/packages/pulsetile-react-admin/src/App.js) to main `<Admin />` component by a property **customReducers**. 
+
+All custom sagas are also [united](/packages/pulsetile-react-admin/src/sagas/index.js) in an array and [passed](/packages/pulsetile-react-admin/src/App.js) to main `<Admin />` component by a property **customSagas**.
+
+**IMPORTANT!** If your project is needed in request to the server side, which hasn't been realized in `pulsetile-react-admin` before, you should do following:
+- create all required actions for you request (action [example](/packages/pulsetile-react-admin/src/actions/userSearchAction.js));
+- create new reducer and described rules for each action (reducer [example](/packages/pulsetile-react-admin/src/reducers/userSearchReducer.js));
+- add new reducer to combined object ([example](/packages/pulsetile-react-admin/src/reducers/index.js));
+- create new sagas and described rules for each request (sagas [example](/packages/pulsetile-react-admin/src/sagas/currentPatientSagas.js));
+- add new sagas to common array ([example](/packages/pulsetile-react-admin/src/sagas/index.js));
+- add your action, which should be initialized to [export](/packages/pulsetile-react-admin/src/index.js) of package;
+
+After this operations your new action will be available in your project by:
+``` 
+import { yourActionName } from "pulsetile-react-admin";
+```
+
 # Version parameters
  
 Let's look inside `App.js` file of `nodered` version: 
