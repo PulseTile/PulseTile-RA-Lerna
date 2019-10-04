@@ -13,7 +13,6 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
 
-import EditButton from "../../../common/Buttons/EditButton";
 import CustomIcon from "../../../common/CustomIcon";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
@@ -22,9 +21,6 @@ const styles = theme => ({
     expansionPanel: {
         height: "49px !important",
         border: `1px solid ${theme.palette.borderColor}`,
-        '& > div': {
-            minHeight: "49px !important",
-        }
     },
     currentExpansionPanel: {
         margin: "0px !important",

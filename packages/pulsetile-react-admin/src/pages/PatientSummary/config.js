@@ -88,7 +88,7 @@ export const totalSynopsisData = [
         list: "procedures",
         icon: faProcedures,
         isActive: true,
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        description: "Details of the therapeutic procedure performed.",
     },
     {
         id: "block-referrals",
@@ -104,7 +104,7 @@ export const totalSynopsisData = [
         list: "labresults",
         icon: faMicroscope,
         isActive: true,
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        description: "The results of the investigation undertaken and plans for acting upon the results.",
     },
     {
         id: "block-top3Things",

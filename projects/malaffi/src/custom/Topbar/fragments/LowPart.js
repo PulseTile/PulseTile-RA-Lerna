@@ -163,6 +163,7 @@ class LowPart extends Component {
         const isPageHasTitle = pageHasTitle(location);
         const isPageHasPatientBanner = pageHasPatientBanner(location);
         const patientIdLabel = get(themeCommonElements, 'patientIdLabel', 'NHS No.');
+        const hidePatientPostCode = get(themeCommonElements, 'hidePatientPostCode', false);
         return (
             <Toolbar className={classes.lowPart}>
                 {
@@ -173,7 +174,13 @@ class LowPart extends Component {
                     <MenuButton classes={classes} setSidebarVisibility={setSidebarVisibility} isSidebarOpen={isSidebarOpen} />
                     {
                         !isPageHasPatientBanner &&
-                        <PatientBanner location={location} classes={classes} patientInfo={patientInfo} patientIdLabel={patientIdLabel} />
+                            <PatientBanner
+                                location={location}
+                                classes={classes}
+                                patientInfo={patientInfo}
+                                patientIdLabel={patientIdLabel}
+                                hidePatientPostCode={hidePatientPostCode}
+                            />
                     }
                 </div>
                 <MobileMenu
