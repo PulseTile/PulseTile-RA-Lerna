@@ -150,9 +150,12 @@ class TopPart extends Component {
                         />
                     </div>
                     <div className={classes.emptyBlock}></div>
-                    <div className={classes.userSearchBlock}>
-                        <UserSearch location={location} />
-                    </div>
+                    {
+                        (localStorage.getItem('role') !== 'PHR') &&
+                            <div className={classes.userSearchBlock}>
+                                <UserSearch location={location} />
+                            </div>
+                    }
                     <CardMedia
                         className={classes.nhsLogo}
                         component="img"
