@@ -5,7 +5,6 @@ import logo from "../images/pulsetile-logo.png";
 
 export const themeShortMenu = [
     { id: 'menu-patients', url: '/', label: 'Patients' },
-    { id: 'menu-business', url: '/business', label: 'Business Intelligence'},
 ];
 
 export const themeFullMenu = [
@@ -15,7 +14,7 @@ export const themeFullMenu = [
     { id: 'menu-vaccinations',  url: '/vaccinations',  label: 'Vaccinations' },
     { id: 'menu-allergies',     url: '/allergies',     label: 'Allergies' },
     { id: 'menu-contacts',      url: '/contacts',      label: 'Contacts' },
-    { id: 'menu-top3Things',    url: '/top3Things',    label: 'About Me' },
+    { id: 'menu-vitalsigns',    url: '/vitalsigns',    label: 'Vitals' },
 ];
 
 export const themeCommonElements = {
@@ -32,7 +31,6 @@ export const themeCommonElements = {
     homePage: PatientsListPage,
     respectPanel: RespectSummaryPanel,
     hasEmergencySummaryPanel: true,
-    hasPatientSummaryRoll: true,
 };
 
 export const themeImages = {
@@ -41,9 +39,7 @@ export const themeImages = {
 };
 
 export const pagesList = [
-    'charts',
     'respect',
-    'business',
 ];
 
 export const pluginsList = [
@@ -52,18 +48,7 @@ export const pluginsList = [
     'medications',
     'problems',
     'vaccinations',
-    'top3Things',
-    'events',
-    'clinicalnotes',
-    'mdtreports',
-    'procedures',
-    'personalnotes',
-    'referrals',
-    'labresults',
-    'toc',
     'vitalsigns',
 ];
 
-export const pluginsOnlyForReview = [
-    'labresults',
-];
+export const pluginsOnlyForReview = [];
